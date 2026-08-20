@@ -1,0 +1,49 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "monstarx-mcp-in",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-20",
+  "compatibility_flags": ["nodejs_compat"],
+  "account_id": "bf6b2bcb226d2847802880925b23f57e",
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "ENVIRONMENT": "development",
+    "MCP_SERVER_NAME": "Monstarx India MCP",
+    "MCP_SERVER_VERSION": "0.1.0",
+    "TOOL_TIMEOUT_MS": "10000"
+  },
+  "env": {
+    "staging": {
+      "name": "monstarx-mcp-in-staging",
+      "routes": [
+        {
+          "pattern": "in-mcp-staging.monstarxapp.com/*",
+          "zone_id": "6ca79b45299fb9d13dec9f688c93b01a"
+        }
+      ],
+      "vars": {
+        "ENVIRONMENT": "staging",
+        "MCP_SERVER_NAME": "Monstarx India MCP",
+        "MCP_SERVER_VERSION": "0.1.0",
+        "TOOL_TIMEOUT_MS": "10000"
+      }
+    },
+    "production": {
+      "name": "monstarx-mcp-in",
+      "routes": [
+        {
+          "pattern": "in-mcp.monstarxapp.com/*",
+          "zone_id": "6ca79b45299fb9d13dec9f688c93b01a"
+        }
+      ],
+      "vars": {
+        "ENVIRONMENT": "production",
+        "MCP_SERVER_NAME": "Monstarx India MCP",
+        "MCP_SERVER_VERSION": "0.1.0",
+        "TOOL_TIMEOUT_MS": "10000"
+      }
+    }
+  }
+}

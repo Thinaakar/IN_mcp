@@ -1,0 +1,138 @@
+name: CI
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploy_environment:
+        description: "Environment to deploy manually"
+        required: true
+        type: choice
+        options:
+          - staging
+          - production
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Test
+        run: npm test
+
+      - name: Wrangler dry run
+        run: npx wrangler deploy --dry-run --env staging
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
+  deploy-staging:
+    needs: check
+    if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.deploy_environment == 'staging')
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Deploy staging
+        run: |
+          echo "$GITHUB_SHA" | npx wrangler secret put BUILD_SHA --env staging
+          if [ -n "$DATA_GOV_IN_API_KEY" ]; then
+            echo "$DATA_GOV_IN_API_KEY" | npx wrangler secret put DATA_GOV_IN_API_KEY --env staging
+          fi
+          if [ -n "$MAPS_API_KEY" ]; then
+            echo "$MAPS_API_KEY" | npx wrangler secret put MAPS_API_KEY --env staging
+          fi
+          if [ -n "$TRANSIT_API_KEY" ]; then
+            echo "$TRANSIT_API_KEY" | npx wrangler secret put TRANSIT_API_KEY --env staging
+          fi
+          npx wrangler deploy --env staging
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          DATA_GOV_IN_API_KEY: ${{ secrets.DATA_GOV_IN_API_KEY }}
+          MAPS_API_KEY: ${{ secrets.MAPS_API_KEY }}
+          TRANSIT_API_KEY: ${{ secrets.TRANSIT_API_KEY }}
+
+  smoke-staging:
+    needs: deploy-staging
+    if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.deploy_environment == 'staging')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Smoke test staging
+        run: npm run smoke:staging
+
+  deploy-production:
+    needs: check
+    if: github.event_name == 'workflow_dispatch' && inputs.deploy_environment == 'production'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Deploy production
+        run: |
+          echo "$GITHUB_SHA" | npx wrangler secret put BUILD_SHA --env production
+          if [ -n "$DATA_GOV_IN_API_KEY" ]; then
+            echo "$DATA_GOV_IN_API_KEY" | npx wrangler secret put DATA_GOV_IN_API_KEY --env production
+          fi
+          if [ -n "$MAPS_API_KEY" ]; then
+            echo "$MAPS_API_KEY" | npx wrangler secret put MAPS_API_KEY --env production
+          fi
+          if [ -n "$TRANSIT_API_KEY" ]; then
+            echo "$TRANSIT_API_KEY" | npx wrangler secret put TRANSIT_API_KEY --env production
+          fi
+          npx wrangler deploy --env production
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          DATA_GOV_IN_API_KEY: ${{ secrets.DATA_GOV_IN_API_KEY }}
+          MAPS_API_KEY: ${{ secrets.MAPS_API_KEY }}
+          TRANSIT_API_KEY: ${{ secrets.TRANSIT_API_KEY }}
