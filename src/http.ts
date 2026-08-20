@@ -62,7 +62,7 @@ export async function fetchJson<T>(url: string, env: Env, init: RequestInit = {}
   headers.set("Accept", "application/json");
   headers.set("User-Agent", "Monstarx-India-MCP/0.1");
 
-  if (env.DATA_GOV_IN_API_KEY) {
+  if (env.DATA_GOV_IN_API_KEY && new URL(url).hostname.endsWith("data.gov.in")) {
     headers.set("x-api-key", env.DATA_GOV_IN_API_KEY);
   }
 
