@@ -53,10 +53,56 @@ export interface QueryAllDatasetOptions extends Omit<QueryDatasetOptions, "offse
   maxRecords?: number;
 }
 
-function applyApiKey(url: URL, env: Env): void {
-  if (env.DATA_GOV_IN_API_KEY) {
-    url.searchParams.set("api-key", env.DATA_GOV_IN_API_KEY);
+function requireDataGovApiKey(env: Env, purpose = "data.gov.in"): string {
+  const key = env.DATA_GOV_IN_API_KEY?.trim();
+  if (!key) {
+    throw new Error(`${purpose} requires DATA_GOV_IN_API_KEY.`);
   }
+  return key;
+}
+
+function applyApiKey(url: URL, env: Env, purpose?: string): void {
+  url.searchParams.set("api-key", requireDataGovApiKey(env, purpose));
+}
+
+async function queryDataGovResource(
+  env: Env,
+  resourceId: string,
+  options: {
+    purpose: string;
+    limit?: number;
+    offset?: number;
+    filters?: Record<string, string | number | undefined>;
+  },
+): Promise<{ records: Array<Record<string, unknown>>; total?: number }> {
+  const url = new URL(`${DATA_GOV_RESOURCE_URL}/${resourceId}`);
+  applyApiKey(url, env, options.purpose);
+  url.searchParams.set("format", "json");
+  url.searchParams.set("limit", String(Math.min(options.limit ?? 100, 1000)));
+  if (options.offset !== undefined) {
+    url.searchParams.set("offset", String(options.offset));
+  }
+  for (const [key, value] of Object.entries(options.filters ?? {})) {
+    if (value !== undefined && String(value).trim()) {
+      url.searchParams.set(`filters[${key}]`, String(value).trim());
+    }
+  }
+
+  const raw = await fetchJson<{
+    records?: Array<Record<string, unknown>>;
+    total?: number;
+    count?: number;
+  }>(url.toString(), env);
+
+  const records = raw.records ?? [];
+  if (records.length === 0) {
+    throw new Error(`${options.purpose} returned no records. Check filters or try again later.`);
+  }
+
+  return {
+    records,
+    total: raw.total ?? raw.count,
+  };
 }
 
 export async function listDatasets(env: Env, query: string, page = 1): Promise<DataGovDatasetListResponse> {
@@ -194,42 +240,21 @@ export interface CpcbAirQualityResponse {
 }
 
 export async function getCpcbAirQuality(env: Env, options: CpcbAirQualityOptions = {}): Promise<CpcbAirQualityResponse> {
-  if (!env.DATA_GOV_IN_API_KEY) {
-    throw new Error("CPCB air quality requires DATA_GOV_IN_API_KEY.");
-  }
-
-  const url = new URL(`${DATA_GOV_RESOURCE_URL}/${CPCB_AQI_RESOURCE_ID}`);
-  url.searchParams.set("api-key", env.DATA_GOV_IN_API_KEY);
-  url.searchParams.set("format", "json");
-  url.searchParams.set("limit", String(Math.min(options.limit ?? 100, 1000)));
-  if (options.offset !== undefined) {
-    url.searchParams.set("offset", String(options.offset));
-  }
-  if (options.city?.trim()) {
-    url.searchParams.set("filters[city]", options.city.trim());
-  }
-  if (options.state?.trim()) {
-    url.searchParams.set("filters[state]", options.state.trim());
-  }
-  if (options.station?.trim()) {
-    url.searchParams.set("filters[station]", options.station.trim());
-  }
-
-  const raw = await fetchJson<{
-    records?: Array<Record<string, unknown>>;
-    total?: number;
-    count?: number;
-  }>(url.toString(), env);
-
-  const records = raw.records ?? [];
-  if (records.length === 0) {
-    throw new Error("CPCB air quality returned no records. Check city/state filters or try again later.");
-  }
+  const result = await queryDataGovResource(env, CPCB_AQI_RESOURCE_ID, {
+    purpose: "CPCB air quality",
+    limit: options.limit,
+    offset: options.offset,
+    filters: {
+      city: options.city,
+      state: options.state,
+      station: options.station,
+    },
+  });
 
   return {
     resource_id: CPCB_AQI_RESOURCE_ID,
-    total: raw.total ?? raw.count,
-    records,
+    total: result.total,
+    records: result.records,
   };
 }
 
@@ -252,50 +277,25 @@ export interface DistrictRainfallResponse {
 }
 
 export async function getDistrictRainfall(env: Env, options: DistrictRainfallOptions = {}): Promise<DistrictRainfallResponse> {
-  if (!env.DATA_GOV_IN_API_KEY) {
-    throw new Error("District rainfall requires DATA_GOV_IN_API_KEY.");
-  }
-
-  const url = new URL(`${DATA_GOV_RESOURCE_URL}/${DISTRICT_RAINFALL_RESOURCE_ID}`);
-  url.searchParams.set("api-key", env.DATA_GOV_IN_API_KEY);
-  url.searchParams.set("format", "json");
-  url.searchParams.set("limit", String(Math.min(options.limit ?? 100, 1000)));
-  if (options.offset !== undefined) {
-    url.searchParams.set("offset", String(options.offset));
-  }
-  if (options.state?.trim()) {
-    url.searchParams.set("filters[State]", options.state.trim());
-  }
-  if (options.district?.trim()) {
-    url.searchParams.set("filters[District]", options.district.trim());
-  }
-  if (options.date?.trim()) {
-    url.searchParams.set("filters[Date]", options.date.trim());
-  }
-  if (options.year !== undefined && String(options.year).trim()) {
-    url.searchParams.set("filters[Year]", String(options.year).trim());
-  }
-  if (options.month !== undefined && String(options.month).trim()) {
-    url.searchParams.set("filters[Month]", String(options.month).trim());
-  }
-
-  const raw = await fetchJson<{
-    records?: Array<Record<string, unknown>>;
-    total?: number;
-    count?: number;
-  }>(url.toString(), env);
-
-  const records = raw.records ?? [];
-  if (records.length === 0) {
-    throw new Error("District rainfall returned no records. Check State/District/Date filters or try again later.");
-  }
+  const result = await queryDataGovResource(env, DISTRICT_RAINFALL_RESOURCE_ID, {
+    purpose: "District rainfall",
+    limit: options.limit,
+    offset: options.offset,
+    filters: {
+      State: options.state,
+      District: options.district,
+      Date: options.date,
+      Year: options.year,
+      Month: options.month,
+    },
+  });
 
   return {
     resource_id: DISTRICT_RAINFALL_RESOURCE_ID,
     unit: "MM",
     granularity: "daily",
-    total: raw.total ?? raw.count,
-    records,
+    total: result.total,
+    records: result.records,
   };
 }
 
@@ -316,46 +316,23 @@ export interface PincodeDirectoryResponse {
 }
 
 export async function getPincodeDirectory(env: Env, options: PincodeDirectoryOptions = {}): Promise<PincodeDirectoryResponse> {
-  if (!env.DATA_GOV_IN_API_KEY) {
-    throw new Error("India Post pincode directory requires DATA_GOV_IN_API_KEY.");
-  }
-
-  const url = new URL(`${DATA_GOV_RESOURCE_URL}/${PINCODE_RESOURCE_ID}`);
-  url.searchParams.set("api-key", env.DATA_GOV_IN_API_KEY);
-  url.searchParams.set("format", "json");
-  url.searchParams.set("limit", String(Math.min(options.limit ?? 100, 1000)));
-  if (options.offset !== undefined) {
-    url.searchParams.set("offset", String(options.offset));
-  }
-  if (options.pincode?.trim()) {
-    url.searchParams.set("filters[pincode]", options.pincode.trim());
-  }
-  if (options.officename?.trim()) {
-    url.searchParams.set("filters[officename]", options.officename.trim());
-  }
-  if (options.district?.trim()) {
-    url.searchParams.set("filters[district]", options.district.trim());
-  }
-  if (options.statename?.trim()) {
-    url.searchParams.set("filters[statename]", options.statename.trim());
-  }
-
-  const raw = await fetchJson<{
-    records?: Array<Record<string, unknown>>;
-    total?: number;
-    count?: number;
-  }>(url.toString(), env);
-
-  const records = raw.records ?? [];
-  if (records.length === 0) {
-    throw new Error("India Post pincode directory returned no records. Check pincode/office/district filters or try again later.");
-  }
+  const result = await queryDataGovResource(env, PINCODE_RESOURCE_ID, {
+    purpose: "India Post pincode directory",
+    limit: options.limit,
+    offset: options.offset,
+    filters: {
+      pincode: options.pincode,
+      officename: options.officename,
+      district: options.district,
+      statename: options.statename,
+    },
+  });
 
   return {
     catalog_id: PINCODE_CATALOG_ID,
     resource_id: PINCODE_RESOURCE_ID,
-    total: raw.total ?? raw.count,
-    records,
+    total: result.total,
+    records: result.records,
   };
 }
 
@@ -378,52 +355,25 @@ export interface MandiPriceResponse {
 }
 
 export async function getMandiPrices(env: Env, options: MandiPriceOptions = {}): Promise<MandiPriceResponse> {
-  if (!env.DATA_GOV_IN_API_KEY) {
-    throw new Error("Mandi prices require DATA_GOV_IN_API_KEY.");
-  }
-
-  const url = new URL(`${DATA_GOV_RESOURCE_URL}/${MANDI_PRICES_RESOURCE_ID}`);
-  url.searchParams.set("api-key", env.DATA_GOV_IN_API_KEY);
-  url.searchParams.set("format", "json");
-  url.searchParams.set("limit", String(Math.min(options.limit ?? 100, 1000)));
-  if (options.offset !== undefined) {
-    url.searchParams.set("offset", String(options.offset));
-  }
-  if (options.state?.trim()) {
-    url.searchParams.set("filters[state]", options.state.trim());
-  }
-  if (options.district?.trim()) {
-    url.searchParams.set("filters[district]", options.district.trim());
-  }
-  if (options.market?.trim()) {
-    url.searchParams.set("filters[market]", options.market.trim());
-  }
-  if (options.commodity?.trim()) {
-    url.searchParams.set("filters[commodity]", options.commodity.trim());
-  }
-  if (options.variety?.trim()) {
-    url.searchParams.set("filters[variety]", options.variety.trim());
-  }
-  if (options.arrival_date?.trim()) {
-    url.searchParams.set("filters[arrival_date]", options.arrival_date.trim());
-  }
-
-  const raw = await fetchJson<{
-    records?: Array<Record<string, unknown>>;
-    total?: number;
-    count?: number;
-  }>(url.toString(), env);
-
-  const records = raw.records ?? [];
-  if (records.length === 0) {
-    throw new Error("Mandi prices returned no records. Check state/district/market/commodity filters or try again later.");
-  }
+  const result = await queryDataGovResource(env, MANDI_PRICES_RESOURCE_ID, {
+    purpose: "Mandi prices",
+    limit: options.limit,
+    offset: options.offset,
+    filters: {
+      state: options.state,
+      district: options.district,
+      market: options.market,
+      commodity: options.commodity,
+      variety: options.variety,
+      arrival_date: options.arrival_date,
+    },
+  });
 
   return {
     resource_id: MANDI_PRICES_RESOURCE_ID,
     granularity: "daily",
-    total: raw.total ?? raw.count,
-    records,
+    total: result.total,
+    records: result.records,
   };
 }
 
@@ -446,51 +396,24 @@ export interface HospitalDirectoryResponse {
 }
 
 export async function getHospitalDirectory(env: Env, options: HospitalDirectoryOptions = {}): Promise<HospitalDirectoryResponse> {
-  if (!env.DATA_GOV_IN_API_KEY) {
-    throw new Error("Hospital directory requires DATA_GOV_IN_API_KEY.");
-  }
-
-  const url = new URL(`${DATA_GOV_RESOURCE_URL}/${HOSPITAL_DIRECTORY_RESOURCE_ID}`);
-  url.searchParams.set("api-key", env.DATA_GOV_IN_API_KEY);
-  url.searchParams.set("format", "json");
-  url.searchParams.set("limit", String(Math.min(options.limit ?? 100, 1000)));
-  if (options.offset !== undefined) {
-    url.searchParams.set("offset", String(options.offset));
-  }
-  if (options.state?.trim()) {
-    url.searchParams.set("filters[State]", options.state.trim());
-  }
-  if (options.district?.trim()) {
-    url.searchParams.set("filters[District]", options.district.trim());
-  }
-  if (options.hospital_name?.trim()) {
-    url.searchParams.set("filters[Hospital_Name]", options.hospital_name.trim());
-  }
-  if (options.hospital_category?.trim()) {
-    url.searchParams.set("filters[Hospital_Category]", options.hospital_category.trim());
-  }
-  if (options.pincode?.trim()) {
-    url.searchParams.set("filters[Pincode]", options.pincode.trim());
-  }
-  if (options.location?.trim()) {
-    url.searchParams.set("filters[Location]", options.location.trim());
-  }
-
-  const raw = await fetchJson<{
-    records?: Array<Record<string, unknown>>;
-    total?: number;
-    count?: number;
-  }>(url.toString(), env);
-
-  const records = raw.records ?? [];
-  if (records.length === 0) {
-    throw new Error("Hospital directory returned no records. Check state/district/name/pincode filters or try again later.");
-  }
+  const result = await queryDataGovResource(env, HOSPITAL_DIRECTORY_RESOURCE_ID, {
+    purpose: "Hospital directory",
+    limit: options.limit,
+    offset: options.offset,
+    filters: {
+      state: options.state,
+      district: options.district,
+      hospital_name: options.hospital_name,
+      hospital_category: options.hospital_category,
+      _pincode: options.pincode,
+      _location: options.location,
+    },
+  });
 
   return {
     resource_id: HOSPITAL_DIRECTORY_RESOURCE_ID,
     granularity: "monthly",
-    total: raw.total ?? raw.count,
-    records,
+    total: result.total,
+    records: result.records,
   };
 }
