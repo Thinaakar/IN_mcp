@@ -69,6 +69,15 @@ Transport tools require `TRANSIT_API_KEY`.
 | `in_geocode` | Convert address/place to coordinates |
 | `in_reverse_geocode` | Find addresses near coordinates |
 
+### Banking, FX, Holidays, Earthquakes
+
+| Tool | Purpose |
+|---|---|
+| `in_ifsc_lookup` | Bank branch details for an 11-character IFSC |
+| `in_fx_rate` | Currency rate vs INR (default USD → INR) |
+| `in_holidays` | Indian public holidays for a year (Tallyfy, not official gazette) |
+| `in_earthquakes` | USGS earthquakes in the India bounding box |
+
 ## Data Sources
 
 | Source | Used For |
@@ -77,6 +86,10 @@ Transport tools require `TRANSIT_API_KEY`.
 | Open-Meteo | Weather, rainfall, temperature, humidity, UV, air quality |
 | OpenStreetMap Nominatim | Address search, geocoding, reverse geocoding |
 | OpenTransitData | Buses, trains, traffic (key required) |
+| Razorpay IFSC | Bank IFSC lookup |
+| Frankfurter / ExchangeRate-API | FX rates |
+| Tallyfy National Holidays | Public holidays |
+| USGS | Earthquakes near India |
 
 ## Local Development
 

@@ -24,6 +24,10 @@ IN-MCP/
 │   ├── data-gov.ts        # data.gov.in + Open-Meteo client
 │   ├── maps.ts            # Nominatim address / geocode client
 │   ├── transit.ts         # Transit client
+│   ├── ifsc.ts            # Razorpay IFSC lookup
+│   ├── fx.ts              # Frankfurter / ExchangeRate-API
+│   ├── holidays.ts        # Tallyfy India holidays
+│   ├── earthquakes.ts     # USGS India-bbox earthquakes
 │   ├── http.ts            # Timeouts, CORS, JSON helpers
 │   └── env.ts             # Env / secrets type definitions
 ├── test/

@@ -27,6 +27,10 @@ const smokeCases = [
   ["in_bus_services", { skip: 0, limit: 5 }],
   ["in_mandi_prices", { commodity: "Tomato", limit: 5 }],
   ["in_hospital_directory", { state: "Delhi", limit: 5 }],
+  ["in_ifsc_lookup", { ifsc: "HDFC0000001" }],
+  ["in_fx_rate", { base: "USD", symbols: "INR" }],
+  ["in_holidays", { year: 2026 }],
+  ["in_earthquakes", { minmagnitude: 4, limit: 5 }],
 ];
 
 const target = process.argv[2] ?? "staging";

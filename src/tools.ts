@@ -2,6 +2,10 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import * as z from "zod/v4";
 import type { Env } from "./env";
 import { CPCB_AQI_RESOURCE_ID, DISTRICT_RAINFALL_RESOURCE_ID, HOSPITAL_DIRECTORY_RESOURCE_ID, MANDI_PRICES_RESOURCE_ID, PINCODE_CATALOG_ID, PINCODE_RESOURCE_ID, getAirQualityApi, getCpcbAirQuality, getDatasetMetadata, getDistrictRainfall, getHospitalDirectory, getMandiPrices, getPincodeDirectory, getRealtimeApi, listDatasets, queryDataset } from "./data-gov";
+import { getIndiaEarthquakes } from "./earthquakes";
+import { getFxRates } from "./fx";
+import { getIndiaHolidays } from "./holidays";
+import { lookupIfsc } from "./ifsc";
 import { reverseGeocodeMaps, searchMapsAddress } from "./maps";
 import { listBusRoutes, listBusServices, listBusStops } from "./transit";
 
@@ -40,6 +44,10 @@ export const toolNames = [
   "in_bus_routes",
   "in_mandi_prices",
   "in_hospital_directory",
+  "in_ifsc_lookup",
+  "in_fx_rate",
+  "in_holidays",
+  "in_earthquakes",
 ] as const;
 
 type ToolPayload = Record<string, unknown>;
@@ -144,6 +152,43 @@ function hospitalMeta(extra: ToolPayload = {}): ToolPayload {
     retrieved_at: nowIso(),
     agency: "Ministry of Health and Family Welfare",
     api: "data.gov.in",
+    ...extra,
+  };
+}
+
+function ifscMeta(extra: ToolPayload = {}): ToolPayload {
+  return {
+    source: "Razorpay IFSC",
+    retrieved_at: nowIso(),
+    agency: "Razorpay (community IFSC dataset)",
+    api: "ifsc.razorpay.com",
+    ...extra,
+  };
+}
+
+function fxMeta(extra: ToolPayload = {}): ToolPayload {
+  return {
+    retrieved_at: nowIso(),
+    ...extra,
+  };
+}
+
+function holidayMeta(extra: ToolPayload = {}): ToolPayload {
+  return {
+    source: "Tallyfy National Holidays",
+    retrieved_at: nowIso(),
+    agency: "Community (not Government of India gazette)",
+    api: "tallyfy.com/national-holidays",
+    ...extra,
+  };
+}
+
+function earthquakeMeta(extra: ToolPayload = {}): ToolPayload {
+  return {
+    source: "USGS",
+    retrieved_at: nowIso(),
+    agency: "U.S. Geological Survey",
+    api: "earthquake.usgs.gov",
     ...extra,
   };
 }
@@ -773,6 +818,93 @@ export function createMcpServer(env: Env): McpServer {
         }),
         data: result.records,
         total: result.total,
+      });
+    },
+  );
+
+  server.registerTool(
+    "in_ifsc_lookup",
+    {
+      title: "India IFSC Lookup",
+      description: "Look up an Indian bank branch by 11-character IFSC using Razorpay's public IFSC API. No API key required.",
+      inputSchema: {
+        ifsc: z.string().trim().length(11).describe("11-character IFSC, for example HDFC0000001."),
+      },
+    },
+    async ({ ifsc }) => {
+      const data = await lookupIfsc(env, ifsc);
+      return toolResult({
+        ...ifscMeta({ ifsc: ifsc.trim().toUpperCase() }),
+        data,
+      });
+    },
+  );
+
+  server.registerTool(
+    "in_fx_rate",
+    {
+      title: "INR Exchange Rate",
+      description: "Get a currency rate against INR (default USD to INR). Uses Frankfurter, with ExchangeRate-API as fallback. No API key required.",
+      inputSchema: {
+        base: z.string().default("USD").describe("ISO 4217 base currency, for example USD or EUR."),
+        symbols: z.string().default("INR").describe("Comma-separated quote currencies. Defaults to INR."),
+      },
+    },
+    async ({ base, symbols }) => {
+      const result = await getFxRates(env, base, symbols);
+      return toolResult({
+        ...fxMeta({
+          source: result.source,
+          agency: result.source === "Frankfurter" ? "European Central Bank via Frankfurter" : "ExchangeRate-API open endpoint",
+          api: result.source === "Frankfurter" ? "api.frankfurter.dev" : "open.er-api.com",
+          base: result.base,
+          symbols,
+        }),
+        date: result.date,
+        data: result.rates,
+      });
+    },
+  );
+
+  server.registerTool(
+    "in_holidays",
+    {
+      title: "India Public Holidays",
+      description: "List Indian public holidays for a year from Tallyfy's free holiday dataset. Not the official gazetted list. Optional date filter (YYYY-MM-DD).",
+      inputSchema: {
+        year: z.number().int().min(2015).max(2100).optional().describe("Calendar year. Defaults to the current year in Asia/Kolkata."),
+        date: z.string().optional().describe("Optional YYYY-MM-DD filter. When set, year is taken from this date."),
+      },
+    },
+    async ({ year, date }) => {
+      const result = await getIndiaHolidays(env, year, date);
+      return toolResult({
+        ...holidayMeta({ year: result.year, date }),
+        count: result.holidays.length,
+        data: result.holidays,
+      });
+    },
+  );
+
+  server.registerTool(
+    "in_earthquakes",
+    {
+      title: "India Region Earthquakes",
+      description: "Recent earthquakes in the India bounding box from USGS. Not an IMD feed. Filter by minimum magnitude and optional start/end time.",
+      inputSchema: {
+        minmagnitude: z.number().min(0).max(10).default(4).describe("Minimum magnitude. Defaults to 4."),
+        starttime: z.string().optional().describe("Optional start time, for example 2026-01-01 or 2026-01-01T00:00:00."),
+        endtime: z.string().optional().describe("Optional end time."),
+        limit: z.number().int().min(1).max(1000).default(50).describe("Maximum events to return."),
+      },
+    },
+    async ({ minmagnitude, starttime, endtime, limit }) => {
+      const result = await getIndiaEarthquakes(env, { minmagnitude, starttime, endtime, limit });
+      return toolResult({
+        ...earthquakeMeta({ minmagnitude, starttime, endtime }),
+        bounds: result.bounds,
+        count: result.count,
+        data: result.events,
       });
     },
   );

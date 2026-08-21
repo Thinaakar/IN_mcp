@@ -16,7 +16,7 @@
     "ENVIRONMENT": "development",
     "MCP_SERVER_NAME": "Monstarx India MCP",
     "MCP_SERVER_VERSION": "0.1.0",
-    "TOOL_TIMEOUT_MS": "10000"
+    "TOOL_TIMEOUT_MS": "25000"
   },
   "env": {
     "staging": {
@@ -31,7 +31,7 @@
         "ENVIRONMENT": "staging",
         "MCP_SERVER_NAME": "Monstarx India MCP",
         "MCP_SERVER_VERSION": "0.1.0",
-        "TOOL_TIMEOUT_MS": "10000"
+        "TOOL_TIMEOUT_MS": "25000"
       }
     },
     "production": {
@@ -46,7 +46,7 @@
         "ENVIRONMENT": "production",
         "MCP_SERVER_NAME": "Monstarx India MCP",
         "MCP_SERVER_VERSION": "0.1.0",
-        "TOOL_TIMEOUT_MS": "10000"
+        "TOOL_TIMEOUT_MS": "25000"
       }
     }
   }

@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { CPCB_AQI_RESOURCE_ID, DISTRICT_RAINFALL_RESOURCE_ID, HOSPITAL_DIRECTORY_RESOURCE_ID, MANDI_PRICES_RESOURCE_ID, PINCODE_CATALOG_ID, PINCODE_RESOURCE_ID } from "../src/data-gov";
+import { INDIA_EARTHQUAKE_BOUNDS, slimEarthquakeFeatures } from "../src/earthquakes";
+import { normalizeCurrency } from "../src/fx";
+import { currentIndiaYear, filterHolidays, holidayYearFromInput, normalizeTallyfyHolidays } from "../src/holidays";
+import { IFSC_PATTERN, normalizeIfsc } from "../src/ifsc";
 import { parseCsv, parsePythonList } from "../src/transit";
 import { toolResult } from "../src/tools";
 
@@ -54,5 +58,74 @@ describe("Mandi prices resource", () => {
 describe("Hospital directory resource", () => {
   it("uses the data.gov.in national hospital directory resource ID", () => {
     expect(HOSPITAL_DIRECTORY_RESOURCE_ID).toBe("98fa254e-c5f8-4910-a19b-4828939b477d");
+  });
+});
+
+describe("IFSC lookup", () => {
+  it("normalizes and validates an 11-character IFSC", () => {
+    expect(normalizeIfsc(" hdfc0000001 ")).toBe("HDFC0000001");
+    expect(IFSC_PATTERN.test("HDFC0CAGSBK")).toBe(true);
+    expect(() => normalizeIfsc("HDFC")).toThrow(/11 characters/);
+  });
+});
+
+describe("FX currencies", () => {
+  it("normalizes ISO currency codes", () => {
+    expect(normalizeCurrency("inr", "Base currency")).toBe("INR");
+    expect(() => normalizeCurrency("rupee", "Base currency")).toThrow(/3-letter/);
+  });
+});
+
+describe("India holidays helpers", () => {
+  it("resolves year from date, filters rows, and normalizes Tallyfy payloads", () => {
+    expect(holidayYearFromInput(undefined, "2026-08-15")).toBe(2026);
+    expect(currentIndiaYear(new Date("2026-08-21T00:00:00Z"))).toBe(2026);
+    expect(filterHolidays([{ date: "2026-01-26", name: "Republic Day" }, { date: "2026-08-15", name: "Independence Day" }], "2026-08-15")).toEqual([
+      { date: "2026-08-15", name: "Independence Day" },
+    ]);
+    expect(
+      normalizeTallyfyHolidays({
+        country: { code: "IN" },
+        holidays: [{ date: "2026-01-26", name: "Republic Day", local_name: "Gantantra Diwas", type: "national", observed_date: "2026-01-26" }],
+      }),
+    ).toEqual([
+      {
+        date: "2026-01-26",
+        localName: "Gantantra Diwas",
+        name: "Republic Day",
+        countryCode: "IN",
+        type: "national",
+        observedDate: "2026-01-26",
+        description: undefined,
+      },
+    ]);
+  });
+});
+
+describe("India earthquake helpers", () => {
+  it("uses the India bounding box and slims USGS features", () => {
+    expect(INDIA_EARTHQUAKE_BOUNDS).toEqual({
+      minlatitude: 6,
+      maxlatitude: 38,
+      minlongitude: 68,
+      maxlongitude: 98,
+    });
+    const events = slimEarthquakeFeatures({
+      features: [
+        {
+          id: "us123",
+          properties: { mag: 4.2, place: "Andaman Islands", time: 1_724_000_000_000, url: "https://example.test" },
+          geometry: { coordinates: [92.1, 12.5, 10] },
+        },
+      ],
+    });
+    expect(events[0]).toMatchObject({
+      id: "us123",
+      magnitude: 4.2,
+      place: "Andaman Islands",
+      longitude: 92.1,
+      latitude: 12.5,
+      depth_km: 10,
+    });
   });
 });
