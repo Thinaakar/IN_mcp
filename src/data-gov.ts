@@ -65,7 +65,7 @@ function applyApiKey(url: URL, env: Env, purpose?: string): void {
   url.searchParams.set("api-key", requireDataGovApiKey(env, purpose));
 }
 
-async function queryDataGovResource(
+export async function queryDataGovResource(
   env: Env,
   resourceId: string,
   options: {

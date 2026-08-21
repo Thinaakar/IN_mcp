@@ -28,6 +28,7 @@ IN-MCP/
 │   ├── fx.ts              # Frankfurter / ExchangeRate-API
 │   ├── holidays.ts        # Tallyfy India holidays
 │   ├── earthquakes.ts     # USGS India-bbox earthquakes
+│   ├── cricket.ts         # CricAPI / CricketData.org
 │   ├── http.ts            # Timeouts, CORS, JSON helpers
 │   └── env.ts             # Env / secrets type definitions
 ├── test/

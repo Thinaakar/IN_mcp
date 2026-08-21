@@ -23,6 +23,12 @@ export interface IfscRecord {
   [key: string]: unknown;
 }
 
+export interface IfscSearchResult {
+  count: number;
+  hasNext: boolean;
+  data: IfscRecord[];
+}
+
 export function normalizeIfsc(ifsc: string): string {
   const normalized = ifsc.trim().toUpperCase();
   if (!IFSC_PATTERN.test(normalized)) {
@@ -43,4 +49,39 @@ export async function lookupIfsc(env: Env, ifsc: string): Promise<IfscRecord> {
     }
     throw error;
   }
+}
+
+export async function searchIfsc(
+  env: Env,
+  options: { city?: string; district?: string; q?: string; limit?: number; offset?: number } = {},
+): Promise<IfscSearchResult> {
+  const city = options.city?.trim();
+  const district = options.district?.trim();
+  const q = options.q?.trim();
+  if (!city && !district && !q) {
+    throw new Error("Provide city, district, or q to search IFSC branches.");
+  }
+
+  const url = new URL(`${IFSC_URL}/search`);
+  if (city) {
+    url.searchParams.set("city", city.toUpperCase());
+  }
+  if (district) {
+    url.searchParams.set("district", district.toUpperCase());
+  }
+  if (q) {
+    url.searchParams.set("q", q.toUpperCase());
+  }
+  url.searchParams.set("limit", String(Math.min(Math.max(options.limit ?? 50, 1), 200)));
+  if (typeof options.offset === "number" && options.offset > 0) {
+    url.searchParams.set("offset", String(options.offset));
+  }
+
+  const result = await fetchJson<{ data?: IfscRecord[]; hasNext?: boolean; count?: number }>(url.toString(), env, {}, 20000);
+  const data = Array.isArray(result.data) ? result.data : [];
+  return {
+    count: result.count ?? data.length,
+    hasNext: Boolean(result.hasNext),
+    data,
+  };
 }

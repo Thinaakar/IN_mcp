@@ -73,10 +73,19 @@ Transport tools require `TRANSIT_API_KEY`.
 
 | Tool | Purpose |
 |---|---|
-| `in_ifsc_lookup` | Bank branch details for an 11-character IFSC |
+| `in_ifsc_lookup` | Bank branch by IFSC, or search by city/district |
 | `in_fx_rate` | Currency rate vs INR (default USD → INR) |
 | `in_holidays` | Indian public holidays for a year (Tallyfy, not official gazette) |
 | `in_earthquakes` | USGS earthquakes in the India bounding box |
+
+### Cricket
+
+| Tool | Purpose |
+|---|---|
+| `in_cricket_live` | Current / live cricket matches (CricAPI) |
+| `in_cricket_matches` | Cricket match list / schedule (CricAPI) |
+
+Requires `CRICAPI_API_KEY` (free signup at [cricketdata.org](https://cricketdata.org/)). Free tier is about 100 hits/day.
 
 ## Data Sources
 
@@ -90,6 +99,7 @@ Transport tools require `TRANSIT_API_KEY`.
 | Frankfurter / ExchangeRate-API | FX rates |
 | Tallyfy National Holidays | Public holidays |
 | USGS | Earthquakes near India |
+| CricAPI / CricketData.org | Live cricket scores and match lists |
 
 ## Local Development
 
@@ -119,6 +129,7 @@ npm run check
 |---|---|
 | `CLOUDFLARE_API_TOKEN` | Deploy Worker |
 | `DATA_GOV_IN_API_KEY` | data.gov.in API key |
+| `CRICAPI_API_KEY` | CricAPI / CricketData.org key (free signup) |
 | `MAPS_API_KEY` | Optional maps provider key |
 | `TRANSIT_API_KEY` | OpenTransitData / city transit key |
 | `BUILD_SHA` | Synced automatically from GitHub Actions |

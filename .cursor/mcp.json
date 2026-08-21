@@ -2,7 +2,10 @@
   "mcpServers": {
     "monstarx-india": {
       "type": "http",
-      "url": "http://127.0.0.1:8787/mcp"
+      "url": "http://127.0.0.1:8787/mcp",
+      "headers": {
+        "Accept": "application/json, text/event-stream"
+      }
     }
   }
 }

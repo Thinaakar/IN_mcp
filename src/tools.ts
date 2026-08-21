@@ -2,11 +2,13 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import * as z from "zod/v4";
 import type { Env } from "./env";
 import { CPCB_AQI_RESOURCE_ID, DISTRICT_RAINFALL_RESOURCE_ID, HOSPITAL_DIRECTORY_RESOURCE_ID, MANDI_PRICES_RESOURCE_ID, PINCODE_CATALOG_ID, PINCODE_RESOURCE_ID, getAirQualityApi, getCpcbAirQuality, getDatasetMetadata, getDistrictRainfall, getHospitalDirectory, getMandiPrices, getPincodeDirectory, getRealtimeApi, listDatasets, queryDataset } from "./data-gov";
+import { getCurrentCricketMatches, getCricketMatches } from "./cricket";
 import { getIndiaEarthquakes } from "./earthquakes";
 import { getFxRates } from "./fx";
 import { getIndiaHolidays } from "./holidays";
-import { lookupIfsc } from "./ifsc";
+import { lookupIfsc, searchIfsc } from "./ifsc";
 import { reverseGeocodeMaps, searchMapsAddress } from "./maps";
+import { registerResourceTools, RESOURCE_TOOL_NAMES } from "./resource-tools";
 import { listBusRoutes, listBusServices, listBusStops } from "./transit";
 
 const DEFAULT_CITY = "Delhi";
@@ -48,6 +50,11 @@ export const toolNames = [
   "in_fx_rate",
   "in_holidays",
   "in_earthquakes",
+  "in_cricket_live",
+  "in_cricket_matches",
+  "in_elevation",
+  "in_postal_code",
+  ...RESOURCE_TOOL_NAMES,
 ] as const;
 
 type ToolPayload = Record<string, unknown>;
@@ -189,6 +196,16 @@ function earthquakeMeta(extra: ToolPayload = {}): ToolPayload {
     retrieved_at: nowIso(),
     agency: "U.S. Geological Survey",
     api: "earthquake.usgs.gov",
+    ...extra,
+  };
+}
+
+function cricketMeta(extra: ToolPayload = {}): ToolPayload {
+  return {
+    source: "CricAPI / CricketData.org",
+    retrieved_at: nowIso(),
+    agency: "CricAPI (not BCCI/ICC official)",
+    api: "api.cricapi.com/v1",
     ...extra,
   };
 }
@@ -826,16 +843,31 @@ export function createMcpServer(env: Env): McpServer {
     "in_ifsc_lookup",
     {
       title: "India IFSC Lookup",
-      description: "Look up an Indian bank branch by 11-character IFSC using Razorpay's public IFSC API. No API key required.",
+      description: "Look up an Indian bank branch by 11-character IFSC, or search branches by city/district/query using Razorpay's public IFSC API. No API key required.",
       inputSchema: {
-        ifsc: z.string().trim().length(11).describe("11-character IFSC, for example HDFC0000001."),
+        ifsc: z.string().trim().length(11).optional().describe("11-character IFSC, for example HDFC0000001."),
+        city: z.string().optional().describe("City name for branch search, for example NAMAKKAL or CHENNAI."),
+        district: z.string().optional().describe("District name for branch search."),
+        q: z.string().optional().describe("Free-text search across bank/branch/city."),
+        limit: z.number().int().min(1).max(200).default(50).describe("Max search rows to return."),
+        offset: z.number().int().min(0).default(0).describe("Search pagination offset."),
       },
     },
-    async ({ ifsc }) => {
-      const data = await lookupIfsc(env, ifsc);
+    async ({ ifsc, city, district, q, limit, offset }) => {
+      if (ifsc?.trim()) {
+        const data = await lookupIfsc(env, ifsc);
+        return toolResult({
+          ...ifscMeta({ mode: "lookup", ifsc: ifsc.trim().toUpperCase() }),
+          data,
+        });
+      }
+
+      const result = await searchIfsc(env, { city, district, q, limit, offset });
       return toolResult({
-        ...ifscMeta({ ifsc: ifsc.trim().toUpperCase() }),
-        data,
+        ...ifscMeta({ mode: "search", city, district, q, limit, offset }),
+        count: result.count,
+        hasNext: result.hasNext,
+        data: result.data,
       });
     },
   );
@@ -908,6 +940,109 @@ export function createMcpServer(env: Env): McpServer {
       });
     },
   );
+
+  server.registerTool(
+    "in_cricket_live",
+    {
+      title: "India Cricket Live Matches",
+      description: "Current/live cricket matches from CricAPI (CricketData.org). Requires CRICAPI_API_KEY. Free tier is rate-limited (~100 hits/day); not official BCCI/ICC data.",
+      inputSchema: {
+        offset: z.number().int().min(0).default(0).describe("Pagination offset. Page size is typically 25."),
+      },
+    },
+    async ({ offset }) => {
+      const result = await getCurrentCricketMatches(env, offset);
+      return toolResult({
+        ...cricketMeta({ endpoint: result.endpoint, offset: result.offset }),
+        info: result.info,
+        count: result.data.length,
+        data: result.data,
+      });
+    },
+  );
+
+  server.registerTool(
+    "in_cricket_matches",
+    {
+      title: "India Cricket Match List",
+      description: "Cricket match list/schedule from CricAPI (CricketData.org). Requires CRICAPI_API_KEY. Free tier is rate-limited (~100 hits/day); not official BCCI/ICC data.",
+      inputSchema: {
+        offset: z.number().int().min(0).default(0).describe("Pagination offset. Page size is typically 25."),
+      },
+    },
+    async ({ offset }) => {
+      const result = await getCricketMatches(env, offset);
+      return toolResult({
+        ...cricketMeta({ endpoint: result.endpoint, offset: result.offset }),
+        info: result.info,
+        count: result.data.length,
+        data: result.data,
+      });
+    },
+  );
+
+  server.registerTool(
+    "in_elevation",
+    {
+      title: "India Elevation (DEM)",
+      description: "Ground elevation in metres from Open-Meteo DEM for a point in India. Provide latitude/longitude or a city name.",
+      inputSchema: {
+        ...locationInput,
+      },
+    },
+    async ({ city, latitude, longitude }) => {
+      const location = await resolveIndiaLocation(env, city, latitude, longitude);
+      const result = await getRealtimeApi<{ elevation?: number[] }>(env, "elevation", {
+        latitude: location.latitude,
+        longitude: location.longitude,
+      });
+      const elevation = result.elevation?.[0];
+      if (typeof elevation !== "number") {
+        throw new Error("Open-Meteo elevation returned no value for this point.");
+      }
+      return toolResult({
+        ...weatherMeta({
+          agency: "Open-Meteo DEM",
+          city: location.label,
+          latitude: location.latitude,
+          longitude: location.longitude,
+        }),
+        elevation_m: elevation,
+      });
+    },
+  );
+
+  server.registerTool(
+    "in_postal_code",
+    {
+      title: "India Postal Code Directory",
+      description: "Look up India Post office records by 6-digit pincode and/or office/district/state filters (same underlying resource as address search).",
+      inputSchema: {
+        pincode: z.string().optional().describe("6-digit pincode."),
+        officename: z.string().optional().describe("Post office name."),
+        district: z.string().optional().describe("District name."),
+        statename: z.string().optional().describe("State name."),
+        limit: z.number().int().min(1).max(1000).default(100).describe("Maximum rows to return."),
+      },
+    },
+    async ({ pincode, officename, district, statename, limit }) => {
+      const result = await getPincodeDirectory(env, { pincode, officename, district, statename, limit });
+      return toolResult({
+        ...pincodeMeta({
+          catalog_id: PINCODE_CATALOG_ID,
+          dataset_id: PINCODE_RESOURCE_ID,
+          pincode,
+          officename,
+          district,
+          statename,
+        }),
+        data: result.records,
+        total: result.total,
+      });
+    },
+  );
+
+  registerResourceTools(server, env);
 
   return server;
 }

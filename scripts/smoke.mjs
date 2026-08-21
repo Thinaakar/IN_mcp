@@ -27,10 +27,20 @@ const smokeCases = [
   ["in_bus_services", { skip: 0, limit: 5 }],
   ["in_mandi_prices", { commodity: "Tomato", limit: 5 }],
   ["in_hospital_directory", { state: "Delhi", limit: 5 }],
-  ["in_ifsc_lookup", { ifsc: "HDFC0000001" }],
+  ["in_ifsc_lookup", { city: "NAMAKKAL", limit: 10 }],
   ["in_fx_rate", { base: "USD", symbols: "INR" }],
   ["in_holidays", { year: 2026 }],
   ["in_earthquakes", { minmagnitude: 4, limit: 5 }],
+  ["in_cricket_live", { offset: 0 }],
+  ["in_cricket_matches", { offset: 0 }],
+  ["in_elevation", { city: "Delhi" }],
+  ["in_postal_code", { pincode: "110001", limit: 5 }],
+  ["in_dilrmp_clr", { state: "Karnataka", limit: 5 }],
+  ["in_fta_by_age", { limit: 5 }],
+  ["in_railway_route_km", { limit: 5 }],
+  ["in_fuel_prices_delhi", { limit: 5 }],
+  ["in_crime_ipc_by_state", { state: "Karnataka", limit: 5 }],
+  ["in_renewable_energy_share", { limit: 5 }],
 ];
 
 const target = process.argv[2] ?? "staging";

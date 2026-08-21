@@ -1,11 +1,14 @@
 import { describe, expect, it } from "vitest";
+import { getCurrentCricketMatches } from "../src/cricket";
 import { CPCB_AQI_RESOURCE_ID, DISTRICT_RAINFALL_RESOURCE_ID, HOSPITAL_DIRECTORY_RESOURCE_ID, MANDI_PRICES_RESOURCE_ID, PINCODE_CATALOG_ID, PINCODE_RESOURCE_ID } from "../src/data-gov";
 import { INDIA_EARTHQUAKE_BOUNDS, slimEarthquakeFeatures } from "../src/earthquakes";
 import { normalizeCurrency } from "../src/fx";
 import { currentIndiaYear, filterHolidays, holidayYearFromInput, normalizeTallyfyHolidays } from "../src/holidays";
 import { IFSC_PATTERN, normalizeIfsc } from "../src/ifsc";
+import type { Env } from "../src/env";
 import { parseCsv, parsePythonList } from "../src/transit";
-import { toolResult } from "../src/tools";
+import { RESOURCE_TOOL_DEFS, RESOURCE_TOOL_NAMES } from "../src/resource-catalog";
+import { toolNames, toolResult } from "../src/tools";
 
 describe("toolResult", () => {
   it("returns text and structured MCP content", () => {
@@ -127,5 +130,38 @@ describe("India earthquake helpers", () => {
       latitude: 12.5,
       depth_km: 10,
     });
+  });
+});
+
+describe("CricAPI helpers", () => {
+  it("requires CRICAPI_API_KEY", async () => {
+    const env = {
+      ENVIRONMENT: "test",
+      MCP_SERVER_NAME: "test",
+      MCP_SERVER_VERSION: "0.0.0",
+    } as Env;
+    await expect(getCurrentCricketMatches(env)).rejects.toThrow(/CRICAPI_API_KEY/);
+  });
+});
+
+describe("Resource catalog tools", () => {
+  it("registers 91 verified fixed data.gov.in tools with unique names", () => {
+    expect(RESOURCE_TOOL_DEFS).toHaveLength(91);
+    expect(RESOURCE_TOOL_NAMES).toHaveLength(91);
+    expect(new Set(RESOURCE_TOOL_NAMES).size).toBe(91);
+  });
+
+  it("locks NCRB resource IDs resolved via dataset search", () => {
+    const byName = Object.fromEntries(RESOURCE_TOOL_DEFS.map((d) => [d.name, d.resourceId]));
+    expect(byName.in_crime_ipc_by_state).toBe("93550bf5-cc46-412c-beb3-d2e677bdb0a5");
+    expect(byName.in_crime_sll_by_state).toBe("8d963bec-c368-4677-9875-7832411a91bd");
+    expect(byName.in_crime_against_women).toBe("fee6c4c1-0c08-4527-9887-16567ec56a7f");
+  });
+
+  it("exposes catalog tools plus elevation and postal_code on the server tool list", () => {
+    expect(toolNames).toContain("in_elevation");
+    expect(toolNames).toContain("in_postal_code");
+    expect(toolNames).toContain("in_dilrmp_clr");
+    expect(toolNames.length).toBe(25 + 2 + 91);
   });
 });

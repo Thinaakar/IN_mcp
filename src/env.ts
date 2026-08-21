@@ -6,4 +6,5 @@ export interface Env {
   TOOL_TIMEOUT_MS?: string;
   DATA_GOV_IN_API_KEY?: string;
   MAPS_API_KEY?: string;
+  CRICAPI_API_KEY?: string;
 }
