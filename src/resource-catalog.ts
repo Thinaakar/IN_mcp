@@ -13,6 +13,8 @@ export type ResourceToolDef = {
   resourceId: string;
   agency?: string;
   filters?: ResourceFilter[];
+  /** State/UT code, or "northeast" for the NE-only DILRMP table. */
+  exclusiveTo?: string;
 };
 
 const f = (field: string, describe: string, name?: string): ResourceFilter => ({ field, describe, name });
@@ -66,6 +68,7 @@ export const RESOURCE_TOOL_DEFS: ResourceToolDef[] = [
     description: "North-Eastern states DILRMP component-wise progress (CLR, maps, SROs, modern record rooms).",
     resourceId: "d45e628f-88e8-4440-9d51-9a598901a1df",
     agency: "Department of Land Resources",
+    exclusiveTo: "northeast",
     filters: [f("state", "North-Eastern state name.", "state")],
   },
   {
@@ -81,6 +84,7 @@ export const RESOURCE_TOOL_DEFS: ResourceToolDef[] = [
     title: "Land Use Pattern — Maharashtra",
     description: "Land use categories and area (thousand ha) for Maharashtra.",
     resourceId: "0ce90a70-a714-4e77-817e-b6ac1cc9c286",
+    exclusiveTo: "mh",
     filters: [f("land_use", "Land use category name.")],
   },
   {
@@ -88,6 +92,7 @@ export const RESOURCE_TOOL_DEFS: ResourceToolDef[] = [
     title: "Land Use Pattern — Chhattisgarh",
     description: "Land use categories and area (thousand ha) for Chhattisgarh.",
     resourceId: "a9a473d6-691b-4a25-a995-23098f2a7abf",
+    exclusiveTo: "ct",
     filters: [f("land_use", "Land use category name.")],
   },
   {
@@ -95,6 +100,7 @@ export const RESOURCE_TOOL_DEFS: ResourceToolDef[] = [
     title: "Land Use Pattern — Haryana",
     description: "Land use categories and area (thousand ha) for Haryana.",
     resourceId: "8c06e8f1-3bb1-4299-b032-49ef2527d6a8",
+    exclusiveTo: "hr",
     filters: [f("land_use", "Land use category name.")],
   },
   {
@@ -102,6 +108,7 @@ export const RESOURCE_TOOL_DEFS: ResourceToolDef[] = [
     title: "Delhi Household / Land Indicators (linked resource)",
     description: "Rows from the data.gov.in resource linked as Delhi land use. Note: fields are household/LASI-style indicators, not classic land-use classes.",
     resourceId: "0c484052-8c1b-4ff9-a3fc-4fadc73b79ab",
+    exclusiveTo: "dl",
     filters: [f("indicators", "Indicator name as stored in the Indicators field.")],
   },
   {
@@ -348,6 +355,7 @@ export const RESOURCE_TOOL_DEFS: ResourceToolDef[] = [
     title: "Railway Infra Projects — Gujarat",
     description: "Railway infrastructure project categories for Gujarat.",
     resourceId: "f2d31cb3-4b5e-401a-9593-2004b524b542",
+    exclusiveTo: "gj",
     filters: [f("category", "Project category.")],
   },
   {
@@ -355,6 +363,7 @@ export const RESOURCE_TOOL_DEFS: ResourceToolDef[] = [
     title: "Railway Infra Projects — West Bengal",
     description: "Railway infrastructure project categories for West Bengal.",
     resourceId: "750dfd29-b629-4220-bbf3-8e2ed4882058",
+    exclusiveTo: "wb",
     filters: [f("category", "Project category.")],
   },
   {
@@ -396,6 +405,7 @@ export const RESOURCE_TOOL_DEFS: ResourceToolDef[] = [
     title: "WB Projects Delayed by Land Acquisition",
     description: "West Bengal projects delayed due to land acquisition.",
     resourceId: "36cc5e04-d47a-4ee6-9fd6-a6b0bcd05c15",
+    exclusiveTo: "wb",
     filters: [f("project", "Project name.")],
   },
 
@@ -405,6 +415,7 @@ export const RESOURCE_TOOL_DEFS: ResourceToolDef[] = [
     title: "Delhi Petrol / Diesel Prices",
     description: "Effective-date petrol and diesel prices for Delhi.",
     resourceId: "02327d37-dbaa-4cf9-a908-a7eecc428d25",
+    exclusiveTo: "dl",
     filters: [f("_effective_date", "Effective date as stored.", "effective_date")],
   },
   {
@@ -412,6 +423,7 @@ export const RESOURCE_TOOL_DEFS: ResourceToolDef[] = [
     title: "Delhi Average Petrol / Diesel Prices",
     description: "Year-wise average petrol and diesel RSP for Delhi.",
     resourceId: "e336a512-2dfe-4e4b-8d00-bc1b11e41964",
+    exclusiveTo: "dl",
     filters: [f("_year", "Year label.", "year")],
   },
   {
@@ -426,6 +438,7 @@ export const RESOURCE_TOOL_DEFS: ResourceToolDef[] = [
     title: "Delhi LPG / Fuel RSP",
     description: "Year-wise Delhi petrol, diesel, and domestic LPG cylinder RSP.",
     resourceId: "4dc5b88c-f356-49d5-86e7-d8c4eb7c2a27",
+    exclusiveTo: "dl",
     filters: [f("_year", "Year label.", "year")],
   },
   {
@@ -580,6 +593,7 @@ export const RESOURCE_TOOL_DEFS: ResourceToolDef[] = [
     title: "Surat Water Supply (MLD)",
     description: "Date-wise water supplied in MLD for Surat.",
     resourceId: "d7d15ec2-7853-4932-b854-d65ed7abaf65",
+    exclusiveTo: "gj",
     filters: [f("Date", "Date as stored.", "date")],
   },
   {
@@ -587,6 +601,7 @@ export const RESOURCE_TOOL_DEFS: ResourceToolDef[] = [
     title: "Surat Water Charges",
     description: "Date-wise water charges for Surat.",
     resourceId: "dec710f2-7ee6-45cd-916f-da58f108fb2a",
+    exclusiveTo: "gj",
     filters: [
       f("CityName", "City name.", "city"),
       f("Date", "Date as stored.", "date"),
@@ -784,6 +799,7 @@ export const RESOURCE_TOOL_DEFS: ResourceToolDef[] = [
     title: "Maharashtra Forest Cover",
     description: "District-wise forest cover for Maharashtra.",
     resourceId: "84d26d02-935b-479c-9427-c27ee1afd76f",
+    exclusiveTo: "mh",
     filters: [f("district", "District name.")],
   },
   {
@@ -791,6 +807,7 @@ export const RESOURCE_TOOL_DEFS: ResourceToolDef[] = [
     title: "Karnataka Forest Cover",
     description: "District-wise forest cover for Karnataka.",
     resourceId: "dc39ada1-aa0f-4885-8490-21d242cfacc3",
+    exclusiveTo: "ka",
     filters: [f("district", "District name.")],
   },
   {

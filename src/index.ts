@@ -1,10 +1,12 @@
 import { WebStandardStreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js";
 import type { Env } from "./env";
 import { corsHeaders, jsonResponse, withCors } from "./http";
+import { INDIA_SCOPE, listScopeEndpoints, mcpServerTitle, parseMcpPath, toolNamesForScope } from "./scopes";
 import { createMcpServer, toolNames } from "./tools";
 
 function serverInfo(env: Env, request: Request) {
   const url = new URL(request.url);
+  const origin = url.origin;
 
   return {
     name: env.MCP_SERVER_NAME,
@@ -14,11 +16,14 @@ function serverInfo(env: Env, request: Request) {
     protocol: "Model Context Protocol",
     transport: "Streamable HTTP",
     endpoints: {
-      info: `${url.origin}/`,
-      health: `${url.origin}/health`,
-      mcp: `${url.origin}/mcp`,
+      info: `${origin}/`,
+      health: `${origin}/health`,
+      scopes: `${origin}/scopes`,
+      india_mcp: `${origin}/mcp`,
     },
-    tools: toolNames,
+    scopes: listScopeEndpoints(origin),
+    tools: toolNamesForScope(INDIA_SCOPE),
+    all_tools: toolNames,
   };
 }
 
@@ -85,6 +90,55 @@ async function logMcpRequest(request: Request, response: Response, startedAt: nu
   }
 }
 
+async function handleMcp(request: Request, env: Env, scopeCode: string): Promise<Response> {
+  const startedAt = Date.now();
+  const requestMetadata = await readMcpRequestMetadata(request);
+
+  // Stateless JSON mode: do not open a hanging GET SSE stream. Cursor falls back
+  // to legacy SSE when streamable HTTP fails; an empty event-stream 200 never
+  // emits `event: endpoint`, so live tool discovery times out.
+  if (request.method === "GET") {
+    return jsonResponse(
+      {
+        jsonrpc: "2.0",
+        error: {
+          code: -32000,
+          message: "Method Not Allowed. This MCP endpoint is Streamable HTTP; use POST.",
+        },
+        id: null,
+      },
+      { status: 405, headers: { Allow: "POST, DELETE, OPTIONS" } },
+    );
+  }
+
+  const transport = new WebStandardStreamableHTTPServerTransport({
+    sessionIdGenerator: undefined,
+    enableJsonResponse: true,
+  });
+  const server = createMcpServer(env, scopeCode);
+  await server.connect(transport);
+
+  try {
+    const response = await transport.handleRequest(request);
+    await logMcpRequest(request, response, startedAt, { ...requestMetadata, mcp_scope: scopeCode });
+    return withCors(response);
+  } catch (error) {
+    console.error(
+      JSON.stringify({
+        event: "mcp_request_exception",
+        path: new URL(request.url).pathname,
+        duration_ms: Date.now() - startedAt,
+        mcp_scope: scopeCode,
+        error: error instanceof Error ? error.message : String(error),
+        ...requestMetadata,
+      }),
+    );
+    throw error;
+  } finally {
+    await server.close();
+  }
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
@@ -107,34 +161,31 @@ export default {
       });
     }
 
-    if (url.pathname === "/mcp") {
-      const startedAt = Date.now();
-      const requestMetadata = await readMcpRequestMetadata(request);
-      const transport = new WebStandardStreamableHTTPServerTransport({
-        sessionIdGenerator: undefined,
-        enableJsonResponse: true,
+    if (url.pathname === "/scopes" && request.method === "GET") {
+      return jsonResponse({
+        india: {
+          code: INDIA_SCOPE,
+          name: mcpServerTitle(env.MCP_SERVER_NAME, INDIA_SCOPE),
+          mcp: `${url.origin}/mcp`,
+          tools: toolNamesForScope(INDIA_SCOPE),
+        },
+        states: listScopeEndpoints(url.origin).filter((item) => item.code !== INDIA_SCOPE),
       });
-      const server = createMcpServer(env);
-      await server.connect(transport);
+    }
 
-      try {
-        const response = await transport.handleRequest(request);
-        await logMcpRequest(request, response, startedAt, requestMetadata);
-        return withCors(response);
-      } catch (error) {
-        console.error(
-          JSON.stringify({
-            event: "mcp_request_exception",
-            path: url.pathname,
-            duration_ms: Date.now() - startedAt,
-            error: error instanceof Error ? error.message : String(error),
-            ...requestMetadata,
-          }),
-        );
-        throw error;
-      } finally {
-        await server.close();
-      }
+    const mcpPath = parseMcpPath(url.pathname);
+    if (mcpPath.ok) {
+      return handleMcp(request, env, mcpPath.code);
+    }
+
+    if (url.pathname.startsWith("/mcp/")) {
+      return jsonResponse(
+        {
+          error: mcpPath.reason,
+          scopes: listScopeEndpoints(url.origin),
+        },
+        { status: 404 },
+      );
     }
 
     return jsonResponse({ error: "Not found" }, { status: 404 });

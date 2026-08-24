@@ -15,11 +15,27 @@ This is a **new** project. It does not modify the Singapore MCP.
 
 ## MCP Client Setup
 
+One Worker, separate MCP faces. India is **national grain only** (FX, cricket, holidays, nationwide series, dataset catalogue). Each state/UT path is **that state only**: bindable tables with `state` locked, plus exclusive feeds (BMTC on Karnataka, Delhi fuel on Delhi, and so on). Weather defaults to the state capital.
+
+| Face | URL |
+|---|---|
+| India (national only) | `/mcp` or `/mcp/in` |
+| Tamil Nadu | `/mcp/tn` |
+| Karnataka | `/mcp/ka` |
+| Andhra Pradesh | `/mcp/ap` |
+| List all states | `GET /scopes` |
+
 ```json
 {
   "mcpServers": {
     "monstarx-india": {
       "url": "https://in-mcp.monstarxapp.com/mcp"
+    },
+    "monstarx-tamilnadu": {
+      "url": "https://in-mcp.monstarxapp.com/mcp/tn"
+    },
+    "monstarx-karnataka": {
+      "url": "https://in-mcp.monstarxapp.com/mcp/ka"
     }
   }
 }
@@ -108,11 +124,15 @@ npm install
 npm run dev
 ```
 
-Local MCP endpoint:
+Local MCP endpoints (after `npm run dev`):
 
 ```txt
-http://localhost:8787/mcp
+http://127.0.0.1:8787/mcp
+http://127.0.0.1:8787/mcp/tn
+http://127.0.0.1:8787/mcp/ka
 ```
+
+Keep `npm run dev` running, then reload MCP servers in Cursor. If nothing is listening on port 8787, Cursor caches the failed connect until you reconnect.
 
 ## Checks
 

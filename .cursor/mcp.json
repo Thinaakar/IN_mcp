@@ -2,7 +2,42 @@
   "mcpServers": {
     "monstarx-india": {
       "type": "http",
-      "url": "http://127.0.0.1:8787/mcp",
+      "url": "http://127.0.0.1:8787/mcp?reconnect=1",
+      "headers": {
+        "Accept": "application/json, text/event-stream"
+      }
+    },
+    "monstarx-tamilnadu": {
+      "type": "http",
+      "url": "http://127.0.0.1:8787/mcp/tn",
+      "headers": {
+        "Accept": "application/json, text/event-stream"
+      }
+    },
+    "monstarx-karnataka": {
+      "type": "http",
+      "url": "http://127.0.0.1:8787/mcp/ka",
+      "headers": {
+        "Accept": "application/json, text/event-stream"
+      }
+    },
+    "monstarx-andhra": {
+      "type": "http",
+      "url": "http://127.0.0.1:8787/mcp/ap",
+      "headers": {
+        "Accept": "application/json, text/event-stream"
+      }
+    },
+    "monstarx-delhi": {
+      "type": "http",
+      "url": "http://127.0.0.1:8787/mcp/dl",
+      "headers": {
+        "Accept": "application/json, text/event-stream"
+      }
+    },
+    "monstarx-maharashtra": {
+      "type": "http",
+      "url": "http://127.0.0.1:8787/mcp/mh",
       "headers": {
         "Accept": "application/json, text/event-stream"
       }
