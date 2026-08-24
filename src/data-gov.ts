@@ -105,8 +105,13 @@ export async function queryDataGovResource(
   };
 }
 
-export async function listDatasets(env: Env, query: string, page = 1): Promise<DataGovDatasetListResponse> {
-  const limit = 10;
+export async function listDatasets(
+  env: Env,
+  query: string,
+  page = 1,
+  options: { org?: string; limit?: number } = {},
+): Promise<DataGovDatasetListResponse> {
+  const limit = Math.min(Math.max(options.limit ?? 10, 1), 100);
   const url = new URL(DATA_GOV_LISTS_URL);
   url.searchParams.set("format", "json");
   url.searchParams.set("filters[active]", "1");
@@ -116,6 +121,9 @@ export async function listDatasets(env: Env, query: string, page = 1): Promise<D
   url.searchParams.set("sort[updated]", "desc");
   if (query.trim()) {
     url.searchParams.set("filters[title]", query.trim());
+  }
+  if (options.org?.trim()) {
+    url.searchParams.set("filters[org]", options.org.trim());
   }
   applyApiKey(url, env);
 

@@ -15,27 +15,13 @@ This is a **new** project. It does not modify the Singapore MCP.
 
 ## MCP Client Setup
 
-One Worker, separate MCP faces. India is **national grain only** (FX, cricket, holidays, nationwide series, dataset catalogue). Each state/UT path is **that state only**: bindable tables with `state` locked, plus exclusive feeds (BMTC on Karnataka, Delhi fuel on Delhi, and so on). Weather defaults to the state capital.
-
-| Face | URL |
-|---|---|
-| India (national only) | `/mcp` or `/mcp/in` |
-| Tamil Nadu | `/mcp/tn` |
-| Karnataka | `/mcp/ka` |
-| Andhra Pradesh | `/mcp/ap` |
-| List all states | `GET /scopes` |
+One Worker, one MCP URL. Common tools are in `allTools` (pass `"state": "Tamil Nadu"` when a tool supports it). State-exclusive tools are named `{code}_{topic}` (for example `ka_bus_routes`, `tn_water_bodies_census`) and are still called on `/mcp`. Catalog: `GET /` or `GET /scopes`.
 
 ```json
 {
   "mcpServers": {
     "monstarx-india": {
       "url": "https://in-mcp.monstarxapp.com/mcp"
-    },
-    "monstarx-tamilnadu": {
-      "url": "https://in-mcp.monstarxapp.com/mcp/tn"
-    },
-    "monstarx-karnataka": {
-      "url": "https://in-mcp.monstarxapp.com/mcp/ka"
     }
   }
 }
@@ -68,14 +54,15 @@ One Worker, separate MCP faces. India is **national grain only** (FX, cricket, h
 
 | Tool | Purpose |
 |---|---|
-| `in_bus_arrival` | Live bus arrivals |
-| `in_bus_stops` | Bus stop catalogue |
-| `in_bus_services` | Bus service catalogue |
-| `in_bus_routes` | Bus route-stop rows |
-| `in_train_service_alerts` | Train service alerts |
-| `in_traffic_incidents` | Traffic incidents |
+| `ka_bus_stops` | BMTC bus stop catalogue (Karnataka exclusive) |
+| `ka_bus_services` | BMTC bus service catalogue |
+| `ka_bus_routes` | BMTC route-stop rows |
 
-Transport tools require `TRANSIT_API_KEY`.
+BMTC tools are Karnataka-exclusive (`ka_bus_*`) and use public static GTFS. No API key required.
+
+### State open data catalogs (28)
+
+Each of the 28 states has `{code}_open_data` on `/mcp` (no `in_` prefix). These search **api.data.gov.in** — the live API behind the `*.data.gov.in` / API Setu listings — scoped to that state. Pass `query` for a domain keyword (TANGEDCO, Bhoomi, flood, …), then `in_dataset_query` with the returned `dataset_id`.
 
 ### Maps And Address
 
@@ -124,15 +111,13 @@ npm install
 npm run dev
 ```
 
-Local MCP endpoints (after `npm run dev`):
+Local MCP endpoint (after `npm run dev`):
 
 ```txt
 http://127.0.0.1:8787/mcp
-http://127.0.0.1:8787/mcp/tn
-http://127.0.0.1:8787/mcp/ka
 ```
 
-Keep `npm run dev` running, then reload MCP servers in Cursor. If nothing is listening on port 8787, Cursor caches the failed connect until you reconnect.
+`GET http://127.0.0.1:8787/scopes` returns `allTools` plus 28 state keys. Keep `npm run dev` running, then reload MCP servers in Cursor. If nothing is listening on port 8787, Cursor caches the failed connect until you reconnect.
 
 ## Checks
 

@@ -1,30 +1,15 @@
 import { WebStandardStreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js";
 import type { Env } from "./env";
 import { corsHeaders, jsonResponse, withCors } from "./http";
-import { INDIA_SCOPE, listScopeEndpoints, mcpServerTitle, parseMcpPath, toolNamesForScope } from "./scopes";
-import { createMcpServer, toolNames } from "./tools";
+import { allRegisteredToolNames, buildPublicCatalog, parseMcpPath } from "./scopes";
+import { createMcpServer } from "./tools";
 
-function serverInfo(env: Env, request: Request) {
-  const url = new URL(request.url);
-  const origin = url.origin;
-
-  return {
+function publicCatalog(env: Env, origin: string) {
+  return buildPublicCatalog({
     name: env.MCP_SERVER_NAME,
     version: env.MCP_SERVER_VERSION,
-    build_sha: env.BUILD_SHA ?? "local",
-    environment: env.ENVIRONMENT,
-    protocol: "Model Context Protocol",
-    transport: "Streamable HTTP",
-    endpoints: {
-      info: `${origin}/`,
-      health: `${origin}/health`,
-      scopes: `${origin}/scopes`,
-      india_mcp: `${origin}/mcp`,
-    },
-    scopes: listScopeEndpoints(origin),
-    tools: toolNamesForScope(INDIA_SCOPE),
-    all_tools: toolNames,
-  };
+    origin,
+  });
 }
 
 async function readMcpRequestMetadata(request: Request): Promise<Record<string, unknown>> {
@@ -90,7 +75,7 @@ async function logMcpRequest(request: Request, response: Response, startedAt: nu
   }
 }
 
-async function handleMcp(request: Request, env: Env, scopeCode: string): Promise<Response> {
+async function handleMcp(request: Request, env: Env): Promise<Response> {
   const startedAt = Date.now();
   const requestMetadata = await readMcpRequestMetadata(request);
 
@@ -115,12 +100,12 @@ async function handleMcp(request: Request, env: Env, scopeCode: string): Promise
     sessionIdGenerator: undefined,
     enableJsonResponse: true,
   });
-  const server = createMcpServer(env, scopeCode);
+  const server = createMcpServer(env);
   await server.connect(transport);
 
   try {
     const response = await transport.handleRequest(request);
-    await logMcpRequest(request, response, startedAt, { ...requestMetadata, mcp_scope: scopeCode });
+    await logMcpRequest(request, response, startedAt, requestMetadata);
     return withCors(response);
   } catch (error) {
     console.error(
@@ -128,7 +113,6 @@ async function handleMcp(request: Request, env: Env, scopeCode: string): Promise
         event: "mcp_request_exception",
         path: new URL(request.url).pathname,
         duration_ms: Date.now() - startedAt,
-        mcp_scope: scopeCode,
         error: error instanceof Error ? error.message : String(error),
         ...requestMetadata,
       }),
@@ -148,7 +132,14 @@ export default {
     }
 
     if (url.pathname === "/" && request.method === "GET") {
-      return jsonResponse(serverInfo(env, request));
+      return jsonResponse({
+        ...publicCatalog(env, url.origin),
+        build_sha: env.BUILD_SHA ?? "local",
+        environment: env.ENVIRONMENT,
+        protocol: "Model Context Protocol",
+        transport: "Streamable HTTP",
+        tools: allRegisteredToolNames(),
+      });
     }
 
     if (url.pathname === "/health" && request.method === "GET") {
@@ -162,27 +153,19 @@ export default {
     }
 
     if (url.pathname === "/scopes" && request.method === "GET") {
-      return jsonResponse({
-        india: {
-          code: INDIA_SCOPE,
-          name: mcpServerTitle(env.MCP_SERVER_NAME, INDIA_SCOPE),
-          mcp: `${url.origin}/mcp`,
-          tools: toolNamesForScope(INDIA_SCOPE),
-        },
-        states: listScopeEndpoints(url.origin).filter((item) => item.code !== INDIA_SCOPE),
-      });
+      return jsonResponse(publicCatalog(env, url.origin));
     }
 
     const mcpPath = parseMcpPath(url.pathname);
     if (mcpPath.ok) {
-      return handleMcp(request, env, mcpPath.code);
+      return handleMcp(request, env);
     }
 
     if (url.pathname.startsWith("/mcp/")) {
       return jsonResponse(
         {
           error: mcpPath.reason,
-          scopes: listScopeEndpoints(url.origin),
+          mcp: `${url.origin}/mcp`,
         },
         { status: 404 },
       );

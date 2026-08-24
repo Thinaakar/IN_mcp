@@ -2,6 +2,40 @@ import { RESOURCE_TOOL_DEFS, type ResourceToolDef } from "./resource-catalog";
 
 export const INDIA_SCOPE = "in";
 
+/** India's 28 states (no union territories). */
+export const STATE_CODES_28 = [
+  "ap",
+  "ar",
+  "as",
+  "br",
+  "ct",
+  "ga",
+  "gj",
+  "hr",
+  "hp",
+  "jh",
+  "ka",
+  "kl",
+  "mp",
+  "mh",
+  "mn",
+  "ml",
+  "mz",
+  "nl",
+  "or",
+  "pb",
+  "rj",
+  "sk",
+  "tn",
+  "tg",
+  "tr",
+  "up",
+  "ut",
+  "wb",
+] as const;
+
+export type StateCode28 = (typeof STATE_CODES_28)[number];
+
 export const NORTHEAST_CODES = ["ar", "as", "mn", "ml", "mz", "nl", "sk", "tr"] as const;
 
 export interface StateProfile {
@@ -10,6 +44,7 @@ export interface StateProfile {
   defaultCity: string;
 }
 
+/** 28 states plus UTs (UTs are for `state` argument spelling only, not catalog faces). */
 export const STATE_PROFILES: Record<string, StateProfile> = {
   ap: { code: "ap", name: "Andhra Pradesh", defaultCity: "Vijayawada" },
   ar: { code: "ar", name: "Arunachal Pradesh", defaultCity: "Itanagar" },
@@ -49,9 +84,7 @@ export const STATE_PROFILES: Record<string, StateProfile> = {
   py: { code: "py", name: "Puducherry", defaultCity: "Puducherry" },
 };
 
-const NORTHEAST_SET = new Set<string>(NORTHEAST_CODES);
-
-/** Location utilities available on every MCP face. */
+/** Common location + national extras (no `state` required). */
 export const SHARED_CORE_TOOLS = [
   "in_weather_2h",
   "in_weather_24h",
@@ -66,7 +99,6 @@ export const SHARED_CORE_TOOLS = [
   "in_elevation",
 ] as const;
 
-/** National catalogue and nationwide (not state-grain) extras. */
 export const INDIA_ONLY_CORE_TOOLS = [
   "in_datasets_search",
   "in_dataset_metadata",
@@ -78,7 +110,7 @@ export const INDIA_ONLY_CORE_TOOLS = [
   "in_cricket_matches",
 ] as const;
 
-/** State-grain core tools; locked to the MCP's state. */
+/** Shared tools that accept optional `state` (or equivalent) in arguments. */
 export const STATE_CORE_TOOLS = [
   "in_rainfall",
   "in_air_quality",
@@ -87,9 +119,20 @@ export const STATE_CORE_TOOLS = [
   "in_postal_code",
 ] as const;
 
-export const EXCLUSIVE_CORE_TOOLS: Record<string, readonly string[]> = {
-  ka: ["in_bus_stops", "in_bus_services", "in_bus_routes"],
-};
+/** State-exclusive core tools: `{code}_{topic}` — no `in_` prefix. */
+const KA_EXCLUSIVE = ["ka_bus_stops", "ka_bus_services", "ka_bus_routes", "ka_open_data"] as const;
+
+export const EXCLUSIVE_CORE_TOOLS: Record<string, readonly string[]> = Object.fromEntries(
+  STATE_CODES_28.map((code) => [code, code === "ka" ? [...KA_EXCLUSIVE] : [`${code}_open_data`]]),
+);
+
+export function catalogKeyFor(code: string): string {
+  const profile = STATE_PROFILES[code];
+  if (!profile) {
+    return code;
+  }
+  return profile.name.toLowerCase().replace(/[^a-z]/g, "");
+}
 
 export function hasNamedFilter(def: ResourceToolDef, argName: string): boolean {
   return (def.filters ?? []).some((filter) => (filter.name ?? filter.field) === argName);
@@ -99,17 +142,8 @@ export function hasStateFilter(def: ResourceToolDef): boolean {
   return hasNamedFilter(def, "state");
 }
 
-export function isResourceToolOnScope(def: ResourceToolDef, scopeCode: string): boolean {
-  if (def.exclusiveTo === "northeast") {
-    return NORTHEAST_SET.has(scopeCode);
-  }
-  if (def.exclusiveTo) {
-    return scopeCode === def.exclusiveTo;
-  }
-  if (hasStateFilter(def)) {
-    return scopeCode !== INDIA_SCOPE;
-  }
-  return scopeCode === INDIA_SCOPE;
+export function isExclusiveResource(def: ResourceToolDef): boolean {
+  return Boolean(def.exclusiveTo);
 }
 
 export function parseScopeCode(raw?: string | null): string | undefined {
@@ -123,20 +157,21 @@ export function parseScopeCode(raw?: string | null): string | undefined {
   return undefined;
 }
 
+/** Client-facing MCP path is `/mcp` only. `/mcp/in` is accepted as an alias. */
 export function parseMcpPath(pathname: string): { ok: true; code: string } | { ok: false; reason: string } {
   const path = pathname.replace(/\/+$/, "") || "/";
-  if (path === "/mcp") {
+  if (path === "/mcp" || path === "/mcp/in") {
     return { ok: true, code: INDIA_SCOPE };
   }
   const match = path.match(/^\/mcp\/([^/]+)$/);
   if (!match) {
     return { ok: false, reason: "Not an MCP path" };
   }
-  const code = parseScopeCode(match[1]);
-  if (!code) {
-    return { ok: false, reason: `Unknown scope '${match[1]}'. Use /mcp (India) or /mcp/{state} e.g. /mcp/tn.` };
-  }
-  return { ok: true, code };
+  return {
+    ok: false,
+    reason:
+      'Per-state MCP paths are removed. Use POST /mcp with optional "state" on shared tools, or exclusive names like tn_water_bodies_census / ka_bus_routes.',
+  };
 }
 
 export function getStateProfile(scopeCode: string): StateProfile | undefined {
@@ -154,43 +189,84 @@ export function defaultCityForScope(scopeCode: string): string {
   return getStateProfile(scopeCode)?.defaultCity ?? "Delhi";
 }
 
-export function listScopeEndpoints(origin: string): Array<{ code: string; name: string; mcp: string }> {
-  return [
-    { code: INDIA_SCOPE, name: "India (national)", mcp: `${origin}/mcp` },
-    ...Object.values(STATE_PROFILES).map((state) => ({
-      code: state.code,
-      name: state.name,
-      mcp: `${origin}/mcp/${state.code}`,
-    })),
-  ];
-}
-
-export function toolNamesForScope(scopeCode: string): string[] {
-  const names = new Set<string>(SHARED_CORE_TOOLS);
-  if (scopeCode === INDIA_SCOPE) {
-    for (const name of INDIA_ONLY_CORE_TOOLS) {
-      names.add(name);
-    }
-  } else {
-    for (const name of STATE_CORE_TOOLS) {
-      names.add(name);
-    }
-    for (const name of EXCLUSIVE_CORE_TOOLS[scopeCode] ?? []) {
-      names.add(name);
-    }
+export function exclusiveToolsByCode(): Record<string, string[]> {
+  const map: Record<string, string[]> = {};
+  for (const [code, names] of Object.entries(EXCLUSIVE_CORE_TOOLS)) {
+    map[code] = [...names];
   }
   for (const def of RESOURCE_TOOL_DEFS) {
-    if (isResourceToolOnScope(def, scopeCode)) {
-      names.add(def.name);
+    const code = def.exclusiveTo;
+    if (!code) {
+      continue;
     }
+    map[code] ??= [];
+    map[code].push(def.name);
   }
-  return [...names];
+  return map;
 }
 
-export function mcpServerTitle(envName: string, scopeCode: string): string {
-  if (scopeCode === INDIA_SCOPE) {
-    return `${envName} — India`;
+export function allToolsList(): string[] {
+  const names = [
+    ...SHARED_CORE_TOOLS,
+    ...INDIA_ONLY_CORE_TOOLS,
+    ...STATE_CORE_TOOLS,
+    ...RESOURCE_TOOL_DEFS.filter((def) => !isExclusiveResource(def)).map((def) => def.name),
+  ];
+  return [...new Set(names)];
+}
+
+export function allRegisteredToolNames(): string[] {
+  const exclusive = Object.values(exclusiveToolsByCode()).flat();
+  return [...new Set([...allToolsList(), ...exclusive])];
+}
+
+export function statesCatalogMap(): Record<string, { name: string; key: string }> {
+  const states: Record<string, { name: string; key: string }> = {};
+  for (const code of STATE_CODES_28) {
+    const profile = STATE_PROFILES[code];
+    states[code] = { name: profile.name, key: catalogKeyFor(code) };
   }
-  const profile = STATE_PROFILES[scopeCode];
-  return profile ? `${envName} — ${profile.name}` : envName;
+  return states;
+}
+
+export type PublicCatalog = {
+  name: string;
+  version: string;
+  mcp: string;
+  health: string;
+  allTools: string[];
+  states: Record<string, { name: string; key: string }>;
+} & Record<string, unknown>;
+
+export function buildPublicCatalog(opts: { name: string; version: string; origin: string }): PublicCatalog {
+  const exclusive = exclusiveToolsByCode();
+  const catalog: PublicCatalog = {
+    name: opts.name,
+    version: opts.version,
+    mcp: `${opts.origin}/mcp`,
+    health: `${opts.origin}/health`,
+    allTools: allToolsList(),
+    states: statesCatalogMap(),
+  };
+
+  const codes = new Set([...STATE_CODES_28, ...Object.keys(exclusive)]);
+  for (const code of codes) {
+    const key = catalogKeyFor(code);
+    catalog[key] = exclusive[code] ?? [];
+  }
+
+  return catalog;
+}
+
+/** @deprecated Path faces are gone; kept for tests that inspect grouping. */
+export function toolNamesForScope(scopeCode: string): string[] {
+  if (scopeCode === INDIA_SCOPE) {
+    return allRegisteredToolNames();
+  }
+  const exclusive = exclusiveToolsByCode()[scopeCode] ?? [];
+  return [...allToolsList(), ...exclusive];
+}
+
+export function mcpServerTitle(envName: string, _scopeCode = INDIA_SCOPE): string {
+  return envName;
 }

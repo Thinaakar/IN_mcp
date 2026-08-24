@@ -8,7 +8,18 @@ import { IFSC_PATTERN, normalizeIfsc } from "../src/ifsc";
 import type { Env } from "../src/env";
 import { parseCsv, parsePythonList } from "../src/transit";
 import { RESOURCE_TOOL_DEFS, RESOURCE_TOOL_NAMES } from "../src/resource-catalog";
-import { INDIA_SCOPE, parseMcpPath, parseScopeCode, STATE_PROFILES, toolNamesForScope } from "../src/scopes";
+import { recordMentionsState, STATE_OPEN_DATA_PORTALS } from "../src/state-portals";
+import {
+  allToolsList,
+  buildPublicCatalog,
+  exclusiveToolsByCode,
+  INDIA_SCOPE,
+  parseMcpPath,
+  parseScopeCode,
+  STATE_CODES_28,
+  STATE_PROFILES,
+  toolNamesForScope,
+} from "../src/scopes";
 import { toolNames, toolResult } from "../src/tools";
 
 describe("toolResult", () => {
@@ -163,69 +174,74 @@ describe("Resource catalog tools", () => {
     expect(toolNames).toContain("in_elevation");
     expect(toolNames).toContain("in_postal_code");
     expect(toolNames).toContain("in_dilrmp_clr");
-    expect(toolNames.length).toBe(25 + 2 + 91);
+    expect(toolNames).toContain("ka_bus_stops");
+    expect(toolNames).toContain("mh_land_use");
+    expect(toolNames).toContain("tn_open_data");
+    expect(toolNames).not.toContain("in_bus_stops");
+    expect(toolNames.length).toBe(25 + 2 + 91 + 28);
   });
 });
 
-describe("MCP scopes", () => {
-  it("parses /mcp as India and /mcp/tn as Tamil Nadu", () => {
+describe("MCP catalog (single /mcp)", () => {
+  it("accepts /mcp and /mcp/in and rejects per-state paths", () => {
     expect(parseMcpPath("/mcp")).toEqual({ ok: true, code: INDIA_SCOPE });
     expect(parseMcpPath("/mcp/in")).toEqual({ ok: true, code: INDIA_SCOPE });
-    expect(parseMcpPath("/mcp/tn")).toEqual({ ok: true, code: "tn" });
-    expect(parseMcpPath("/mcp/KA")).toEqual({ ok: true, code: "ka" });
+    expect(parseMcpPath("/mcp/tn").ok).toBe(false);
+    expect(parseMcpPath("/mcp/KA").ok).toBe(false);
     expect(parseMcpPath("/mcp/xx").ok).toBe(false);
     expect(parseScopeCode("andhra")).toBeUndefined();
     expect(parseScopeCode("ap")).toBe("ap");
   });
 
-  it("keeps nationwide tools on India and excludes state-grain datasets", () => {
-    const india = toolNamesForScope("in");
+  it("lists 28 states and keeps common tools in allTools", () => {
+    const catalog = buildPublicCatalog({
+      name: "Monstarx India MCP",
+      version: "0.1.0",
+      origin: "https://in-mcp.monstarxapp.com",
+    });
+    expect(Object.keys(catalog.states)).toHaveLength(28);
+    expect(STATE_CODES_28).toHaveLength(28);
+    expect(catalog.states.tn).toEqual({ name: "Tamil Nadu", key: "tamilnadu" });
+    expect(catalog.mcp).toBe("https://in-mcp.monstarxapp.com/mcp");
+    expect(catalog.allTools).toContain("in_fx_rate");
+    expect(catalog.allTools).toContain("in_mandi_prices");
+    expect(catalog.allTools).toContain("in_crime_ipc_by_state");
+    expect(catalog.allTools).toContain("in_dilrmp_northeast");
+    expect(catalog.allTools).not.toContain("ka_bus_stops");
+    expect(catalog.allTools).not.toContain("dl_fuel_prices");
+    expect(catalog.karnataka).toEqual(expect.arrayContaining(["ka_bus_stops", "ka_bus_services", "ka_bus_routes", "ka_forest_cover", "ka_open_data"]));
+    expect(catalog.tamilnadu).toEqual(expect.arrayContaining(["tn_open_data"]));
+    expect(catalog.andhrapradesh).toEqual(expect.arrayContaining(["ap_open_data"]));
+    expect(catalog.delhi).toEqual(expect.arrayContaining(["dl_fuel_prices", "dl_lpg_price"]));
+    expect(catalog.maharashtra).toEqual(expect.arrayContaining(["mh_land_use", "mh_forest_cover", "mh_open_data"]));
+  });
+
+  it("names exclusive tools {code}_{topic} without in_ prefix", () => {
+    const exclusive = Object.values(exclusiveToolsByCode()).flat();
+    expect(exclusive.every((name) => !name.startsWith("in_"))).toBe(true);
+    expect(exclusive).toContain("ka_bus_stops");
+    expect(exclusive).toContain("mh_land_use");
+    expect(allToolsList().every((name) => name.startsWith("in_"))).toBe(true);
+  });
+
+  it("registers the full union on /mcp", () => {
+    const india = toolNamesForScope(INDIA_SCOPE);
     expect(india).toContain("in_fx_rate");
-    expect(india).toContain("in_cricket_live");
-    expect(india).toContain("in_tourism_gdp");
-    expect(india).toContain("in_datasets_search");
-    expect(india).not.toContain("in_mandi_prices");
-    expect(india).not.toContain("in_crime_ipc_by_state");
-    expect(india).not.toContain("in_bus_stops");
-    expect(india).not.toContain("in_fuel_prices_delhi");
+    expect(india).toContain("in_mandi_prices");
+    expect(india).toContain("ka_bus_stops");
+    expect(india).toContain("dl_fuel_prices");
+    expect(india).toContain("tn_open_data");
+    expect(india).toContain("in_dilrmp_northeast");
+    expect([...india].sort()).toEqual([...toolNames].sort());
+    expect(Object.keys(STATE_PROFILES).length).toBeGreaterThan(28);
   });
 
-  it("locks Tamil Nadu to state tools without national extras or Karnataka feeds", () => {
-    const tn = toolNamesForScope("tn");
-    expect(tn).toContain("in_mandi_prices");
-    expect(tn).toContain("in_crime_ipc_by_state");
-    expect(tn).toContain("in_weather_2h");
-    expect(tn).not.toContain("in_fx_rate");
-    expect(tn).not.toContain("in_bus_stops");
-    expect(tn).not.toContain("in_forest_cover_karnataka");
-    expect(tn).not.toContain("in_tourism_gdp");
-  });
-
-  it("exposes Karnataka-only BMTC and forest tools on /mcp/ka", () => {
-    const ka = toolNamesForScope("ka");
-    expect(ka).toContain("in_bus_stops");
-    expect(ka).toContain("in_forest_cover_karnataka");
-    expect(ka).toContain("in_mandi_prices");
-    expect(ka).not.toContain("in_fuel_prices_delhi");
-    expect(ka).not.toContain("in_cricket_matches");
-  });
-
-  it("puts DILRMP northeast and Delhi fuel on those scopes only", () => {
-    expect(toolNamesForScope("as")).toContain("in_dilrmp_northeast");
-    expect(toolNamesForScope("tn")).not.toContain("in_dilrmp_northeast");
-    expect(toolNamesForScope("in")).not.toContain("in_dilrmp_northeast");
-    expect(toolNamesForScope("dl")).toContain("in_fuel_prices_delhi");
-    expect(toolNamesForScope("mh")).toContain("in_forest_cover_maharashtra");
-    expect(toolNamesForScope("mh")).not.toContain("in_forest_cover_karnataka");
-  });
-
-  it("covers every registered tool on India or some state face", () => {
-    const union = new Set(toolNamesForScope(INDIA_SCOPE));
-    for (const code of Object.keys(STATE_PROFILES)) {
-      for (const name of toolNamesForScope(code)) {
-        union.add(name);
-      }
+  it("maps all 28 states to {code}_open_data exclusive catalog tools", () => {
+    expect(Object.keys(STATE_OPEN_DATA_PORTALS).sort()).toEqual([...STATE_CODES_28].sort());
+    for (const code of STATE_CODES_28) {
+      expect(toolNames).toContain(`${code}_open_data`);
     }
-    expect([...union].sort()).toEqual([...toolNames].sort());
+    expect(recordMentionsState({ org: "TNEGA, Tamil Nadu", title: "TANGEDCO" }, STATE_OPEN_DATA_PORTALS.tn)).toBe(true);
+    expect(recordMentionsState({ org: "Karnataka", title: "Bhoomi" }, STATE_OPEN_DATA_PORTALS.tn)).toBe(false);
   });
 });

@@ -46,9 +46,9 @@ IN-MCP/
 
 | Path | Role |
 |---|---|
-| `GET /` | Server info and tool list |
+| `GET /` or `GET /scopes` | Catalog: `allTools` + 28 state keys + exclusive `{code}_*` tools |
 | `GET /health` | Health JSON |
-| `POST /mcp` | MCP tools/list and tools/call |
+| `POST /mcp` | MCP tools/list and tools/call (only tools endpoint) |
 | `OPTIONS *` | CORS preflight |
 
 ## Tool response format
@@ -63,8 +63,8 @@ Every tool uses `toolResult()` like Singapore:
 
 Same as Singapore, in `src/tools.ts`:
 
-1. Add the name to `toolNames`.
-2. `server.registerTool("in_...", { title, description, inputSchema }, handler)`.
+1. Add the name to the catalog (`allTools` in `src/scopes.ts`, or `{code}_*` exclusive in `EXCLUSIVE_CORE_TOOLS` / `exclusiveTo` on a resource def).
+2. `server.registerTool("in_..." or "tn_...", { title, description, inputSchema }, handler)`. Exclusive tools use `{code}_{topic}` with **no** `in_` prefix.
 3. Call an adapter (`queryDataset`, `getRealtimeApi`, `searchMapsAddress`, `transitGet`).
 4. Return `toolResult({ ...meta(), data })`.
 5. Add a smoke case in `scripts/smoke.mjs`.

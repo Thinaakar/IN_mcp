@@ -8,14 +8,9 @@ import { getFxRates } from "./fx";
 import { getIndiaHolidays } from "./holidays";
 import { lookupIfsc, searchIfsc } from "./ifsc";
 import { reverseGeocodeMaps, searchMapsAddress } from "./maps";
-import { registerResourceTools, RESOURCE_TOOL_NAMES } from "./resource-tools";
-import {
-  boundStateName,
-  defaultCityForScope,
-  INDIA_SCOPE,
-  mcpServerTitle,
-  toolNamesForScope,
-} from "./scopes";
+import { registerResourceTools } from "./resource-tools";
+import { allRegisteredToolNames } from "./scopes";
+import { registerStateOpenDataTools } from "./state-open-data-tools";
 import { listBusRoutes, listBusServices, listBusStops } from "./transit";
 
 const DEFAULT_CITY = "Delhi";
@@ -60,38 +55,9 @@ const CITY_COORDINATES: Record<string, { latitude: number; longitude: number }> 
   kavaratti: { latitude: 10.5593, longitude: 72.6358 },
 };
 
-export { toolNamesForScope } from "./scopes";
+export { allRegisteredToolNames as toolNamesForScope } from "./scopes";
 
-export const toolNames = [
-  "in_datasets_search",
-  "in_dataset_metadata",
-  "in_dataset_query",
-  "in_weather_2h",
-  "in_weather_24h",
-  "in_weather_4day",
-  "in_uv_index",
-  "in_rainfall",
-  "in_air_temperature",
-  "in_relative_humidity",
-  "in_air_quality",
-  "in_address_search",
-  "in_geocode",
-  "in_reverse_geocode",
-  "in_bus_stops",
-  "in_bus_services",
-  "in_bus_routes",
-  "in_mandi_prices",
-  "in_hospital_directory",
-  "in_ifsc_lookup",
-  "in_fx_rate",
-  "in_holidays",
-  "in_earthquakes",
-  "in_cricket_live",
-  "in_cricket_matches",
-  "in_elevation",
-  "in_postal_code",
-  ...RESOURCE_TOOL_NAMES,
-] as const;
+export const toolNames = allRegisteredToolNames();
 
 type ToolPayload = Record<string, unknown>;
 
@@ -290,22 +256,15 @@ async function resolveIndiaLocation(
   return { latitude: lat, longitude: lon, label: first?.display_name ?? name };
 }
 
-export function createMcpServer(env: Env, scopeCode = INDIA_SCOPE): McpServer {
-  const allowed = new Set(toolNamesForScope(scopeCode));
-  const defaultCity = defaultCityForScope(scopeCode);
-  const lockedState = boundStateName(scopeCode);
+export function createMcpServer(env: Env): McpServer {
+  const defaultCity = DEFAULT_CITY;
   const locationInput = locationInputFor(defaultCity);
   const server = new McpServer({
-    name: mcpServerTitle(env.MCP_SERVER_NAME, scopeCode),
+    name: env.MCP_SERVER_NAME,
     version: env.MCP_SERVER_VERSION,
   });
 
-  const registerTool = ((name, config, handler) => {
-    if (!allowed.has(String(name))) {
-      return undefined;
-    }
-    return server.registerTool(name, config, handler);
-  }) as McpServer["registerTool"];
+  const registerTool = server.registerTool.bind(server) as McpServer["registerTool"];
 
   registerTool(
     "in_datasets_search",
@@ -481,14 +440,10 @@ export function createMcpServer(env: Env, scopeCode = INDIA_SCOPE): McpServer {
     "in_rainfall",
     {
       title: "India Daily District Rainfall",
-      description: lockedState
-        ? `Daily district rainfall for ${lockedState}. Falls back to Open-Meteo if the dataset is unavailable.`
-        : "Get daily district-wise average rainfall in millimetres from data.gov.in. Falls back to Open-Meteo if the dataset is unavailable.",
+      description: "Get daily district-wise average rainfall in millimetres from data.gov.in. Falls back to Open-Meteo if the dataset is unavailable.",
       inputSchema: {
         ...locationInput,
-        ...(lockedState
-          ? {}
-          : { state: z.string().optional().describe("Indian state name, matching the rainfall dataset State field.") }),
+        state: z.string().optional().describe("Indian state name, matching the rainfall dataset State field, for example 'Tamil Nadu'."),
         district: z.string().optional().describe("District name. Defaults to city when omitted."),
         date: z.string().optional().describe("Optional date filter."),
         year: z.union([z.string(), z.number()]).optional().describe("Optional year filter."),
@@ -497,7 +452,7 @@ export function createMcpServer(env: Env, scopeCode = INDIA_SCOPE): McpServer {
       },
     },
     async ({ city, state, district, date, year, month, latitude, longitude, limit }) => {
-      const stateName = lockedState ?? state;
+      const stateName = state;
       try {
         const result = await getDistrictRainfall(env, {
           state: stateName,
@@ -596,20 +551,16 @@ export function createMcpServer(env: Env, scopeCode = INDIA_SCOPE): McpServer {
     "in_air_quality",
     {
       title: "India Air Quality",
-      description: lockedState
-        ? `CPCB AQI stations for ${lockedState}. Falls back to Open-Meteo if CPCB is unavailable.`
-        : "Get CPCB real-time AQI station rows from data.gov.in. Falls back to Open-Meteo if CPCB is unavailable.",
+      description: "Get CPCB real-time AQI station rows from data.gov.in. Falls back to Open-Meteo if CPCB is unavailable.",
       inputSchema: {
         ...locationInput,
-        ...(lockedState
-          ? {}
-          : { state: z.string().optional().describe("Optional Indian state name to filter CPCB stations.") }),
+        state: z.string().optional().describe("Optional Indian state name to filter CPCB stations, for example 'Tamil Nadu'."),
         station: z.string().optional().describe("Optional CPCB station name filter."),
         limit: z.number().int().min(1).max(1000).default(100).describe("Maximum CPCB rows to return."),
       },
     },
     async ({ city, state, station, latitude, longitude, limit }) => {
-      const stateName = lockedState ?? state;
+      const stateName = state;
       const cityName = city ?? defaultCity;
       try {
         const result = await getCpcbAirQuality(env, {
@@ -749,7 +700,7 @@ export function createMcpServer(env: Env, scopeCode = INDIA_SCOPE): McpServer {
   );
 
   registerTool(
-    "in_bus_stops",
+    "ka_bus_stops",
     {
       title: "Bengaluru BMTC Bus Stops",
       description: "List BMTC bus stops from the public static GTFS CSV. No API key required.",
@@ -771,7 +722,7 @@ export function createMcpServer(env: Env, scopeCode = INDIA_SCOPE): McpServer {
   );
 
   registerTool(
-    "in_bus_services",
+    "ka_bus_services",
     {
       title: "Bengaluru BMTC Bus Services",
       description: "List BMTC bus services from the public static GTFS CSV. No API key required.",
@@ -793,7 +744,7 @@ export function createMcpServer(env: Env, scopeCode = INDIA_SCOPE): McpServer {
   );
 
   registerTool(
-    "in_bus_routes",
+    "ka_bus_routes",
     {
       title: "Bengaluru BMTC Bus Routes",
       description: "List BMTC route-stop rows from the public static GTFS CSV. No API key required.",
@@ -818,13 +769,9 @@ export function createMcpServer(env: Env, scopeCode = INDIA_SCOPE): McpServer {
     "in_mandi_prices",
     {
       title: "India Mandi Commodity Prices",
-      description: lockedState
-        ? `Daily mandi prices for ${lockedState} from data.gov.in.`
-        : "Get current daily variety-wise market (mandi) prices from data.gov.in. Filter by state, district, market, commodity, variety, or arrival date.",
+      description: "Get current daily variety-wise market (mandi) prices from data.gov.in. Filter by state, district, market, commodity, variety, or arrival date.",
       inputSchema: {
-        ...(lockedState
-          ? {}
-          : { state: z.string().optional().describe("Indian state name, for example 'Karnataka'.") }),
+        state: z.string().optional().describe("Indian state name, for example 'Tamil Nadu' or 'Karnataka'."),
         district: z.string().optional().describe("District name."),
         market: z.string().optional().describe("Mandi / market name."),
         commodity: z.string().optional().describe("Commodity name, for example 'Tomato' or 'Wheat'."),
@@ -834,7 +781,7 @@ export function createMcpServer(env: Env, scopeCode = INDIA_SCOPE): McpServer {
       },
     },
     async ({ state, district, market, commodity, variety, arrival_date, limit }) => {
-      const stateName = lockedState ?? state;
+      const stateName = state;
       const result = await getMandiPrices(env, {
         state: stateName,
         district,
@@ -866,13 +813,9 @@ export function createMcpServer(env: Env, scopeCode = INDIA_SCOPE): McpServer {
     "in_hospital_directory",
     {
       title: "India National Hospital Directory",
-      description: lockedState
-        ? `National Hospital Directory rows for ${lockedState}.`
-        : "Search the National Hospital Directory (with geo codes) from data.gov.in. Filter by state, district, hospital name, category, pincode, or location.",
+      description: "Search the National Hospital Directory (with geo codes) from data.gov.in. Filter by state, district, hospital name, category, pincode, or location.",
       inputSchema: {
-        ...(lockedState
-          ? {}
-          : { state: z.string().optional().describe("Indian state name, matching the State field.") }),
+        state: z.string().optional().describe("Indian state name, matching the State field, for example 'Tamil Nadu'."),
         district: z.string().optional().describe("District name."),
         hospital_name: z.string().optional().describe("Exact hospital name as stored in Hospital_Name."),
         hospital_category: z.string().optional().describe("Hospital category, for example public or private."),
@@ -882,7 +825,7 @@ export function createMcpServer(env: Env, scopeCode = INDIA_SCOPE): McpServer {
       },
     },
     async ({ state, district, hospital_name, hospital_category, pincode, location, limit }) => {
-      const stateName = lockedState ?? state;
+      const stateName = state;
       const result = await getHospitalDirectory(env, {
         state: stateName,
         district,
@@ -933,9 +876,9 @@ export function createMcpServer(env: Env, scopeCode = INDIA_SCOPE): McpServer {
         });
       }
 
-      const result = await searchIfsc(env, { city: city ?? (lockedState ? defaultCity : city), district, q, limit, offset });
+      const result = await searchIfsc(env, { city, district, q, limit, offset });
       return toolResult({
-        ...ifscMeta({ mode: "search", city: city ?? (lockedState ? defaultCity : city), district, q, limit, offset }),
+        ...ifscMeta({ mode: "search", city, district, q, limit, offset }),
         count: result.count,
         hasNext: result.hasNext,
         data: result.data,
@@ -1087,19 +1030,18 @@ export function createMcpServer(env: Env, scopeCode = INDIA_SCOPE): McpServer {
     "in_postal_code",
     {
       title: "India Postal Code Directory",
-      description: lockedState
-        ? `India Post office records for ${lockedState}.`
-        : "Look up India Post office records by 6-digit pincode and/or office/district/state filters (same underlying resource as address search).",
+      description: "Look up India Post office records by 6-digit pincode and/or office/district/state filters (same underlying resource as address search).",
       inputSchema: {
         pincode: z.string().optional().describe("6-digit pincode."),
         officename: z.string().optional().describe("Post office name."),
         district: z.string().optional().describe("District name."),
-        ...(lockedState ? {} : { statename: z.string().optional().describe("State name.") }),
+        state: z.string().optional().describe("State name, for example 'Tamil Nadu'."),
+        statename: z.string().optional().describe("Alias for state (India Post column name)."),
         limit: z.number().int().min(1).max(1000).default(100).describe("Maximum rows to return."),
       },
     },
-    async ({ pincode, officename, district, statename, limit }) => {
-      const stateName = lockedState ?? statename;
+    async ({ pincode, officename, district, state, statename, limit }) => {
+      const stateName = state ?? statename;
       const result = await getPincodeDirectory(env, { pincode, officename, district, statename: stateName, limit });
       return toolResult({
         ...pincodeMeta({
@@ -1116,7 +1058,8 @@ export function createMcpServer(env: Env, scopeCode = INDIA_SCOPE): McpServer {
     },
   );
 
-  registerResourceTools(server, env, scopeCode);
+  registerResourceTools(server, env);
+  registerStateOpenDataTools(server, env);
 
   return server;
 }
