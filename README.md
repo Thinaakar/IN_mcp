@@ -15,7 +15,7 @@ This is a **new** project. It does not modify the Singapore MCP.
 
 ## MCP Client Setup
 
-One Worker, one MCP URL. Common tools are in `allTools` (pass `"state": "Tamil Nadu"` when a tool supports it). State-exclusive tools are named `{code}_{topic}` (for example `ka_bus_routes`, `tn_water_bodies_census`) and are still called on `/mcp`. Catalog: `GET /` or `GET /scopes`.
+One Worker, one MCP URL. Common tools are in `allTools` (pass `"state": "Tamil Nadu"` when a tool supports it). State-exclusive tools are named `{code}_{topic}` (for example `ka_bus_routes`, `tn_doctors_beds`) and are still called on `/mcp`. Catalog: `GET /` or `GET /scopes`.
 
 ```json
 {
@@ -60,9 +60,23 @@ One Worker, one MCP URL. Common tools are in `allTools` (pass `"state": "Tamil N
 
 BMTC tools are Karnataka-exclusive (`ka_bus_*`) and use public static GTFS. No API key required.
 
-### State open data catalogs (28)
+### State exclusive tools
 
-Each of the 28 states has `{code}_open_data` on `/mcp` (no `in_` prefix). These search **api.data.gov.in** — the live API behind the `*.data.gov.in` / API Setu listings — scoped to that state. Pass `query` for a domain keyword (TANGEDCO, Bhoomi, flood, …), then `in_dataset_query` with the returned `dataset_id`.
+State-only tools use `{code}_{topic}` (no `in_` prefix) and stay on `POST /mcp`. Prefer a verified resource-ID tool when the domain matches; keep `{code}_open_data` as catalog search for everything else.
+
+Each of the 28 states has `{code}_open_data`. It searches **api.data.gov.in** scoped to that state. Pass `query` for a domain keyword (TANGEDCO, Bhoomi, flood, …), then `in_dataset_query` with the returned `dataset_id`.
+
+Verified fixed-resource examples (full list is on `GET /scopes`):
+
+| Tool | Rows |
+|---|---|
+| `ap_procurement` / `ap_rbk_procurement` | AP Markfed district and RBK procurement |
+| `tn_doctors_beds` / `tn_food_grain_prices` / `tn_rainfall` | Tamil Nadu health ratio, grain prices, rainfall |
+| `ka_bmtc_finance` / `ka_crime_review` | BMTC finance and Karnataka crime review |
+| `mh_fair_price_shops` / `mh_stamp_duty` | Maharashtra FPS locations and stamp duty |
+| `gj_surat_complaints` / `gj_surat_garbage` | Surat civic complaints and garbage collection |
+
+Arunachal Pradesh, Goa, Jharkhand, Manipur, and Tripura have `{code}_open_data` only: no state-department resource ID verified as returning rows (national Rajya Sabha tables are not used as exclusive tools). TANGEDCO, Meebhoomi, and Bhoomi feeds were not found as queryable exclusive IDs — use `{code}_open_data` then `in_dataset_query`.
 
 ### Maps And Address
 

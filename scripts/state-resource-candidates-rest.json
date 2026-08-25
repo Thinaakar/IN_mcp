@@ -1,0 +1,789 @@
+[
+  {
+    "code": "or",
+    "found": 4,
+    "tools": [
+      {
+        "code": "or",
+        "state": "Odisha",
+        "resourceId": "f641911e-1686-4675-95cf-92f1a5bd7173",
+        "title": "Primary Census Abstract 2011 - Odisha",
+        "org": [
+          "Odisha",
+          "Information Technology Department, Odisha"
+        ],
+        "sampleKeys": [
+          "state_code",
+          "district_code",
+          "subdistt_code",
+          "town_village_code",
+          "ward_code",
+          "eb_code",
+          "level",
+          "name",
+          "tru",
+          "no_of_households"
+        ]
+      },
+      {
+        "code": "or",
+        "state": "Odisha",
+        "resourceId": "50f8a810-f157-450c-8439-f580d19fe408",
+        "title": "District wise list of junior Colleges in Odisha till October 2017",
+        "org": [
+          "Odisha",
+          "Information Technology Department, Odisha"
+        ],
+        "sampleKeys": [
+          "_sl_",
+          "college_code",
+          "district_name",
+          "block_name",
+          "name_of_college"
+        ]
+      },
+      {
+        "code": "or",
+        "state": "Odisha",
+        "resourceId": "ca77de79-10e8-4292-a4e6-5ae00c08c47a",
+        "title": "District wise list of degree Colleges in Odisha till October 2017",
+        "org": [
+          "Odisha",
+          "Information Technology Department, Odisha"
+        ],
+        "sampleKeys": [
+          "_sl_",
+          "college_code",
+          "district_name",
+          "block_name",
+          "name_of_college"
+        ]
+      },
+      {
+        "code": "or",
+        "state": "Odisha",
+        "resourceId": "7b937fb3-78eb-49cd-8af5-cb1e6acb33a6",
+        "title": "Diseases : Rourkela from 2015 to 2018",
+        "org": [
+          [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Odisha",
+            "Rourkela"
+          ]
+        ],
+        "sampleKeys": [
+          "city_name",
+          "_year",
+          "number_of_cases_of_persons_affected_by_vector_borne_diseases",
+          "number_of_cases_of_persons_affected_by_water_borne_diseases"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "pb",
+    "found": 4,
+    "tools": [
+      {
+        "code": "pb",
+        "state": "Punjab",
+        "resourceId": "3cbd4cdc-ed38-4df5-8061-5eb97d4b1626",
+        "title": "District-wise Veterinary Officers in Punjab from 1986 to 2021 (April to March)",
+        "org": [
+          "Punjab",
+          " Planning Department, Punjab",
+          " Department of Economic and Statistical Organization, Punjab"
+        ],
+        "sampleKeys": [
+          "district_year",
+          "_2021",
+          "_2020",
+          "_2019",
+          "_2018",
+          "_2017",
+          "_2016",
+          "_2015",
+          "_2014",
+          "_2013"
+        ]
+      },
+      {
+        "code": "pb",
+        "state": "Punjab",
+        "resourceId": "578fe419-7f2d-42a4-b36b-fbb8f52f8676",
+        "title": "District-wise Yeild under Potato Cultivation in Punjab from 1968 to 2022 (April to March)",
+        "org": [
+          "Punjab",
+          " Planning Department, Punjab",
+          " Department of Economic and Statistical Organization, Punjab"
+        ],
+        "sampleKeys": [
+          "district_year",
+          "_2022",
+          "_2021",
+          "_2020",
+          "_2019",
+          "_2018",
+          "_2017",
+          "_2016",
+          "_2015",
+          "_2014"
+        ]
+      },
+      {
+        "code": "pb",
+        "state": "Punjab",
+        "resourceId": "c6245b6a-16a6-42f7-be9b-65e1b64fa17d",
+        "title": "Water Polluting Industries in Punjab from 2003 to 2022",
+        "org": [
+          "Punjab",
+          "Planning Department, Punjab",
+          "Department of Economic and Statistical Organization, Punjab"
+        ],
+        "sampleKeys": [
+          "_number_of_units",
+          "_2022",
+          "_2021",
+          "_2020",
+          "_2019",
+          "_2018",
+          "_2017",
+          "_2016",
+          "_2015",
+          "_2014"
+        ]
+      },
+      {
+        "code": "pb",
+        "state": "Punjab",
+        "resourceId": "d2f2e120-08c0-448d-9640-223938f6b95b",
+        "title": "District-wise Villages/Towns affected in Punjab from 1969 to 2016 (April to March)",
+        "org": [
+          "Punjab",
+          "Planning Department, Punjab",
+          "Department of Economic and Statistical Organization, Punjab"
+        ],
+        "sampleKeys": [
+          "district_year",
+          "_2016",
+          "_2015",
+          "_2014",
+          "_2013",
+          "_2012",
+          "_2011",
+          "_2010",
+          "_2009",
+          "_2008"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "rj",
+    "found": 4,
+    "tools": [
+      {
+        "code": "rj",
+        "state": "Rajasthan",
+        "resourceId": "f1030916-1b66-4250-960f-a0a5980446d4",
+        "title": "Diseases Data : KOTA : 2015-16 to 2017-18",
+        "org": [
+          [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Rajasthan",
+            "Kota"
+          ]
+        ],
+        "sampleKeys": [
+          "city_name",
+          "_year",
+          "number_of_cases_of_persons_affected_by_vector_borne_diseases",
+          "number_of_cases_of_persons_affected_by_water_borne_diseases"
+        ]
+      },
+      {
+        "code": "rj",
+        "state": "Rajasthan",
+        "resourceId": "77c8202a-d3aa-4526-bb3c-294a50d5a060",
+        "title": "Diseases: Udaipur 2015-18",
+        "org": [
+          [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Rajasthan",
+            "Udaipur"
+          ]
+        ],
+        "sampleKeys": [
+          "city_name",
+          "_year",
+          "number_of_cases_of_persons_affected_by_vector_borne_diseases",
+          "number_of_cases_of_persons_affected_by_water_borne_diseases"
+        ]
+      },
+      {
+        "code": "rj",
+        "state": "Rajasthan",
+        "resourceId": "679906ae-8e58-4019-a68b-d961ab39f897",
+        "title": "Street Lights Data Jaipur 2018",
+        "org": [
+          "Ministry of Housing and Urban Affairs",
+          "Smart Cities Mission",
+          "Rajasthan",
+          "Jaipur"
+        ],
+        "sampleKeys": [
+          "city_name",
+          "zone_name",
+          "_ward_name",
+          "number_of_poles",
+          "no_of_poles_of_led_bulbs",
+          "no_of_poles_with_conventional_non_led_lights",
+          "total_length_of_roads_in_km_",
+          "number_of_street_lights_poles_per_km_of_road",
+          "total_no_of_streets",
+          "no_of_streets_with_adequate_street_lighting_facilties"
+        ]
+      },
+      {
+        "code": "rj",
+        "state": "Rajasthan",
+        "resourceId": "733f84df-cce5-4b94-9fa4-0cc8ada91dc3",
+        "title": "VAT and GST : Ajmer : from 2014-15 to 2017-18",
+        "org": [
+          [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Rajasthan",
+            "Ajmer"
+          ]
+        ],
+        "sampleKeys": [
+          "city_name",
+          "_year",
+          "total_vat_gst_collection_during_the_year_in_inr_"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "sk",
+    "found": 4,
+    "tools": [
+      {
+        "code": "sk",
+        "state": "Sikkim",
+        "resourceId": "72346933-88c8-4feb-af09-4c06176d1e71",
+        "title": "Health Institutions in Sikkim 2015",
+        "org": [
+          "Sikkim",
+          "Health Care, Human Services and Family Welfare Department, Sikkim"
+        ],
+        "sampleKeys": [
+          "sl_no",
+          "health_institution",
+          "east",
+          "west",
+          "north",
+          "south"
+        ]
+      },
+      {
+        "code": "sk",
+        "state": "Sikkim",
+        "resourceId": "a2c86b8c-e260-43b4-a74f-f02674a49d39",
+        "title": "School Level Wise School Category - 2015",
+        "org": [
+          "Sikkim",
+          "Human Resource Development Department, Sikkim"
+        ],
+        "sampleKeys": [
+          "school_level",
+          "boys_school",
+          "girls_school",
+          "co_education",
+          "_total"
+        ]
+      },
+      {
+        "code": "sk",
+        "state": "Sikkim",
+        "resourceId": "cf6a385f-2832-4fc5-b7e4-44797a36f54f",
+        "title": "State-wise Worker Population Ratio, 2011-12",
+        "org": [
+          "Sikkim",
+          "Department of Economics, Statistics, Monitoring &amp",
+          " Evaluation"
+        ],
+        "sampleKeys": [
+          "state_union_territory",
+          "__rural_",
+          "_urban_"
+        ]
+      },
+      {
+        "code": "sk",
+        "state": "Sikkim",
+        "resourceId": "45696ab4-6fae-484e-9e1a-b7b57079dd05",
+        "title": "List of Monastic Schools, 2015-16",
+        "org": [
+          "Sikkim",
+          "Human Resource Development Department, Sikkim"
+        ],
+        "sampleKeys": [
+          "sl_no_",
+          "u_dise_code",
+          "name_of_monastic_school_under_ssa"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "tn",
+    "found": 4,
+    "tools": [
+      {
+        "code": "tn",
+        "state": "Tamil Nadu",
+        "resourceId": "88e6ecaa-4ced-4322-a0a7-104869ae0052",
+        "title": "District-wise Population, Beds and Doctors Ratio in 2017-18 by Director of Medical Education (DME) : SHB 2019",
+        "org": [
+          "Tamil Nadu",
+          " Planning, Development and Special Initiatives Department",
+          " Department of Economics and Statistics"
+        ],
+        "sampleKeys": [
+          "_s__no_",
+          "district",
+          "population__in_numbers_",
+          "total_beds__in_numbers_",
+          "population_per_bed_ratio",
+          "total_number_of_doctors",
+          "population_per_doctor"
+        ]
+      },
+      {
+        "code": "tn",
+        "state": "Tamil Nadu",
+        "resourceId": "d4517ac7-526a-4622-bb6a-79a7d53ec557",
+        "title": "Details on the COVID 19 Vaccination Coverage across Health Unit Districtwise in Tamil Nadu till 08.02.2022/day 375",
+        "org": [
+          "Tamil Nadu",
+          " Health and Family Welfare Department",
+          " Public Health and Preventive Medicine"
+        ],
+        "sampleKeys": [
+          "_s__no_",
+          "health_unit_district",
+          "achievement_towards_vaccination_of_1st_dosage_covishield_to_hcw",
+          "achievement_towards_vaccination_of_2nd_dosage_covishield_to_hcw",
+          "achievement_towards_vaccination_of_precaution_dosage_covishield_to_hcw",
+          "achievement_towards_vaccination_of_1st_dosage_covishield_to_flw",
+          "achievement_towards_vaccination_of_2nd_dosage_covishield_to_flw",
+          "achievement_towards_vaccination_of_precaution_dosage_covishield_to_flw",
+          "achievement_towards_vaccination_of_1st_dosage_covishield_to_beneficiaries_of_18_years_and_less_than_44_years_age_group",
+          "achievement_towards_vaccination_of_2nd_dosage_covishield_to_beneficiaries_of_18_years_and_less_than_44_years_age_group"
+        ]
+      },
+      {
+        "code": "tn",
+        "state": "Tamil Nadu",
+        "resourceId": "03717a9c-6569-4894-bc3e-2c0954f33663",
+        "title": "Centre-Wise and District-wise Annual Average Retail Price of Food Grains and Salt in Tamil Nadu 2016-17",
+        "org": [
+          "Tamil Nadu",
+          " Planning, Development and Special Initiatives Department",
+          " Department of Economics and Statistics"
+        ],
+        "sampleKeys": [
+          "sl_no_",
+          "district",
+          "centre",
+          "average_retail_price_of_boiled_rice_fine___in_rs_per_kg___",
+          "average_retail_price_of_boiled_rice_common___in_rs_per_kg_",
+          "average_retail_price_of_cholam_white___in_rs_per_kg_",
+          "average_retail_price_of_cumbu__ordinary____in_rs_per_kg_",
+          "average_retail_price_of_ragi_local___in_rs_per_kg_",
+          "average_retail_price_of_korra__thinai____in_rs_per_kg_",
+          "average_retail_price_of_varagu___in_rs_per_kg_"
+        ]
+      },
+      {
+        "code": "tn",
+        "state": "Tamil Nadu",
+        "resourceId": "af9b9576-6b6e-4822-aece-45853551c7d2",
+        "title": "Rainfall by Districts : SHB 2019",
+        "org": [
+          "Tamil Nadu",
+          " Planning, Development and Special Initiatives Department",
+          " Department of Economics and Statistics"
+        ],
+        "sampleKeys": [
+          "_s__no_",
+          "district",
+          "actual_rainfall_in_south_west_monsoon__june_17_to_september_17__in_mm",
+          "normal_rainfall_in_south_west_monsoon__june_17_to_september_17__in_mm",
+          "actual_rainfall_in_north_east_monsoon__october_17_to_december_17__in_mm",
+          "normal_rainfall_in_north_east_monsoon__october_17_to_december_17__in_mm",
+          "actual_rainfall_in_winter_season__january_18_to_and_february_18__in_mm",
+          "normal_rainfall_in_winter_season__january_18_to_and_february_18__in_mm",
+          "actual_rainfall_in_hot_weather_season__march_18_to_may_18__in_mm",
+          "normal_rainfall_in_hot_weather_season__march_18_to_may_18__in_mm"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "tg",
+    "found": 3,
+    "tools": [
+      {
+        "code": "tg",
+        "state": "Telangana",
+        "resourceId": "f43c043c-238a-400f-9c9c-91fe0d6356fa",
+        "title": "WATER REVENUE DATA : KARIMNAGAR : 2013 to 2018",
+        "org": [
+          [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Telangana",
+            "Karimnagar"
+          ]
+        ],
+        "sampleKeys": [
+          "city_name",
+          "zone_name",
+          "ward_name",
+          "_ward_no_",
+          "water_tax_billed_in_inr_lakhs__total_2013_14",
+          "water_tax_billed_in_inr_lakhs__commercial_2013_14",
+          "water_tax_billed_in_inr_lakhs__residential_2013_14",
+          "water_tax_billed_in_inr_lakhs__total_2014_15",
+          "water_tax_billed_in_inr_lakhs__commercial_2014_15",
+          "water_tax_billed_in_inr_lakhs__residential_2014_15"
+        ]
+      },
+      {
+        "code": "tg",
+        "state": "Telangana",
+        "resourceId": "4a20d640-33be-4ac6-9d87-6a22f376120a",
+        "title": "STREET LIGHTS : KARIMNAGAR JAN 2018-19",
+        "org": [
+          [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Telangana",
+            "Karimnagar"
+          ]
+        ],
+        "sampleKeys": [
+          "city_name",
+          "zone_name",
+          "ward_name",
+          "number_of_poles",
+          "no_of_poles_of_led_bulbs",
+          "no_of_poles_with_conventional_non_led_lights",
+          "total_length_of_roads_in_km_",
+          "number_of_street_lights_poles_per_km_of_road",
+          "total_no_of_streets",
+          "_no_of_streets_with_adequate_street_lighting_facilties"
+        ]
+      },
+      {
+        "code": "tg",
+        "state": "Telangana",
+        "resourceId": "ab57f7ab-2573-4b53-bdc0-c8ba707c83ea",
+        "title": "Street Lights : Warangal : 2019",
+        "org": [
+          [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Telangana",
+            "Greater Warangal"
+          ]
+        ],
+        "sampleKeys": [
+          "city_name",
+          "zone_name",
+          "ward_name",
+          "number_of_poles",
+          "no_of_poles_of_led_bulbs",
+          "no_of_poles_with_conventional_non_led_lights",
+          "total_length_of_roads_in_km_",
+          "number_of_street_lights_poles_per_km_of_road",
+          "total_no_of_streets",
+          "no_of_streets_with_adequate_street_lighting_facilties"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "tr",
+    "found": 3,
+    "tools": [
+      {
+        "code": "tr",
+        "state": "Tripura",
+        "resourceId": "bec46dc1-5674-495f-a225-cb3a45a3ab33",
+        "title": "Household-Agartala as per Feb 2019",
+        "org": [
+          [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Tripura",
+            "Agartala"
+          ]
+        ],
+        "sampleKeys": [
+          "city_name",
+          "zone_name",
+          "_ward_name",
+          "_ward_no_",
+          "total_no_of_households"
+        ]
+      },
+      {
+        "code": "tr",
+        "state": "Tripura",
+        "resourceId": "fbbb4fc1-c8ce-476a-93a5-f3b7a850c232",
+        "title": "Street Light- Agartala: 2019",
+        "org": [
+          [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Tripura",
+            "Agartala"
+          ]
+        ],
+        "sampleKeys": [
+          "city_name",
+          "zone_name",
+          "_ward_name",
+          "number_of_poles",
+          "no_of_poles_of_led_bulbs",
+          "no_of_poles_with_conventional_non_led_lights",
+          "total_length_of_roads_in_km_",
+          "number_of_street_lights_poles_per_km_of_road",
+          "total_no_of_streets",
+          "no_of_streets_with_adequate_street_lighting_facilties"
+        ]
+      },
+      {
+        "code": "tr",
+        "state": "Tripura",
+        "resourceId": "46ee6707-5b9d-4d25-8fe7-20f05997d74d",
+        "title": "Year-wise Details of Production of Natural Rubber (NR) in the Country from 2019-20 to 2023-24",
+        "org": [
+          "Rajya Sabha"
+        ],
+        "sampleKeys": [
+          "_year",
+          "kerala",
+          "tamil_nadu",
+          "tripura",
+          "assam",
+          "meghalaya",
+          "karnataka",
+          "other_states",
+          "_total"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "up",
+    "found": 4,
+    "tools": [
+      {
+        "code": "up",
+        "state": "Uttar Pradesh",
+        "resourceId": "ac98c2ff-ac75-47f6-b186-d98c86bd133d",
+        "title": "Digital Availability in Varanasi : 2018",
+        "org": [
+          "Ministry of Housing and Urban Affairs",
+          "Smart Cities Mission",
+          "Uttar Pradesh",
+          "Varanasi"
+        ],
+        "sampleKeys": [
+          "city_name",
+          "zone_name",
+          "online_payment_of_taxes__property___water___yes___no_",
+          "online_payment_against_traffic_violations__challans__fines__etc____yes___no_",
+          "online_request_for_service_connections__gas__water_supply___yes___no_",
+          "online_request_for_certificates___licenses__marriage__driving__birth___death_certificates___yes___no_",
+          "online_display_of_tenders__for_various_works__across_various_departments__utilities__yes___no_",
+          "online_grievance_management__tracking_of_complaints___yes___no_",
+          "online_buying_of_tickets_and_passes__e_g__public_transport__cultural_events___yes___no_",
+          "online_request_of_disclosure_of_documents__e_g__budgets__plans__rti_requests___yes___no_"
+        ]
+      },
+      {
+        "code": "up",
+        "state": "Uttar Pradesh",
+        "resourceId": "35e30b2b-9639-432d-aaaf-f7d7b4ce91a5",
+        "title": "Health Infrastructure Catalog : Jhansi : 2019",
+        "org": [
+          "Ministry of Housing and Urban Affairs",
+          "Smart Cities Mission",
+          "Uttar Pradesh",
+          "Jhansi"
+        ],
+        "sampleKeys": [
+          "city_name",
+          "zone_name",
+          "ward_name",
+          "_ward_no_",
+          "facility_name",
+          "type___hospital___nursing_home___lab_",
+          "_class____public___private_",
+          "level__primary___secondary___tertiary_",
+          "pharmacy_available___yes_no",
+          "number_of_beds_in_emergency_wards_"
+        ]
+      },
+      {
+        "code": "up",
+        "state": "Uttar Pradesh",
+        "resourceId": "855536aa-66e7-4594-a031-876b0b7e243f",
+        "title": "Vegetable Fruit Market : Aligarh : As on Jan 2019",
+        "org": [
+          "Ministry of Housing and Urban Affairs",
+          "Smart Cities Mission",
+          "Uttar Pradesh",
+          "Aligarh"
+        ],
+        "sampleKeys": [
+          "city",
+          "_ward_no_",
+          "name_of_market",
+          "landmark_location",
+          "type_of_market",
+          "pemanent_temporary"
+        ]
+      },
+      {
+        "code": "up",
+        "state": "Uttar Pradesh",
+        "resourceId": "288c8361-afc5-41e3-8542-083ac98d6ef2",
+        "title": "Diseases : Kanpur Nagar 2015-18",
+        "org": [
+          "Ministry of Housing and Urban Affairs",
+          "Smart Cities Mission",
+          "Uttar Pradesh",
+          "Kanpur"
+        ],
+        "sampleKeys": [
+          "city_name",
+          "_year",
+          "number_of_cases_of_persons_affected_by_vector_borne_diseases",
+          "number_of_cases_of_persons_affected_by_water_borne_diseases"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "ut",
+    "found": 1,
+    "tools": [
+      {
+        "code": "ut",
+        "state": "Uttarakhand",
+        "resourceId": "93e3817f-59b4-49c5-925d-aa16fbb63310",
+        "title": "Crime : 2014 - 2018 Dehradun",
+        "org": [
+          "Ministry of Housing and Urban Affairs",
+          "Smart Cities Mission",
+          "Uttarakhand",
+          "Dehradun"
+        ],
+        "sampleKeys": [
+          "city_name",
+          "_year",
+          "total_number_of_crimes_recorded",
+          "_"
+        ]
+      }
+    ]
+  },
+  {
+    "code": "wb",
+    "found": 3,
+    "tools": [
+      {
+        "code": "wb",
+        "state": "West Bengal",
+        "resourceId": "c4644335-3ae5-4a81-a0ab-2c6f44de4bb7",
+        "title": "Digital Payments Data: New Town Kolkata_2017-19",
+        "org": [
+          "Ministry of Housing and Urban Affairs",
+          "Smart Cities Mission",
+          "West Bengal",
+          "New Town Kolkata"
+        ],
+        "sampleKeys": [
+          "city_name",
+          "month",
+          "amount_collected_from_citizens_by_municipal_corporation___smart_city_for_various_services_such_as_property_tax_etc____total_collection",
+          "amount_collected_from_citizens_by_municipal_corporation___smart_city_for_various_services_such_as_property_tax_etc____amount_collected_as_digital_payment__non_cash__non_cheque_",
+          "domestic_water_charges_by_water_utilities_water_authority__local_body___total_collection",
+          "_domestic_water_charges_by_water_utilities_water_authority__local_body___amount_collected_as_digital_payment__non_cash__non_cheque_",
+          "amount_collected_by_ticket_sale_for_bus_and_metro_services___total_collection",
+          "amount_collected_by_ticket_sale_for_bus_and_metro_services___amount_collected_as_digital_payment__non_cash__non_cheque_"
+        ]
+      },
+      {
+        "code": "wb",
+        "state": "West Bengal",
+        "resourceId": "a7c32721-d82f-4956-b87e-185e634d2aca",
+        "title": "Property Tax Data NewTown Kolkata from 2013-14 to 2017-18",
+        "org": [
+          "Ministry of Housing and Urban Affairs",
+          "Smart Cities Mission",
+          "West Bengal",
+          "New Town Kolkata"
+        ],
+        "sampleKeys": [
+          "city_name",
+          "zone_name",
+          "ward_name",
+          "ward_no_",
+          "_2013_14___property_tax_collection__in_crores____residential",
+          "_2014_15___property_tax_collection__in_crores____residential",
+          "_2015_16___property_tax_collection__in_crores____residential",
+          "_2016_17___property_tax_collection__in_crores____residential",
+          "_2017_18___property_tax_collection__in_crores____residential",
+          "_2013_14___property_tax_demand__in_crores____residential"
+        ]
+      },
+      {
+        "code": "wb",
+        "state": "West Bengal",
+        "resourceId": "b458f54d-b31d-42ec-a825-96887a63a9a8",
+        "title": "Street Lights Data:New Town Kolkata_2018-19",
+        "org": [
+          [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "West Bengal",
+            "New Town Kolkata"
+          ]
+        ],
+        "sampleKeys": [
+          "city_name",
+          "zone_name",
+          "ward_name",
+          "number_of_poles",
+          "no_of_poles_of_led_bulbs",
+          "no_of_poles_with_conventional_non_led_lights",
+          "total_length_of_roads_in_km_",
+          "number_of_street_lights_poles_per_km_of_road",
+          "total_no_of_streets",
+          "no_of_streets_with_adequate_street_lighting_facilties"
+        ]
+      }
+    ]
+  }
+]

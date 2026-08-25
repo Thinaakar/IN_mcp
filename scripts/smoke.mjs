@@ -41,6 +41,11 @@ const smokeCases = [
   ["dl_fuel_prices", { limit: 5 }],
   ["in_crime_ipc_by_state", { state: "Karnataka", limit: 5 }],
   ["in_renewable_energy_share", { limit: 5 }],
+  ["in_mandi_prices", { state: "Tamil Nadu", commodity: "Tomato", limit: 5 }],
+  ["tn_open_data", { query: "TANGEDCO", page: 1 }],
+  ["tn_doctors_beds", { limit: 5 }],
+  ["ap_procurement", { limit: 5 }],
+  ["ka_bmtc_finance", { limit: 5 }],
 ];
 
 const target = process.argv[2] ?? "staging";

@@ -288,7 +288,3 @@ export function toolNamesForScope(scopeCode: string): string[] {
   const exclusive = exclusiveToolsByCode()[scopeCode] ?? [];
   return [...allToolsList(), ...exclusive];
 }
-
-export function mcpServerTitle(envName: string, _scopeCode = INDIA_SCOPE): string {
-  return envName;
-}
