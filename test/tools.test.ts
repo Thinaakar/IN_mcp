@@ -157,10 +157,10 @@ describe("CricAPI helpers", () => {
 });
 
 describe("Resource catalog tools", () => {
-  it("registers 91 verified fixed data.gov.in tools with unique names", () => {
-    expect(RESOURCE_TOOL_DEFS).toHaveLength(91);
-    expect(RESOURCE_TOOL_NAMES).toHaveLength(91);
-    expect(new Set(RESOURCE_TOOL_NAMES).size).toBe(91);
+  it("registers 130 verified fixed data.gov.in tools with unique names", () => {
+    expect(RESOURCE_TOOL_DEFS).toHaveLength(130);
+    expect(RESOURCE_TOOL_NAMES).toHaveLength(130);
+    expect(new Set(RESOURCE_TOOL_NAMES).size).toBe(130);
   });
 
   it("locks NCRB resource IDs resolved via dataset search", () => {
@@ -170,15 +170,36 @@ describe("Resource catalog tools", () => {
     expect(byName.in_crime_against_women).toBe("fee6c4c1-0c08-4527-9887-16567ec56a7f");
   });
 
+  it("locks verified state-exclusive resource IDs", () => {
+    const byName = Object.fromEntries(RESOURCE_TOOL_DEFS.map((d) => [d.name, d.resourceId]));
+    expect(byName.ap_procurement).toBe("3938e80b-28ce-42d8-b9e8-b8fa0a802172");
+    expect(byName.tn_doctors_beds).toBe("88e6ecaa-4ced-4322-a0a7-104869ae0052");
+    expect(byName.tn_food_grain_prices).toBe("03717a9c-6569-4894-bc3e-2c0954f33663");
+    expect(byName.tn_rainfall).toBe("af9b9576-6b6e-4822-aece-45853551c7d2");
+    expect(byName.ka_bmtc_finance).toBe("78abe18e-e988-46a7-86ad-0808c88b86e3");
+    expect(byName.mh_fair_price_shops).toBe("87e32686-a3a1-4b2f-ba3f-ac6cf7327f86");
+  });
+
+  it("prefixes exclusive resource tools with exclusiveTo and no in_", () => {
+    for (const def of RESOURCE_TOOL_DEFS) {
+      if (!def.exclusiveTo) {
+        continue;
+      }
+      expect(def.name.startsWith("in_")).toBe(false);
+      expect(def.name.startsWith(`${def.exclusiveTo}_`)).toBe(true);
+    }
+  });
+
   it("exposes catalog tools plus elevation and postal_code on the server tool list", () => {
     expect(toolNames).toContain("in_elevation");
     expect(toolNames).toContain("in_postal_code");
     expect(toolNames).toContain("in_dilrmp_clr");
     expect(toolNames).toContain("ka_bus_stops");
     expect(toolNames).toContain("mh_land_use");
+    expect(toolNames).toContain("tn_doctors_beds");
     expect(toolNames).toContain("tn_open_data");
     expect(toolNames).not.toContain("in_bus_stops");
-    expect(toolNames.length).toBe(25 + 2 + 91 + 28);
+    expect(toolNames.length).toBe(25 + 2 + 130 + 28);
   });
 });
 
@@ -209,11 +230,12 @@ describe("MCP catalog (single /mcp)", () => {
     expect(catalog.allTools).toContain("in_dilrmp_northeast");
     expect(catalog.allTools).not.toContain("ka_bus_stops");
     expect(catalog.allTools).not.toContain("dl_fuel_prices");
-    expect(catalog.karnataka).toEqual(expect.arrayContaining(["ka_bus_stops", "ka_bus_services", "ka_bus_routes", "ka_forest_cover", "ka_open_data"]));
-    expect(catalog.tamilnadu).toEqual(expect.arrayContaining(["tn_open_data"]));
-    expect(catalog.andhrapradesh).toEqual(expect.arrayContaining(["ap_open_data"]));
+    expect(catalog.karnataka).toEqual(expect.arrayContaining(["ka_bus_stops", "ka_bus_services", "ka_bus_routes", "ka_forest_cover", "ka_bmtc_finance", "ka_crime_review", "ka_open_data"]));
+    expect(catalog.tamilnadu).toEqual(expect.arrayContaining(["tn_doctors_beds", "tn_food_grain_prices", "tn_rainfall", "tn_open_data"]));
+    expect(catalog.andhrapradesh).toEqual(expect.arrayContaining(["ap_procurement", "ap_rbk_procurement", "ap_open_data"]));
     expect(catalog.delhi).toEqual(expect.arrayContaining(["dl_fuel_prices", "dl_lpg_price"]));
-    expect(catalog.maharashtra).toEqual(expect.arrayContaining(["mh_land_use", "mh_forest_cover", "mh_open_data"]));
+    expect(catalog.maharashtra).toEqual(expect.arrayContaining(["mh_land_use", "mh_forest_cover", "mh_fair_price_shops", "mh_stamp_duty", "mh_open_data"]));
+    expect(new Set(catalog.tamilnadu as string[]).size).toBe((catalog.tamilnadu as string[]).length);
   });
 
   it("names exclusive tools {code}_{topic} without in_ prefix", () => {
@@ -221,6 +243,11 @@ describe("MCP catalog (single /mcp)", () => {
     expect(exclusive.every((name) => !name.startsWith("in_"))).toBe(true);
     expect(exclusive).toContain("ka_bus_stops");
     expect(exclusive).toContain("mh_land_use");
+    expect(exclusive).toContain("tn_doctors_beds");
+    expect(exclusive).toContain("ap_procurement");
+    for (const names of Object.values(exclusiveToolsByCode())) {
+      expect(new Set(names).size).toBe(names.length);
+    }
     expect(allToolsList().every((name) => name.startsWith("in_"))).toBe(true);
   });
 

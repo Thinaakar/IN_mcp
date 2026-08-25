@@ -1,0 +1,4785 @@
+{
+  "out": [
+    {
+      "code": "ap",
+      "state": "Andhra Pradesh",
+      "found": 10,
+      "tools": [
+        {
+          "code": "ap",
+          "state": "Andhra Pradesh",
+          "resourceId": "3938e80b-28ce-42d8-b9e8-b8fa0a802172",
+          "title": "District Wise Procurement Details",
+          "org": [
+            "Andhra Pradesh",
+            "Agriculture and Marketing Department, Andhra Pradesh",
+            "AP Markfed"
+          ],
+          "sector": [
+            "Agriculture"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "district",
+            "commodity",
+            "season",
+            "qty_mts_",
+            "no_of_farmers",
+            "amount_rs_"
+          ]
+        },
+        {
+          "code": "ap",
+          "state": "Andhra Pradesh",
+          "resourceId": "29312d93-bbf1-4fb7-9024-e55d8b481f90",
+          "title": "Monthly Rainfall : 2016 to 2021",
+          "org": [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Andhra Pradesh",
+            "Kakinada"
+          ],
+          "sector": [
+            "Environment and Forest",
+            "Natural Resources"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "month_year",
+            "monthly_rainfall_in_mm"
+          ]
+        },
+        {
+          "code": "ap",
+          "state": "Andhra Pradesh",
+          "resourceId": "b4aed188-6ce1-4a80-ac77-6e458c65ca0e",
+          "title": "Electric Supply : 2020",
+          "org": [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Andhra Pradesh",
+            "Amravati"
+          ],
+          "sector": [
+            "Power and Energy",
+            "Renewable"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "year",
+            "total_installed_capacity_for_electricity_generation__mw_",
+            "total_energy_generated_in_the_city__mw_",
+            "total_energy_supplied_in_the_city__mw_"
+          ]
+        },
+        {
+          "code": "ap",
+          "state": "Andhra Pradesh",
+          "resourceId": "e629d855-2889-420c-b388-9ab251c2b2ed",
+          "title": "RBK Wise Procurement Details ",
+          "org": [
+            "Andhra Pradesh",
+            "Agriculture and Marketing Department, Andhra Pradesh",
+            "AP Markfed"
+          ],
+          "sector": [
+            "Agriculture"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "district",
+            "mandal",
+            "rbk",
+            "qty_mts_",
+            "no_of_farmers",
+            "amount_rs_",
+            "season_"
+          ]
+        },
+        {
+          "code": "ap",
+          "state": "Andhra Pradesh",
+          "resourceId": "fa899fe8-ec92-45f2-833c-460f1d8f9f4e",
+          "title": "AQI : 2020 to  2021",
+          "org": [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Andhra Pradesh",
+            "Kakinada"
+          ],
+          "sector": [
+            "Environment and Forest",
+            "Residential Air Pollution"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "cityname",
+            "month_year",
+            "_haqi",
+            "pm2_5__ug_m_",
+            "pm2_10__ug_m_",
+            "co2__ppm_",
+            "co__mg_m_",
+            "no2__ug_m_",
+            "o3__ug_m_",
+            "no__ppb_"
+          ]
+        },
+        {
+          "code": "ap",
+          "state": "Andhra Pradesh",
+          "resourceId": "6fd93865-8746-4576-b091-b2137f3b45cb",
+          "title": "Diseases Tirupati 2015 - 2018",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Andhra Pradesh",
+              "Tirupati"
+            ]
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "_year",
+            "number_of_cases_of_persons_affected_by_vector_borne_diseases",
+            "number_of_cases_of_persons_affected_by_water_borne_diseases"
+          ]
+        },
+        {
+          "code": "ap",
+          "state": "Andhra Pradesh",
+          "resourceId": "9f162760-7237-4fa5-b417-39400c02cbf1",
+          "title": "Diseases : Visakhapatnam : 2015 - 2018",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Andhra Pradesh",
+              "Visakhapatnam"
+            ]
+          ],
+          "sector": [
+            "Health and Family welfare",
+            "Health"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "_year",
+            "number_of_cases_of_persons_affected_by_vector_borne_diseases",
+            "number_of_cases_of_persons_affected_by_water_borne_diseases"
+          ]
+        },
+        {
+          "code": "ap",
+          "state": "Andhra Pradesh",
+          "resourceId": "def0a277-d8a9-4836-8416-49472c223f64",
+          "title": "ITC Neighbourhood 2 : Visakhapatnam As on Jan 2019",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Andhra Pradesh",
+              "Visakhapatnam"
+            ]
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "zone_name",
+            "ward_name",
+            "ward_no_",
+            "area_in_sq_km_",
+            "residential_area_in_sq_km_",
+            "non_residential_area_in_sq_km_",
+            "open_space_area_in_sqkm_",
+            "area_covered_under_parks_playgrounds_and_open_spaces_in_sq_km_"
+          ]
+        },
+        {
+          "code": "ap",
+          "state": "Andhra Pradesh",
+          "resourceId": "b3838665-b6c9-4191-8011-b4237b9686a8",
+          "title": "Street Lights : Visakhapatnam : As on Jan 2019",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Andhra Pradesh",
+              "Visakhapatnam"
+            ]
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "zone_name",
+            "ward_name",
+            "number_of_poles",
+            "no_of_poles_of_led_bulbs",
+            "no_of_poles_with_conventional_non_led_lights",
+            "total_length_of_roads_in_km_",
+            "number_of_street_lights_poles_per_km_of_road",
+            "total_no_of_streets",
+            "no_of_streets_with_adequate_street_lighting_facilties"
+          ]
+        },
+        {
+          "code": "ap",
+          "state": "Andhra Pradesh",
+          "resourceId": "64699b9f-f2d8-4c62-a928-0df4a6e6b537",
+          "title": "Road Safety : Visakhapatnam : 2016 - 2018",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Andhra Pradesh",
+              "Visakhapatnam"
+            ]
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "_2018___total_injuries___pedestrian",
+            "_2018___total_injuries___bicycles",
+            "_2018___total_injuries___two_wheelers",
+            "_2018___total_injuries___other_modes_of_road_transport_auto_bus_lorry_",
+            "_2018___total_injuries",
+            "_2018___total_fatalities___pedestrian",
+            "_2018___total_fatalities___bicycles",
+            "_2018___total_fatalities___two_wheelers",
+            "_2018___total_fatalities___other_modes_of_road_transport_auto_bus_lorry_"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ar",
+      "state": "Arunachal Pradesh",
+      "found": 10,
+      "tools": [
+        {
+          "code": "ar",
+          "state": "Arunachal Pradesh",
+          "resourceId": "5940868c-e2a7-4241-8573-6655fea5a383",
+          "title": "State-wise Cropped Area Damaged due to Hydro-Meteorological Calamities/Hazards from 2018-19 to 2020-21",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl__no_",
+            "state",
+            "cropped_area_damaged__in_lakh_ha_____2018_19",
+            "cropped_area_damaged__in_lakh_ha_____2019_20",
+            "cropped_area_damaged__in_lakh_ha_____2020_21"
+          ]
+        },
+        {
+          "code": "ar",
+          "state": "Arunachal Pradesh",
+          "resourceId": "5267ca45-cade-41b1-a718-ae54ac5d8ce8",
+          "title": "Fuel/Source-wise Details of Electricity Generated from Renewable Energy Sources (RES) (excluding Large Hydro) in Uttar Pradesh from 2019-20 to 2023-24",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl__no_",
+            "fuel_source",
+            "_2019_20",
+            "_2020_21",
+            "_2021_22",
+            "_2022_23",
+            "_2023_24"
+          ]
+        },
+        {
+          "code": "ar",
+          "state": "Arunachal Pradesh",
+          "resourceId": "b38985cd-a488-476b-a625-fd963083a371",
+          "title": "State/UT-wise Details of Crop Losses to Hydro-meteorological Disasters during 2024-25",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl__no_",
+            "state_ut",
+            "cropped_area_affected"
+          ]
+        },
+        {
+          "code": "ar",
+          "state": "Arunachal Pradesh",
+          "resourceId": "e19ae6c6-84fb-4b66-9b9c-8e7453418693",
+          "title": "State/UT-wise Details of Installed Capacity of Wind Power, Solar Power and Small Hydro Power as on 28-02-2025",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl__no_",
+            "state_ut",
+            "wind_power",
+            "solar_power",
+            "small_hydro_power"
+          ]
+        },
+        {
+          "code": "ar",
+          "state": "Arunachal Pradesh",
+          "resourceId": "bb90ae21-d53e-4b86-ae00-b5f4bf3b9127",
+          "title": "State/UT-wise Details of Estimated Potential of Wind Power, Solar Power and Small Hydro Power (In reply to Unstarred Question as on 18th March 2025)",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl__no_",
+            "state_ut",
+            "wind_power_at_150m",
+            "solar_power",
+            "small_hydro_power"
+          ]
+        },
+        {
+          "code": "ar",
+          "state": "Arunachal Pradesh",
+          "resourceId": "e4e1c996-24cb-4313-aeb9-a1f3979aee45",
+          "title": "District-wise Details of Hydro Electric Projects (above 25 MW) Sanctioned in Himachal Pradesh (in reply to Unstarred Question as on 3rd February 2025)",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_sl__no_",
+            "name_of_scheme",
+            "district",
+            "sector",
+            "present_status",
+            "installed_capacity"
+          ]
+        },
+        {
+          "code": "ar",
+          "state": "Arunachal Pradesh",
+          "resourceId": "10cf91e9-125c-4d96-a844-6465cb0ed9f9",
+          "title": "Year-wise Details of Weighted Average Rate of Sale of Power (WARSP) from Private sector (Thermal/Hydro) under Distribution Company (DISCOMs) form 2019-20 to 2022-23",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_year",
+            "warsp__in_rs_kwh_"
+          ]
+        },
+        {
+          "code": "ar",
+          "state": "Arunachal Pradesh",
+          "resourceId": "61c181fc-4843-4ec8-93b9-e9cb5527974a",
+          "title": "State/UT-wise Details of Hydro Electric Schemes and Pumped Storage Schemes Concurred by Central Electricity Authority (in reply to Unstarred Question as on 9th December 2024)",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl__no_",
+            "state_ut",
+            "name_of_scheme",
+            "sector",
+            "developer",
+            "date_of_cea_concurrence_appraisal",
+            "remarks",
+            "installed_capacity__mw_"
+          ]
+        },
+        {
+          "code": "ar",
+          "state": "Arunachal Pradesh",
+          "resourceId": "52d7a3fd-1c6a-482c-84dd-0041d3408075",
+          "title": "State-wise Funds Released under the Scheme of Support to Tribal Research Institutes from 2018-19 to 2021-22",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_sl__no_",
+            "state",
+            "fund_released___2018_19_",
+            "fund_released__2019_20",
+            "fund_released___2020_21",
+            "fund_released___2021_22__as_on_19_07_2021_"
+          ]
+        },
+        {
+          "code": "ar",
+          "state": "Arunachal Pradesh",
+          "resourceId": "7fccd662-8f14-4c36-a470-470bb2ef42e6",
+          "title": "State/Ut-wise list of Particularly Vulnerable Tribal Groups (PVTGs) - 2015 (From: Ministry of Tribal Affairs)",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "s_no_",
+            "name_of_the_state__ut",
+            "name_of_pvtgs"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "as",
+      "state": "Assam",
+      "found": 10,
+      "tools": [
+        {
+          "code": "as",
+          "state": "Assam",
+          "resourceId": "48571d3f-38c8-4cba-b94f-fa12dddbdcdf",
+          "title": " Assam Public Procurement Data 2021-22",
+          "org": [
+            "Assam",
+            "Finance Department,Assam",
+            "Assam Society for Comprehensive Financial Management System(AS-CFMS)"
+          ],
+          "sector": [
+            "All",
+            "Finance"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "ocid",
+            "initiationtype",
+            "tag",
+            "id",
+            "date",
+            "tender_id",
+            "tender_externalreference",
+            "tender_title",
+            "tender_mainprocurementcategory",
+            "tender_procurementmethod"
+          ]
+        },
+        {
+          "code": "as",
+          "state": "Assam",
+          "resourceId": "fbf7f636-5926-41d5-b168-b030c3415a5c",
+          "title": " Assam Public Procurement Data 2020-21",
+          "org": [
+            "Assam",
+            "Finance Department,Assam",
+            "Assam Society for Comprehensive Financial Management System(AS-CFMS)"
+          ],
+          "sector": [
+            "All",
+            "Finance"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "ocid",
+            "initiationtype",
+            "tag",
+            "id",
+            "date",
+            "tender_id",
+            "tender_externalreference",
+            "tender_title",
+            "tender_mainprocurementcategory",
+            "tender_procurementmethod"
+          ]
+        },
+        {
+          "code": "as",
+          "state": "Assam",
+          "resourceId": "deadcf24-4261-4574-b766-ccb377dd0f3b",
+          "title": " Assam Public Procurement Data 2019-20",
+          "org": [
+            "Assam",
+            "Finance Department,Assam",
+            "Assam Society for Comprehensive Financial Management System(AS-CFMS)"
+          ],
+          "sector": [
+            "All",
+            "Finance"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "ocid",
+            "initiationtype",
+            "tag",
+            "id",
+            "date",
+            "tender_id",
+            "tender_externalreference",
+            "tender_title",
+            "tender_mainprocurementcategory",
+            "tender_procurementmethod"
+          ]
+        },
+        {
+          "code": "as",
+          "state": "Assam",
+          "resourceId": "64fa2910-4d48-469d-92d8-d00086d1e462",
+          "title": "Assam Public Procurement Data 2018-19",
+          "org": [
+            "Assam",
+            "Finance Department,Assam",
+            "Assam Society for Comprehensive Financial Management System(AS-CFMS)"
+          ],
+          "sector": [
+            "All",
+            "Finance"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "ocid",
+            "initiationtype",
+            "tag",
+            "id",
+            "date",
+            "tender_id",
+            "tender_externalreference",
+            "tender_title",
+            "tender_mainprocurementcategory",
+            "tender_procurementmethod"
+          ]
+        },
+        {
+          "code": "as",
+          "state": "Assam",
+          "resourceId": "d9a9fd53-4edd-4f65-8dcd-d5844f7fa76e",
+          "title": " Assam Public Procurement Data 2017-18",
+          "org": [
+            "Assam",
+            "Finance Department,Assam",
+            "Assam Society for Comprehensive Financial Management System(AS-CFMS)"
+          ],
+          "sector": [
+            "All",
+            "Finance"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "ocid",
+            "initiationtype",
+            "tag",
+            "id",
+            "date",
+            "tender_id",
+            "tender_externalreference",
+            "tender_title",
+            "tender_mainprocurementcategory",
+            "tender_procurementmethod"
+          ]
+        },
+        {
+          "code": "as",
+          "state": "Assam",
+          "resourceId": "91e35f71-68d2-4e77-ae6b-e5a16642ffc1",
+          "title": "Assam Public Procurement Data 2016-17",
+          "org": [
+            "Assam",
+            "Finance Department,Assam",
+            "Assam Society for Comprehensive Financial Management System(AS-CFMS)"
+          ],
+          "sector": [
+            "All",
+            "Finance"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "ocid",
+            "initiationtype",
+            "tag",
+            "id",
+            "date",
+            "tender_id",
+            "tender_externalreference",
+            "tender_title",
+            "tender_mainprocurementcategory",
+            "tender_procurementmethod"
+          ]
+        },
+        {
+          "code": "as",
+          "state": "Assam",
+          "resourceId": "ee545453-ed04-43f7-9a2a-816799a67445",
+          "title": "State-wise details of cropped areas affected due to cyclonic storms/ flash flood/floods/landslides/ cloudburst and drought etc. during 2015-16 (From: Ministry of Agriculture and Farmers Welfare)",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_s_no_",
+            "state",
+            "crops_area_affected_on_account_of_cyclonic_storms__flash_flood_floods_landslides__cloudburst__etc_",
+            "crops_area_affected_on_account_of_drought_"
+          ]
+        },
+        {
+          "code": "as",
+          "state": "Assam",
+          "resourceId": "205f2bd6-7ab7-4512-abf2-4df687d32696",
+          "title": "State-wise Number of Flood and Erosion Management Schemes/Proposal Received for Purpose of Techno-Economic Appraisal in the State of Andhra Pradesh as on 21-03-2025",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_sl__no_",
+            "state_project_authority",
+            "schemes_received",
+            "appraisal",
+            "cleared_schemes",
+            "deleted_schemes"
+          ]
+        },
+        {
+          "code": "as",
+          "state": "Assam",
+          "resourceId": "65b548a6-b34f-4c9e-b0b6-a776c862d903",
+          "title": "State-wise Details of Central Assistance Released under Flood Management and Border Areas Programme (FMBAP) in the State of Andhra Pradesh as on 21-03-2025",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl__no_",
+            "state",
+            "under_fmp_component",
+            "under_rmba_component",
+            "total_central_assistance_released_under_fmbap"
+          ]
+        },
+        {
+          "code": "as",
+          "state": "Assam",
+          "resourceId": "dde6d4c6-8564-4511-bb76-46907378435a",
+          "title": "State-wise Details of Projects Approved and Amount Released Flood Management for three Metro Cities and to Prevent Urban Flooding for Four Cities from 2021-22 to 2025-26",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_sl__no_",
+            "states",
+            "cities",
+            "approved_project_amount",
+            "release_of_1st_installment"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "br",
+      "state": "Bihar",
+      "found": 10,
+      "tools": [
+        {
+          "code": "br",
+          "state": "Bihar",
+          "resourceId": "41b4be99-0fad-4af3-9771-746ce7b7d59b",
+          "title": "Cultural Heritage Patna",
+          "org": [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Bihar",
+            "Patna"
+          ],
+          "sector": [
+            "Art and Culture",
+            "Heritage"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "zone_name",
+            "name_of_heritage",
+            "nature_of_heritage__open_space__monuments__street_etc__",
+            "age_of_heritage__in_years_",
+            "_"
+          ]
+        },
+        {
+          "code": "br",
+          "state": "Bihar",
+          "resourceId": "b5ce0e03-a1ed-496b-abd3-90fc80ff9c0c",
+          "title": "census",
+          "org": [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Bihar",
+            "Patna"
+          ],
+          "sector": [
+            "Census",
+            "Census and Surveys",
+            "Education",
+            "House listing and Housing Census",
+            "Secondary"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "zone_name",
+            "ward_name",
+            "ward_no_",
+            "area__in_sq_km_",
+            "total_population__in_thousands_",
+            "population___male__in_thousands_",
+            "population___female__in_thousands_",
+            "population___children_aged_0_14__in_thousands_",
+            "population___youth_aged_15_24__in_thousands_"
+          ]
+        },
+        {
+          "code": "br",
+          "state": "Bihar",
+          "resourceId": "396bb6cc-8bd2-432f-adf1-a3f57fd179a4",
+          "title": "Transportation Patna",
+          "org": [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Bihar",
+            "Patna"
+          ],
+          "sector": [
+            "Road Transport",
+            "Transport"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "population__2011_",
+            "_year",
+            "presence_of_organized_bus_transport_system__y_n_",
+            "no__of_bus_service_providers",
+            "total_no__of_buses_plying_within_the_city",
+            "no__of_bus_stops_that_are_disable_friendly",
+            "_"
+          ]
+        },
+        {
+          "code": "br",
+          "state": "Bihar",
+          "resourceId": "0606f17a-0b94-478f-97c8-4e825fcad129",
+          "title": "Street Lights 2018: Patna",
+          "org": [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Bihar",
+            "Patna"
+          ],
+          "sector": [
+            "Urban",
+            "Development"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "zone_name",
+            "ward_name",
+            "number_of_poles",
+            "no_of_poles_of_led_bulbs",
+            "no_of_poles_with_conventional_non_led_lights",
+            "total_length_of_roads_in_km_",
+            "number_of_street_lights_poles_per_km_of_road",
+            "total_no_of_streets",
+            "no_of_streets_with_adequate_street_lighting_facilties"
+          ]
+        },
+        {
+          "code": "br",
+          "state": "Bihar",
+          "resourceId": "bbb7a83c-887f-4bc3-b378-cb94d3b76200",
+          "title": "Street Lights : Bihar Sharif : As on Jan 2019",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Bihar",
+              "Bihar Sharif"
+            ]
+          ],
+          "sector": [
+            "Power and Energy",
+            "Renewable"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "zone_name",
+            "_ward_name",
+            "number_of_poles",
+            "no_of_poles_of_led_bulbs",
+            "no_of_poles_with_conventional_non_led_lights",
+            "total_length_of_roads_in_km_",
+            "number_of_street_lights_poles_per_km_of_road",
+            "total_no_of_streets",
+            "no_of_streets_with_adequate_street_lighting_facilties"
+          ]
+        },
+        {
+          "code": "br",
+          "state": "Bihar",
+          "resourceId": "ddc7d28f-fdbc-4d55-be72-97df5fee1ea9",
+          "title": "Project-wise Details of Some Major Projects Delayed Due to Land Acquisition as on 01-04-2024",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_sl__no_",
+            "name_of_the_project",
+            "total_land_required__in_ha_",
+            "land_acquired__in_ha_",
+            "balance_land_to_be_acquired__in_ha_"
+          ]
+        },
+        {
+          "code": "br",
+          "state": "Bihar",
+          "resourceId": "a0b5a8e0-6146-443d-bb76-7a87017a1a6b",
+          "title": "Taluka wise Land Use Information1 during 2023-24",
+          "org": [
+            "Maharashtra",
+            " Planning Department, Maharashtra",
+            " District Statistical Office, Jalna"
+          ],
+          "sector": [
+            "Statistics"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sr__no_",
+            "taluka",
+            "current_fallen_land_a_",
+            "other_fallen_land_b_",
+            "total_fallen_land_a_b_",
+            "net_area_c__",
+            "more_than_one__dusota_area__d_",
+            "total_area_under_cultivation__c_d_"
+          ]
+        },
+        {
+          "code": "br",
+          "state": "Bihar",
+          "resourceId": "246245a3-dbb8-4e06-aa93-a8df95f343f3",
+          "title": "Land Use Information Jalna District, Maharashtra - 2023-24",
+          "org": [
+            "Maharashtra",
+            " Planning Department, Maharashtra",
+            " District Statistical Office, Jalna"
+          ],
+          "sector": [
+            "Statistics"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sr__no_",
+            "taluka",
+            "total_area",
+            "forest_occupied_area",
+            "non_agricultural_land_land_under_non_agricultural_use",
+            "non_agricultural_land_fallen_uncultivable_land",
+            "non_agricultural_land__total__5_6_",
+            "total_uncultivated_land_excluding_fallow_land"
+          ]
+        },
+        {
+          "code": "br",
+          "state": "Bihar",
+          "resourceId": "8100747f-3431-48a6-bb09-849aa04dd772",
+          "title": "Frequency of cyclones (maximum wind speed of 34 knots andabove) over the Bay of Bengal (BOB), Arabian Sea (AS) and land surface of India during 1891-2016",
+          "org": [
+            "Ministry of Earth Sciences",
+            " India Meteorological Department (IMD)",
+            " India Meteorological Department (IMD), Pune"
+          ],
+          "sector": [
+            "Science and Technology",
+            " Atmospheric Science",
+            " Earth Sciences"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "year",
+            "_january__bob",
+            "_january__as",
+            "_january__land",
+            "_january__total",
+            "_february__bob",
+            "_february__as",
+            "_february__land",
+            "february__total",
+            "january__february__winter___bob"
+          ]
+        },
+        {
+          "code": "br",
+          "state": "Bihar",
+          "resourceId": "15752518-baff-4672-8186-a41829c70496",
+          "title": "4_4.19_w_Total agriculture land holders_Others",
+          "org": [
+            "Karnataka",
+            "Planning and Statistics Department, Karnataka",
+            "Directorate of Economics &amp",
+            " Statistics"
+          ],
+          "sector": [
+            "Statistics"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "taluk_name",
+            "total_agricultural_land_holders__others_numbers_male",
+            "total_agricultural_land_holders__other_numbers_female",
+            "total_agricultural_land_holders__others_numbers_institution",
+            "total_agricultural_land_holders__others_numbers_total",
+            "total_agricultural_land_holders__others_area_male",
+            "total_agricultural_land_holders__others_area_female",
+            "total_agricultural_land_holders__others_area_institutions",
+            "total_agricultural_land_holders__others_area_total"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ct",
+      "state": "Chhattisgarh",
+      "found": 10,
+      "tools": [
+        {
+          "code": "ct",
+          "state": "Chhattisgarh",
+          "resourceId": "c5f3a807-98a1-4bb1-a3c2-7d94881e26c2",
+          "title": "AQI : 2017 to 2018",
+          "org": [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Chhattisgarh",
+            "Bilaspur"
+          ],
+          "sector": [
+            "Environment and Forest",
+            "Vehicular Air Pollution"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "month__year",
+            "monthly_mean_average_concentration___pm2_5",
+            "monthly_mean_concentration___pm10",
+            "monthly_mean_concentration___no2",
+            "monthly_mean_concentration___so2",
+            "monthly_mean_concentration___o3",
+            "no_of_aqm_sensors___environmental_sensors_deployed"
+          ]
+        },
+        {
+          "code": "ct",
+          "state": "Chhattisgarh",
+          "resourceId": "d3c104d1-7edb-483b-a61a-6891b323203b",
+          "title": "Diseases : Atalnagar : 2015-18",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Chhattisgarh",
+              "Naya Raipur"
+            ]
+          ],
+          "sector": [
+            "Health and Family welfare",
+            "Health"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "_year",
+            "number_of_cases_of_persons_affected_by_vector_borne_diseases",
+            "number_of_cases_of_persons_affected_by_water_borne_diseases"
+          ]
+        },
+        {
+          "code": "ct",
+          "state": "Chhattisgarh",
+          "resourceId": "8a5f441f-ff3d-4ccb-84a6-5a20b6badd19",
+          "title": "Diseases: Raipur 2015-18",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Chhattisgarh",
+              "Raipur"
+            ]
+          ],
+          "sector": [
+            "Health and Family welfare",
+            "Health"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "_year",
+            "number_of_cases_of_persons_affected_by_vector_borne_diseases",
+            "number_of_cases_of_persons_affected_by_water_borne_diseases"
+          ]
+        },
+        {
+          "code": "ct",
+          "state": "Chhattisgarh",
+          "resourceId": "522733ba-c0a6-4c9f-a03c-5f4b93ed9fe5",
+          "title": "Diseases : Bilaspur 2015-18",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Chhattisgarh",
+              "Bilaspur"
+            ]
+          ],
+          "sector": [
+            "Urban",
+            "Development"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "_year",
+            "number_of_cases_of_persons_affected_by_vector_borne_diseases",
+            "number_of_cases_of_persons_affected_by_water_borne_diseases"
+          ]
+        },
+        {
+          "code": "ct",
+          "state": "Chhattisgarh",
+          "resourceId": "168bab1d-3012-4014-b4eb-6d7c695616d0",
+          "title": "Solid Waste Collection Revenue Data : Raipur As on 2019",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Chhattisgarh",
+              "Raipur"
+            ]
+          ],
+          "sector": [
+            "Others"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "_zone_name",
+            "ward_name",
+            "ward_no_",
+            "door_to_door_d2d_collection_status___no_of_households_hh_",
+            "door_to_door_d2d_collection_status___no_of_hh_under_daily_d2d_collection",
+            "user_charge_collection___whether_user_charges_imposed_y_n_",
+            "user_charge_collection___rate_in_inr_",
+            "_user_charge_collection___monthly_revenue_collected_in_lakhs_"
+          ]
+        },
+        {
+          "code": "ct",
+          "state": "Chhattisgarh",
+          "resourceId": "cdcc289c-7ed6-412f-9681-a96cfbe8f454",
+          "title": "Education Data : Raipur : 2015-18",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Chhattisgarh",
+              "Raipur"
+            ]
+          ],
+          "sector": [
+            "Education",
+            "Elementary",
+            "Higher Education",
+            "Secondary"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "zone_name",
+            "ward_name",
+            "_2015_16___total_no_of_schools_within_corporation_city_limits_",
+            "_2016_17___total_no_of_schools_within_corporation_city_limits_",
+            "_2017_18___total_no_of_schools_within_corporation_city_limits_",
+            "_2015_16___total_no_of_school_aged_population_age_5___total",
+            "_2016_17___total_no_of_school_aged_population_age_5___total",
+            "_2017_18___total_no_of_school_aged_population_age_5___total",
+            "_2015_16___total_no_of_school_aged_population_age_5___male"
+          ]
+        },
+        {
+          "code": "ct",
+          "state": "Chhattisgarh",
+          "resourceId": "2d87eecd-9065-47ad-9a45-b32460e35336",
+          "title": "Streetlights : Raipur : As on 2019",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Chhattisgarh",
+              "Raipur"
+            ]
+          ],
+          "sector": [
+            "Infrastructure",
+            "Power",
+            "Others"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "_zone_name",
+            "ward_name",
+            "number_of_poles",
+            "no_of_poles_of_led_bulbs",
+            "no_of_poles_with_conventional_non_led_lights",
+            "total_length_of_roads_in_km_",
+            "number_of_street_lights_poles_per_km_of_road",
+            "total_no_of_streets",
+            "_no_of_streets_with_adequate_street_lighting_facilties"
+          ]
+        },
+        {
+          "code": "ct",
+          "state": "Chhattisgarh",
+          "resourceId": "0174e680-dde6-4862-b318-d947029621bd",
+          "title": "Public Amenities : Raipur : as on 2019",
+          "org": [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Chhattisgarh",
+            "Raipur"
+          ],
+          "sector": [
+            "Urban",
+            "Development"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "_zone_name",
+            "ward_name",
+            "ward_no",
+            "no_of_public_primary_schools",
+            "no_of_public_secondary_schools",
+            "no_of_public_higher_secondary_schools",
+            "no_of_kindergartens",
+            "no_of_schools_for_specially_abled_blind_deaf_autistic_",
+            "no_of_graduation_colleges"
+          ]
+        },
+        {
+          "code": "ct",
+          "state": "Chhattisgarh",
+          "resourceId": "d157c8d1-922c-4625-86d6-252cd1dd477f",
+          "title": "Community Facilities : Raipur : As on 2019",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Chhattisgarh",
+              "Raipur"
+            ]
+          ],
+          "sector": [
+            "Urban",
+            "Development"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "zone_name",
+            "ward_name",
+            "ward_no_",
+            "type_community_hall_auditorium_convention_center_swimming_pools_sports_ground_theatre",
+            "facility_name",
+            "capacity_wherever_applicable_"
+          ]
+        },
+        {
+          "code": "ct",
+          "state": "Chhattisgarh",
+          "resourceId": "508920fe-4c2b-407d-b247-9717da78323b",
+          "title": "Water Consumption : Raipur : As on 2019",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Chhattisgarh",
+              "Raipur"
+            ]
+          ],
+          "sector": [
+            "Water Resources",
+            "Drinking Water"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "_zone_name",
+            "ward_name",
+            "ward_no_",
+            "water_supply_capacity_litres_day_",
+            "water_usage_or_domestic_water_consumption_litres_day_",
+            "_age_of_area_with_water_supply_network"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ga",
+      "state": "Goa",
+      "found": 10,
+      "tools": [
+        {
+          "code": "ga",
+          "state": "Goa",
+          "resourceId": "c4de47f0-31be-4593-82e2-95b95cd3c0f6",
+          "title": "Month-wise Details of Fee from Tourism (US dollar billion) in india from 2019 to 2021",
+          "org": [
+            "Ministry of Tourism"
+          ],
+          "sector": [
+            "Travel and Tourism"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl__no_",
+            "month",
+            "fee_from_tourism__in_us_dollar_billon____2019",
+            "fee_from_tourism__in_us_dollar_billon____2020",
+            "fee_from_tourism__in_us_dollar_billon____2021",
+            "percentage_change___2020_2019",
+            "percentage_change___2021_2020"
+          ]
+        },
+        {
+          "code": "ga",
+          "state": "Goa",
+          "resourceId": "98faa140-3ea5-4b85-83b4-5f2f84764e03",
+          "title": "Year-wise Details of Countries Above India in Terms of Tourism Receipts from 2020 to 2022",
+          "org": [
+            "Ministry of Tourism"
+          ],
+          "sector": [
+            "Travel and Tourism"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "year",
+            "rank",
+            "nationality",
+            "tourism_receipts__usd_in_billion_"
+          ]
+        },
+        {
+          "code": "ga",
+          "state": "Goa",
+          "resourceId": "c63254b5-9bed-4378-8524-960964e6ac13",
+          "title": "Region-wise Details of International Tourism Receipts Worldwide and by Regions from 2019 to 2021",
+          "org": [
+            "Ministry of Tourism"
+          ],
+          "sector": [
+            "Travel and Tourism"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_sl__no_",
+            "region",
+            "receipts",
+            "_2019",
+            "_2020",
+            "_2021"
+          ]
+        },
+        {
+          "code": "ga",
+          "state": "Goa",
+          "resourceId": "7bf39f50-c52f-49ad-8bb2-04f09288bef6",
+          "title": "Year-wise Details of Foreign Exchange Earnings from Tourism in india during 1991, 2001 and 2011 to 2021",
+          "org": [
+            "Ministry of Tourism"
+          ],
+          "sector": [
+            "Travel and Tourism"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "year",
+            "fee_in_rs__terms___rs_crore",
+            "fee_in_rs__terms___percentage_change_over_previous_year",
+            "fee_in_usd_terms___us_dollar_million",
+            "fee_in_usd_terms___percentage_change_over_previous_year"
+          ]
+        },
+        {
+          "code": "ga",
+          "state": "Goa",
+          "resourceId": "d5e33551-9184-4ee9-8d79-40ac94fa18c2",
+          "title": "Month-wise Details of Fee from Tourism (US dollar billion) in india from 2019 to 2021",
+          "org": [
+            "Ministry of Tourism"
+          ],
+          "sector": [
+            "Travel and Tourism"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl__no_",
+            "month",
+            "fee_from_tourism__in_us_dollar_billon____2019",
+            "fee_from_tourism__in_us_dollar_billon____2020",
+            "fee_from_tourism__in_us_dollar_billon____2021",
+            "percentage_change___2020_2019",
+            "percentage_change___2021_2020"
+          ]
+        },
+        {
+          "code": "ga",
+          "state": "Goa",
+          "resourceId": "769428b7-9554-4fe9-95ee-32a5c729dcf9",
+          "title": "Year-wise Details of International Tourism Receipts and Share of India and Rank from 2001 to 2021",
+          "org": [
+            "Ministry of Tourism"
+          ],
+          "sector": [
+            "Travel and Tourism"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "year",
+            "world_tourism_receipts___receipts___usd_billion_",
+            "world_tourism_receipts___growth_rate",
+            "world_tourism_receipts___fee_in_india_receipts__usd_billion_",
+            "growth_rate",
+            "percentage_share_of_india_in_world",
+            "indias_rank_in_world"
+          ]
+        },
+        {
+          "code": "ga",
+          "state": "Goa",
+          "resourceId": "2d3de854-d7de-4b8c-94d8-45927358f7f8",
+          "title": "Month-wise Details of Fee from Tourism (Rs. In Crore) in india from 2019 to 2021",
+          "org": [
+            "Ministry of Tourism"
+          ],
+          "sector": [
+            "Travel and Tourism"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl__no_",
+            "month",
+            "fee_from_tourism__in_rs__crore____2019",
+            "fee_from_tourism__in_rs__crore____2020",
+            "fee_from_tourism__in_rs__crore____2021",
+            "percentage_change___2020_2019",
+            "percentage_change___2021_2020"
+          ]
+        },
+        {
+          "code": "ga",
+          "state": "Goa",
+          "resourceId": "16f49556-795c-4ead-bba0-4f733ac45a4a",
+          "title": "Year-wise Details of Inbound Tourism Foreign Tourist Arrivals (FTAs), Arrivals of Non-Resident Indians (NRIs) and Internationals Tourist Arrivals (ITAs) during 1981, 1991, 2001 and 2011 to 2021",
+          "org": [
+            "Ministry of Tourism"
+          ],
+          "sector": [
+            "Travel and Tourism"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "year",
+            "ftas_in_india__in_million_",
+            "percentage_change_over_previous_year__ftas_in_india_",
+            "nris_arrivals_in_india__in_million_",
+            "percentage_change_over_the_previous_year__nris_arrivals_in_india_",
+            "international_tourist_arrivals_in_india__in_million_",
+            "percentage_change_over_the_previous_year__international_tourist_arrivals_in_india__"
+          ]
+        },
+        {
+          "code": "ga",
+          "state": "Goa",
+          "resourceId": "0b45e04a-32df-49d1-b12e-7ddf677c2319",
+          "title": "Region-wise Details of Distribution of Destination Countries Departures of Indian Nationals according to Major Port of Disembarkation during 2022arkation, 2022",
+          "org": [
+            "Ministry of Tourism"
+          ],
+          "sector": [
+            "Travel and Tourism"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl__no_",
+            "region",
+            "destination_country",
+            "departures__in_numbers_",
+            "delhi__airport___in_percentage_",
+            "mumbai__airport___in_percentage_",
+            "chennai__airport___in_percentage_",
+            "cochin__airport___in_percentage_",
+            "bengaluru__airport___in_percentage_",
+            "hyderabad__airport___in_percentage_"
+          ]
+        },
+        {
+          "code": "ga",
+          "state": "Goa",
+          "resourceId": "6cb48303-cc8c-4505-bd2e-f0a1b87410ad",
+          "title": "Nationality-wise Details of Distribution of Foreign Tourist Arrivals (FTAs) in India According to Major Port of Disembarkation during 2022",
+          "org": [
+            "Ministry of Tourism"
+          ],
+          "sector": [
+            "Travel and Tourism"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl__no_",
+            "region",
+            "country_of_nationality",
+            "total__in_numbers_",
+            "bangalore_airport__in_percentage_",
+            "chennai_airport__in_percentage_",
+            "cochin_airport__in_percentage_",
+            "delhi_airport__in_percentage_",
+            "haridaspur_land_checkpost__in_percentage_",
+            "hyderabad_airport__in_percentage_"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "gj",
+      "state": "Gujarat",
+      "found": 10,
+      "tools": [
+        {
+          "code": "gj",
+          "state": "Gujarat",
+          "resourceId": "993acfe3-b72e-4e07-8959-15aa34bc226d",
+          "title": "Building Plan Applications at Surat Municipal Corporation from April 2015 onward (daily",
+          "org": [
+            "Gujarat",
+            "Surat Municipal Corporation"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_cityname_",
+            "date",
+            "building_plans_received",
+            "building_plans_disposed",
+            "bu_permissions_received",
+            "bu_permissions_disposed"
+          ]
+        },
+        {
+          "code": "gj",
+          "state": "Gujarat",
+          "resourceId": "8addc593-32b5-4531-a234-6057209f35a0",
+          "title": "Surat City Complaint Statistics from April 2015 onward (daily)",
+          "org": [
+            "Gujarat",
+            "Surat Municipal Corporation"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "CityName",
+            "Date",
+            "No_of_complain_received",
+            "No_of_complain_disposed",
+            "No_of_complain_pending"
+          ]
+        },
+        {
+          "code": "gj",
+          "state": "Gujarat",
+          "resourceId": "4200eb5f-1729-4fee-8477-af5feb715b3c",
+          "title": "Details of Vehicle Tax collected by Surat Municipal Corporation from Year 1989 onward",
+          "org": [
+            "Gujarat",
+            "Surat Municipal Corporation"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "CityName",
+            "VehicleTypeId",
+            "Description",
+            "Year",
+            "Month",
+            "Count",
+            "Amount"
+          ]
+        },
+        {
+          "code": "gj",
+          "state": "Gujarat",
+          "resourceId": "0ad72b62-e170-4775-a9de-361c07a74898",
+          "title": "Marriage Registration at Surat Municipal Corporation from January 2008 onward",
+          "org": [
+            "Gujarat",
+            "Surat Municipal Corporation"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "CityName",
+            "SiteCode",
+            "ZoneName",
+            "Year",
+            "Month",
+            "MrgRegCount",
+            "CertiIssueCount"
+          ]
+        },
+        {
+          "code": "gj",
+          "state": "Gujarat",
+          "resourceId": "3968cb03-5968-42c9-ac43-cba988a964c7",
+          "title": "Garbage Collection in Surat City (in KG) from April 2015 onward (daily) ",
+          "org": [
+            "Gujarat",
+            "Surat Municipal Corporation"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "Date",
+            "Garbage_Collection_inKGs"
+          ]
+        },
+        {
+          "code": "gj",
+          "state": "Gujarat",
+          "resourceId": "53d70229-f690-4719-8f25-e2151661984e",
+          "title": "Death Registration & Death Certificate Issuance at Surat Municipal Corporation from Year 1989 onward",
+          "org": [
+            "Gujarat",
+            "Surat Municipal Corporation"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "CityName",
+            "SiteCode",
+            "ZoneName",
+            "Year",
+            "Month",
+            "DeathRegMale",
+            "DeathRegFemale",
+            "DeathRegCount",
+            "CertiIssueCountMale",
+            "CertiIssueCountFeMale"
+          ]
+        },
+        {
+          "code": "gj",
+          "state": "Gujarat",
+          "resourceId": "659d0fb3-8dac-43a7-8cf3-35ab417b1ec5",
+          "title": "Birth Registration & Birth Certificate Issuance at Surat Municipal Corporation from Year 2005 onwards",
+          "org": [
+            "Gujarat",
+            "Surat Municipal Corporation"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "CityName",
+            "SiteCode",
+            "ZoneName",
+            "Year",
+            "Month",
+            "BirthRegMale",
+            "BirthRegFemale",
+            "BirthRegCount",
+            "CertiIssueCountMale",
+            "CertiIssueCountFeMale"
+          ]
+        },
+        {
+          "code": "gj",
+          "state": "Gujarat",
+          "resourceId": "3490091a-b1a1-4e60-be6b-c8ac27b80ab2",
+          "title": "Auditorium-Party Plot-Community Hall Booking data owed by Surat Municipal Corporation from 1st April 2015 (Daily)",
+          "org": [
+            "Gujarat",
+            "Surat Municipal Corporation"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "CityName",
+            "Date",
+            "No_of_booking_partyplot",
+            "TotAmt_of_booking_partyplot",
+            "No_of_booking_communityHall",
+            "TotAmt_of_booking_communityHall",
+            "No_of_booking_auditorium",
+            "TotAmt_of_booking_auditorium"
+          ]
+        },
+        {
+          "code": "gj",
+          "state": "Gujarat",
+          "resourceId": "0e2f71a5-6f48-4c07-9593-1c2cc55655b1",
+          "title": "Third Advance Estimates of Area, Production and Yield of Oil seeds crops of Gujarat State for the year 2023-24",
+          "org": [
+            "Gujarat",
+            " General Administration Department, Gujarat",
+            " Directorate of Economics &amp",
+            " Statistics, Gujarat"
+          ],
+          "sector": [
+            "Agriculture",
+            " Crops"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sr__no__",
+            "crops",
+            "area_",
+            "production_",
+            "yield_"
+          ]
+        },
+        {
+          "code": "gj",
+          "state": "Gujarat",
+          "resourceId": "cb5d0c04-000d-4bcf-beb1-0e9dcf52174c",
+          "title": "Year wise Railway Route Length (In Km.) in Gujarat from 1960-61 to 2023-24",
+          "org": [
+            "Gujarat",
+            " General Administration Department, Gujarat",
+            " Directorate of Economics &amp",
+            " Statistics, Gujarat"
+          ],
+          "sector": [
+            "Railways"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sr__no__",
+            "_year",
+            "broad_gauge",
+            "metre_gauge",
+            "narrow_gauge",
+            "_total"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "hr",
+      "state": "Haryana",
+      "found": 10,
+      "tools": [
+        {
+          "code": "hr",
+          "state": "Haryana",
+          "resourceId": "9e28d3d7-0066-4e39-b821-595088c2b96f",
+          "title": "Diseases : Faridabad : 2015 - 2018",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Haryana",
+              "Faridabad"
+            ]
+          ],
+          "sector": [
+            "Health and Family welfare",
+            "Health"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "_year",
+            "number_of_cases_of_persons_affected_by_vector_borne_diseases",
+            "number_of_cases_of_persons_affected_by_water_borne_diseases"
+          ]
+        },
+        {
+          "code": "hr",
+          "state": "Haryana",
+          "resourceId": "1793ecb3-67d3-4196-a99d-b3c32137227e",
+          "title": "Street Lights Data of Faridabad 2019",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Haryana",
+              "Faridabad"
+            ]
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "zone_name",
+            "ward_name",
+            "number_of_poles",
+            "no_of_poles_of_led_bulbs",
+            "no_of_poles_with_conventional_non_led_lights",
+            "total_length_of_roads_in_km_",
+            "number_of_street_lights_poles_per_km_of_road",
+            "total_no_of_streets",
+            "_no_of_streets_with_adequate_street_lighting_facilties"
+          ]
+        },
+        {
+          "code": "hr",
+          "state": "Haryana",
+          "resourceId": "2588dc51-291f-4395-8137-a5510e2fc3cf",
+          "title": "Literacy among Scheduled Castes in Haryana : 2011",
+          "org": [
+            "Haryana",
+            "Economic and Statistical Analysis Department, Haryana"
+          ],
+          "sector": [
+            "Statistics"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "district",
+            "literate_and_educated_persons_total",
+            "literate_and_educated_persons_total_males",
+            "literate_and_educated_persons_total_females",
+            "literate_and_educated_persons_rural_total",
+            "literate_and_educated_persons_rural_males",
+            "literate_and_educated_persons_rural_females",
+            "literate_and_educated_persons_urban_total",
+            "literate_and_educated_persons_urban_males",
+            "literate_and_educated_persons_urban_females"
+          ]
+        },
+        {
+          "code": "hr",
+          "state": "Haryana",
+          "resourceId": "1a93d66e-4048-4400-b529-72e002b2ce48",
+          "title": "District-wise Literacy in Haryana during 2011",
+          "org": [
+            "Haryana",
+            "Economic and Statistical Analysis Department, Haryana"
+          ],
+          "sector": [
+            "Education"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "district",
+            "literate_and_educated_persons___total___total",
+            "literate_and_educated_persons___total___males",
+            "literate_and_educated_persons___total___females",
+            "literate_and_educated_persons___rural___total",
+            "literate_and_educated_persons___rural___males",
+            "literate_and_educated_persons___rural___females",
+            "literate_and_educated_persons___urban___total",
+            "literate_and_educated_persons___urban___males",
+            "literate_and_educated_persons___urban___females"
+          ]
+        },
+        {
+          "code": "hr",
+          "state": "Haryana",
+          "resourceId": "bdcf1dbe-e426-4ede-9a56-35f769078b73",
+          "title": "Number of recognised Institutions in Haryana from 1966-67 to 2012-13( R)",
+          "org": [
+            "Haryana",
+            "Economic and Statistical Analysis Department, Haryana"
+          ],
+          "sector": [
+            "Education"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "type_of_institutions",
+            "_1966_67",
+            "_1970_71",
+            "_1975_76",
+            "_1980_81",
+            "_1985_86",
+            "_1990_91",
+            "_1995_96",
+            "_2000_01",
+            "__2005_06"
+          ]
+        },
+        {
+          "code": "hr",
+          "state": "Haryana",
+          "resourceId": "211b9bd2-b36f-47b7-a1b8-8bb11ce76641",
+          "title": "Loans and grants disbursed to persons belonging to Scheduled Caste community by purpose and source in Haryana during 2013-14",
+          "org": [
+            "Haryana",
+            "Economic and Statistical Analysis Department, Haryana"
+          ],
+          "sector": [
+            "Social Development"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "source_purpose",
+            "no_of_beneficiaries_assisted",
+            "direct_loan",
+            "bank_loan",
+            "subsidy",
+            "margin_money",
+            "_total"
+          ]
+        },
+        {
+          "code": "hr",
+          "state": "Haryana",
+          "resourceId": "c1c221ef-324a-4715-bc02-58172107c162",
+          "title": "Population of Scheduled Castes and Scheduled Tribes (Census 2011)",
+          "org": [
+            "Haryana",
+            "Economic and Statistical Analysis Department, Haryana"
+          ],
+          "sector": [
+            "Statistics"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "state_union_territory",
+            "scheduled_castes_male",
+            "scheduled_castes_female",
+            "scheduled_castes_persons",
+            "scheduled_castes_rural",
+            "scheduled_castes_urban",
+            "percentage_to_population_of_state_union_territory",
+            "scheduled_tribes_male",
+            "scheduled_tribes_female",
+            "scheduled_tribes_persons"
+          ]
+        },
+        {
+          "code": "hr",
+          "state": "Haryana",
+          "resourceId": "ed74e80a-bbd0-4c17-ba02-35f01f12af31",
+          "title": "Disabled Population by Districts : 2011",
+          "org": [
+            "Haryana",
+            "Economic and Statistical Analysis Department, Haryana"
+          ],
+          "sector": [
+            "Statistics"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "district",
+            "in_seeing",
+            "in_speech",
+            "in_hearing",
+            "in_movement",
+            "mental_retardation",
+            "mental_illness",
+            "multiple_disability",
+            "any_other",
+            "_total"
+          ]
+        },
+        {
+          "code": "hr",
+          "state": "Haryana",
+          "resourceId": "058fe60b-6f4f-4694-96d5-9104fc93174e",
+          "title": "Area and population of Haryana during 2011",
+          "org": [
+            "Haryana",
+            "Economic and Statistical Analysis Department, Haryana"
+          ],
+          "sector": [
+            "Statistics"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "district_tahsil",
+            "area_sq_kms_p_",
+            "population_in_number___total",
+            "population_in_number___rural",
+            "population_in_number___urban"
+          ]
+        },
+        {
+          "code": "hr",
+          "state": "Haryana",
+          "resourceId": "94f55aae-f7f3-4f3c-a235-8b3c50da3c74",
+          "title": "District- wise average annual rainfall in Haryana from 1966 to 2012",
+          "org": [
+            "Haryana",
+            "Economic and Statistical Analysis Department, Haryana"
+          ],
+          "sector": [
+            "Environment and Forest"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "district",
+            "__1966",
+            "__1970",
+            "__1975",
+            "__1980",
+            "__1985",
+            "__1990",
+            "__1995",
+            "__2000",
+            "__2005"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "hp",
+      "state": "Himachal Pradesh",
+      "found": 10,
+      "tools": [
+        {
+          "code": "hp",
+          "state": "Himachal Pradesh",
+          "resourceId": "0c8c14dd-94ee-4632-b60d-374d56514c09",
+          "title": "Number of Teachers in Various Schools during 2020-21",
+          "org": [
+            "Himachal Pradesh",
+            "Economics and Statistics Department, Himachal Pradesh"
+          ],
+          "sector": [
+            "Education"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "state",
+            "district",
+            "primary_schools_____male_",
+            "primary_schools__female_",
+            "total__in_number__",
+            "middle_schools__male_",
+            "_middle_schools__female_",
+            "total__in_number_",
+            "high_senior_secondary_schools___male_",
+            "high_senior_secondary_schools___female_"
+          ]
+        },
+        {
+          "code": "hp",
+          "state": "Himachal Pradesh",
+          "resourceId": "41059f33-bd62-48d2-8892-0035b3602a63",
+          "title": "Number of Police Station and Police Posts during 2020-21",
+          "org": [
+            "Himachal Pradesh",
+            "Economics and Statistics Department, Himachal Pradesh"
+          ],
+          "sector": [
+            "Police"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "state",
+            "district",
+            "police_stations___in_number_",
+            "police_posts___in_number__"
+          ]
+        },
+        {
+          "code": "hp",
+          "state": "Himachal Pradesh",
+          "resourceId": "6537d564-a0f3-4028-b1d5-bdbcc0eb1c80",
+          "title": "Number of Births Registered during 2021",
+          "org": [
+            "Himachal Pradesh",
+            "Economics and Statistics Department, Himachal Pradesh"
+          ],
+          "sector": [
+            "Health and Family welfare"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "state",
+            "district",
+            "_male_",
+            "female",
+            "total__in_number_",
+            "rural",
+            "urban"
+          ]
+        },
+        {
+          "code": "hp",
+          "state": "Himachal Pradesh",
+          "resourceId": "2e8eaebe-e179-4e4d-b3b5-3abb664abff6",
+          "title": "Ward Wise Sewerage Connections -Shimla City",
+          "org": [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Himachal Pradesh",
+            "Shimla"
+          ],
+          "sector": [
+            "Sanitation",
+            "Water and Sanitation"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city",
+            "_ward_no",
+            "sewerage_connections"
+          ]
+        },
+        {
+          "code": "hp",
+          "state": "Himachal Pradesh",
+          "resourceId": "37275256-1965-4f49-a88a-26c810cbb3fd",
+          "title": "Number of Tourist Visited In Himachal Pradesh during 2021",
+          "org": [
+            "Himachal Pradesh",
+            "Economics and Statistics Department, Himachal Pradesh"
+          ],
+          "sector": [
+            "Travel and Tourism"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "state",
+            "district",
+            "domestic",
+            "foreigner",
+            "_total"
+          ]
+        },
+        {
+          "code": "hp",
+          "state": "Himachal Pradesh",
+          "resourceId": "3824d695-a4cb-444e-bd29-d03293e57e86",
+          "title": " Area and Production of Vegetables during 2020-21 ",
+          "org": [
+            "Himachal Pradesh",
+            "Economics and Statistics Department, Himachal Pradesh"
+          ],
+          "sector": [
+            "Agriculture"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "state",
+            "district",
+            "potato_area_in_hectare_",
+            "potato_production_in_tonnes_",
+            "other_vegetables_area_in_hectare_",
+            "other_vegetables_production_in_tonnes_"
+          ]
+        },
+        {
+          "code": "hp",
+          "state": "Himachal Pradesh",
+          "resourceId": "6e9fff80-5242-4672-94ee-b488bda00eb8",
+          "title": "District wise Number of Schools and Colleges during 2020-21",
+          "org": [
+            "Himachal Pradesh",
+            "Economics and Statistics Department, Himachal Pradesh"
+          ],
+          "sector": [
+            "Education"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "state",
+            "district",
+            "primary_schools",
+            "middle_schools",
+            "high_senior_secondary_schools_",
+            "government_degree_colleges",
+            "private_degree_colleges",
+            "total_in_number_"
+          ]
+        },
+        {
+          "code": "hp",
+          "state": "Himachal Pradesh",
+          "resourceId": "897468c1-2ef1-4dbf-864f-d7f0eb4939cc",
+          "title": "District-wise Enrolment of Students in school during 2020-21",
+          "org": [
+            "Himachal Pradesh",
+            "Economics and Statistics Department, Himachal Pradesh"
+          ],
+          "sector": [
+            "Education"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "state",
+            "district",
+            "primary_schools_boys_",
+            "primary_schools_girls_",
+            "total_in_number",
+            "middle_schools_boys_vi_viii_",
+            "middle_schools_girls_vi_viii_",
+            "total_in_number_",
+            "high_senior_secondary_schools_boys_ix_xii_",
+            "high_senior_secondary_schools_girls_ix_xii_"
+          ]
+        },
+        {
+          "code": "hp",
+          "state": "Himachal Pradesh",
+          "resourceId": "232c50b1-b245-4226-bd69-5e42c1fb7b71",
+          "title": "Number of Medical Institutions  during 2020-21",
+          "org": [
+            "Himachal Pradesh",
+            "Economics and Statistics Department, Himachal Pradesh"
+          ],
+          "sector": [
+            "Health and Family welfare"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "state",
+            "district",
+            "hospitals_",
+            "dispensaries",
+            "community_health_centre_rh",
+            "primary_health_centres",
+            "total_in_number_",
+            "beds_available"
+          ]
+        },
+        {
+          "code": "hp",
+          "state": "Himachal Pradesh",
+          "resourceId": "d78c9e9e-252c-41e2-b7d2-36ff0644561d",
+          "title": "Number of Ayurvedic Institution during 2020-21",
+          "org": [
+            "Himachal Pradesh",
+            "Economics and Statistics Department, Himachal Pradesh"
+          ],
+          "sector": [
+            "Health and Family welfare"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "state",
+            "district",
+            "hospitals",
+            "dispensaries_health_centre",
+            "doctors_",
+            "nurses_",
+            "beds_available"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "jh",
+      "state": "Jharkhand",
+      "found": 10,
+      "tools": [
+        {
+          "code": "jh",
+          "state": "Jharkhand",
+          "resourceId": "aa396927-7e37-47b4-b134-48f6f1eb119f",
+          "title": "Number of license/registration issued to Mineral Water Production Units under the Food Safety and Standards Act, 2006 - 2015 (From: Ministry of Health and Family Welfare)",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_s_no",
+            "state",
+            "central_licenses",
+            "state_licenses",
+            "registration"
+          ]
+        },
+        {
+          "code": "jh",
+          "state": "Jharkhand",
+          "resourceId": "4652e8f7-a3ad-4f84-bced-64cf0b293b28",
+          "title": "State-wise Details of Total Heavy Mineral (THM) Resource (In reply to Unstarred Question as on 3rd April 2025)",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl__no_",
+            "state",
+            "deposits",
+            "monazite",
+            "thm"
+          ]
+        },
+        {
+          "code": "jh",
+          "state": "Jharkhand",
+          "resourceId": "9289c6cf-1543-4763-8cbd-9c7f07af6c35",
+          "title": "Year-wise Number of Sanctioned, In-Position and Vacant Posts in Public Sector Units (PSUs) under National Mineral Development Corporation (NMDC) Ltd. from as on 01-04-2020 to as on 01-04-2024",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_year__as_on_",
+            "sanctioned_strength___exe_",
+            "sanctioned_strength___non_exe_",
+            "sanctioned_strength___total",
+            "in_position___general___exe_",
+            "in_position___general___non_exec_",
+            "in_position___others___exe_",
+            "in_position___others___non_exec_",
+            "in_position___total___exe_",
+            "in_position___total___non_exec_"
+          ]
+        },
+        {
+          "code": "jh",
+          "state": "Jharkhand",
+          "resourceId": "9a3a6d60-667d-4471-967f-9abfa8b65078",
+          "title": "Year-wise Details of Funds Sanctioned and Expenditure During Field Seasons by GSI for mineral exploration in North Eastern States from 2022-23 to 2024-25",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_year",
+            "no__of_projects___states",
+            "sanctioned_amount",
+            "field_expenditure_incurred_upto_30_11_2024"
+          ]
+        },
+        {
+          "code": "jh",
+          "state": "Jharkhand",
+          "resourceId": "91104a76-5e07-4257-b64b-1bbbf38e9cdb",
+          "title": "Year-wise Details of Funds Sanctioned by the National Mineral Exploration Trust and Payments made from 2021-22 to 2024-25",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_year",
+            "no__of_projects___states",
+            "sanctioned_amount",
+            "payments_made_upto_30_11_2024"
+          ]
+        },
+        {
+          "code": "jh",
+          "state": "Jharkhand",
+          "resourceId": "1d0bcdeb-6edf-4cc6-a48f-79514f2120b8",
+          "title": "State/UT-wise Details of mineral exploration (G2/G3/G4) by Geological Survey of India (GSI) for Energy Mineral from 2020-21 to 2023-24",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl__no_",
+            "state",
+            "commodity",
+            "number_of_exploration_projects_taken_up___2020_21",
+            "number_of_exploration_projects_taken_up___2021_22",
+            "number_of_exploration_projects_taken_up___2022_23",
+            "number_of_exploration_projects_taken_up___2023_24"
+          ]
+        },
+        {
+          "code": "jh",
+          "state": "Jharkhand",
+          "resourceId": "87390caf-7a4e-440f-86f2-02149914ec87",
+          "title": "State/UT-wise Details of Mineral Exploration (G2/G3/G4) by Geological Survey of India (GSI) for Non Energy Mineral from 2020-21 to 2023-24",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl__no_",
+            "state_ut",
+            "commodity",
+            "number_of_exploration_projects_taken_up___2020_21",
+            "number_of_exploration_projects_taken_up___2021_22",
+            "number_of_exploration_projects_taken_up___2022_23",
+            "number_of_exploration_projects_taken_up___2023_24"
+          ]
+        },
+        {
+          "code": "jh",
+          "state": "Jharkhand",
+          "resourceId": "3cc952b7-b32d-46b0-b6c8-58df5c138893",
+          "title": "State/UT-wise Details of Successful National Mineral Exploration Trust (NMET) Funded Projects where Mineral Deposits have been found (In Reply to Starred Question on 18 -12-2023)",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl__no_",
+            "state",
+            "remarks_commodities",
+            "number_of_project_successful"
+          ]
+        },
+        {
+          "code": "jh",
+          "state": "Jharkhand",
+          "resourceId": "6da7baa8-0b64-40b1-89c6-f01ffa95b797",
+          "title": "State-Wise number of human and elephants killed in human elephant conflict and crops damaged by Elephants across the Country from 2012-13 to 2014-15 (From: Ministry of Environment, Forest and Climate Change)",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "state",
+            "_2012_13___human_deaths",
+            "_2012_13___elephant_deaths",
+            "_2012_13___compensation_paid_for_loss_of_crops_property__rs__in_lakhs_",
+            "_2013_14___human_deaths",
+            "_2013_14___elephant_deaths",
+            "_2013_14___compensation_paid_for_loss_of_crops_property",
+            "_2014_15___human_deaths",
+            "_2014_15___elephant_deaths",
+            "_2014_15___compensation_paid_for_loss_of_crops_property__rs__in_lakhs_"
+          ]
+        },
+        {
+          "code": "jh",
+          "state": "Jharkhand",
+          "resourceId": "fd938a39-42c6-429d-9ca4-01cbc6d0c3b6",
+          "title": "State wise fund sanctioned under the scheme Project Elephant from 2010-11 to 2015-16 (From: Ministry of Environment, Forest and Climate Change)",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl__no",
+            "state_uts",
+            "__2010_11",
+            "__2011_12",
+            "__2012_13",
+            "__2013_14",
+            "__2014_15",
+            "_2015_16__as_on_09_12_2015_"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ka",
+      "state": "Karnataka",
+      "found": 10,
+      "tools": [
+        {
+          "code": "ka",
+          "state": "Karnataka",
+          "resourceId": "6ec0cf33-9c8b-434b-9030-6acfc83c841a",
+          "title": "PostMatric Scholarship",
+          "org": [
+            "Karnataka",
+            " Backward Classes Department, Karnataka"
+          ],
+          "sector": [
+            "Others"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl_no",
+            "_year",
+            "_2013__14",
+            "_",
+            "_2014__15",
+            "_2015__16",
+            "_2016__17",
+            "_2017__18",
+            "_2018__19",
+            "_2019__20"
+          ]
+        },
+        {
+          "code": "ka",
+          "state": "Karnataka",
+          "resourceId": "19bf947a-b04b-40cb-87eb-c03b3a01345f",
+          "title": "CRIME REVEIW FOR THE MONTH OF SEPTEMBER 2025",
+          "org": [
+            "Karnataka",
+            " Home Department, Karnataka",
+            " Police Department - Police Computer Wing"
+          ],
+          "sector": [
+            "Police"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_sl__no_",
+            "heads_crime",
+            "major_heads",
+            "minor_heads",
+            "during_the_current_year_upto_the_end_of_month_under_review",
+            "during_the_corresponding_month_of_previous_year",
+            "during_the_previous_month",
+            "during_the_current_month"
+          ]
+        },
+        {
+          "code": "ka",
+          "state": "Karnataka",
+          "resourceId": "724b3435-b96e-4449-a8e5-31e45c32fc54",
+          "title": "Basava Housing Scheme",
+          "org": [
+            "Karnataka",
+            " Housing Department, Karnataka"
+          ],
+          "sector": [
+            "Housing",
+            " EWS Housing"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl_no",
+            "district",
+            "benificiary_selection",
+            "completed",
+            "foundation",
+            "lintel",
+            "roof",
+            "progress_total",
+            "unstarted"
+          ]
+        },
+        {
+          "code": "ka",
+          "state": "Karnataka",
+          "resourceId": "78abe18e-e988-46a7-86ad-0808c88b86e3",
+          "title": "Year wise financial performance of BMTC",
+          "org": [
+            "Karnataka",
+            " Transport Department, Karnataka",
+            " Bangalore Metropolitan Transport Corporation(BMTC)"
+          ],
+          "sector": [
+            "Transport",
+            " Road Transport"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_sl_no",
+            "factors",
+            "_1997_98__after__bifurcation_w_e_f__15_08_97_",
+            "__2015_16",
+            "__2016_17",
+            "_2017_18",
+            "_2018_19",
+            "_2019_20",
+            "_2020_21__estimated"
+          ]
+        },
+        {
+          "code": "ka",
+          "state": "Karnataka",
+          "resourceId": "87645f94-6fe3-4e28-bbbc-9c37291c35b3",
+          "title": "Year_wise_Financial_Information_of_the_BMTC_2024_25",
+          "org": [
+            "Karnataka",
+            " Transport Department, Karnataka",
+            " Bangalore Metropolitan Transport Corporation(BMTC)"
+          ],
+          "sector": [
+            "Transport",
+            " Road Transport"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_sl_no",
+            "factors",
+            "_1997_98__after__bifurcation_w_e_f______15_08_97_",
+            "_2015_16",
+            "_2016_17",
+            "_2017__18_",
+            "__2018_19",
+            "_2019__20_",
+            "_2020__21_",
+            "_2021__22_"
+          ]
+        },
+        {
+          "code": "ka",
+          "state": "Karnataka",
+          "resourceId": "9fed1fd9-f22f-4eed-976a-ba4b8bec6d6a",
+          "title": "Pradhan Mantri Awas Yojana (Grameena)",
+          "org": [
+            "Karnataka",
+            " Housing Department, Karnataka"
+          ],
+          "sector": [
+            "Housing",
+            " EWS Housing"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl_no",
+            "district",
+            "benificiary_selection",
+            "completed",
+            "foundation",
+            "lintel",
+            "roof",
+            "progress_total",
+            "unstarted"
+          ]
+        },
+        {
+          "code": "ka",
+          "state": "Karnataka",
+          "resourceId": "2d47e856-d00f-4bee-88d6-d8f3629fcbab",
+          "title": "Branchwise Operational Performance 2024-2025",
+          "org": [
+            "Karnataka",
+            " Finance Department, Karnataka",
+            " Karnataka Finance Corporation"
+          ],
+          "sector": [
+            "Economy"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl_no",
+            "offices",
+            "sanctions_",
+            "disbursement_",
+            "recovery_"
+          ]
+        },
+        {
+          "code": "ka",
+          "state": "Karnataka",
+          "resourceId": "962430b1-e80f-4aa2-9915-41072bcd9342",
+          "title": "List of job role ",
+          "org": [
+            "Karnataka",
+            " Department of Skill Development Entrepreneurship and Livelihood",
+            " Karnataka Vocational Training and Skill Development Corporation Ltd ( KSDC)"
+          ],
+          "sector": [
+            "Education",
+            " Secondary"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl_no",
+            "district",
+            "unique_job_role_count"
+          ]
+        },
+        {
+          "code": "ka",
+          "state": "Karnataka",
+          "resourceId": "87bbb0ee-02ca-46aa-968f-c385b2ea5778",
+          "title": "Management Wise School Enrollments for the year 2020-21 ",
+          "org": [
+            "Karnataka",
+            " Public Instruction Department, Karnataka"
+          ],
+          "sector": [
+            "Elementary",
+            " Secondary"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl_no",
+            "management_",
+            "district",
+            "pre_primary__lkg_and_ukg__boys",
+            "pre_primary__lkg_and_ukg__girls",
+            "total_",
+            "class_1_to_5_boys",
+            "class_1_to_5_girls_",
+            "total",
+            "class_6_to_8_boys"
+          ]
+        },
+        {
+          "code": "ka",
+          "state": "Karnataka",
+          "resourceId": "1242a008-afa6-4c2c-b2d5-cbf8a68d2da6",
+          "title": "CRIME REVIEW FOR THE MONTH OF JANUARY 2025",
+          "org": [
+            "Karnataka",
+            " Home Department, Karnataka",
+            " Police Department - Police Computer Wing"
+          ],
+          "sector": [
+            "Police"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl_no",
+            "heads_crime",
+            "major_heads",
+            "minor_heads",
+            "during_the_current_year_upto_the_end_of_month_under_review",
+            "during_the_corresponding_month_of_previous_year",
+            "during_the_previous_month",
+            "during_the_current_month"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "kl",
+      "state": "Kerala",
+      "found": 10,
+      "tools": [
+        {
+          "code": "kl",
+          "state": "Kerala",
+          "resourceId": "b09fe0ce-5c2c-4927-af4d-5f5fef6db56c",
+          "title": "Offices under Motor Vehicles Department in Kerala as on 28/09/2020",
+          "org": [
+            "Kerala",
+            "Transport Department, Kerala"
+          ],
+          "sector": [
+            "Transport"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "district",
+            "office",
+            "zone_",
+            "officetype"
+          ]
+        },
+        {
+          "code": "kl",
+          "state": "Kerala",
+          "resourceId": "c9897cec-fa66-47fc-838b-2f53ab20f086",
+          "title": "District wise Akshaya Centre List in Kerala as on 13th May 2019",
+          "org": [
+            "Kerala",
+            "Information Technology Department, Kerala",
+            "Kerala State IT Mission (KSITM)"
+          ],
+          "sector": [
+            "Governance and Administration"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "district_name_in_englsih",
+            "akshaya__csc_name",
+            "akshaya_csc_name___address"
+          ]
+        },
+        {
+          "code": "kl",
+          "state": "Kerala",
+          "resourceId": "e685e849-bba8-47d0-b99f-41ed6f03dee9",
+          "title": "Educational wise Break up of jobseekers registered with Employment Exchanges in Kerala as on 31/10/2019",
+          "org": [
+            "Kerala",
+            "Labour, Employment and Training and Rehabilitation Department, Kerala"
+          ],
+          "sector": [
+            "Labour and Employment",
+            "Employment"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "jobseekers___educational_level__as_districts_wise___up_to_31_1012019_",
+            "_"
+          ]
+        },
+        {
+          "code": "kl",
+          "state": "Kerala",
+          "resourceId": "8f4b82dc-c3ec-468c-a48a-9aabadd91c57",
+          "title": "Epayment items in each digitalised villages of Kerala 07/03/2020",
+          "org": [
+            "Kerala",
+            "Revenue and Land Reforms Department, Kerala"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "list_of_revenue_services___for_which_epayment_facility_is_available",
+            "_"
+          ]
+        },
+        {
+          "code": "kl",
+          "state": "Kerala",
+          "resourceId": "6ec17c6c-1dba-4c8f-8603-0b9c065af85a",
+          "title": "Road Accidents 2001-2018",
+          "org": [
+            "Kerala"
+          ],
+          "sector": [
+            "Home Affairs and Enforcement",
+            "Police"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "year",
+            "no__of_accidents",
+            "death",
+            "total_injuries"
+          ]
+        },
+        {
+          "code": "kl",
+          "state": "Kerala",
+          "resourceId": "64c34f2a-d6c7-461b-aa77-b1c07d91017d",
+          "title": "List of taluk and villages in Kerala as on 07/03/2020",
+          "org": [
+            "Kerala",
+            "Revenue and Land Reforms Department, Kerala"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "list_of_villages_with_online_tr_as_on_15_7_19",
+            "_"
+          ]
+        },
+        {
+          "code": "kl",
+          "state": "Kerala",
+          "resourceId": "c5c3c52b-4fad-42a8-ae35-b564af185dd9",
+          "title": "Kerala Grama Panchayath Names as on 10.01.2020",
+          "org": [
+            "Kerala",
+            "Election Department, Kerala"
+          ],
+          "sector": [
+            "Others"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "list_of_grama_panchyats",
+            "_",
+            "_15_07_2019"
+          ]
+        },
+        {
+          "code": "kl",
+          "state": "Kerala",
+          "resourceId": "8ac9b61c-e0d3-4163-a587-fc061130ce5e",
+          "title": "Vehicle registration statistics as on 31-12-2018",
+          "org": [
+            "Kerala",
+            "Transport Department, Kerala"
+          ],
+          "sector": [
+            "Transport",
+            "Road Transport"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "transport___non_transport_",
+            "class_description",
+            "count"
+          ]
+        },
+        {
+          "code": "kl",
+          "state": "Kerala",
+          "resourceId": "8ee4b92a-dc30-4809-a6b7-22bc1d5882e1",
+          "title": "District Panchayats Names and Codes as on 15/07/2019",
+          "org": [
+            "Kerala",
+            "Election Department, Kerala"
+          ],
+          "sector": [
+            "Others"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "list_of_district_panchayats",
+            "_",
+            "_15_07_2019"
+          ]
+        },
+        {
+          "code": "kl",
+          "state": "Kerala",
+          "resourceId": "82f3d2aa-3a3e-4497-abe6-c5f83892ceb4",
+          "title": "Kerala Driving License Statistics as on 31-12-2018",
+          "org": [
+            "Kerala",
+            "Transport Department, Kerala"
+          ],
+          "sector": [
+            "Transport",
+            "Road Transport"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "class_description",
+            "count"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "mp",
+      "state": "Madhya Pradesh",
+      "found": 10,
+      "tools": [
+        {
+          "code": "mp",
+          "state": "Madhya Pradesh",
+          "resourceId": "f57089c9-d99a-47fa-ad27-2500ab4ce1de",
+          "title": "District wise Cotton Farming Area in Madhya Pradesh from 2006-2007 to 2012-2013",
+          "org": [
+            "Madhya Pradesh",
+            "Planning, Economics and Statistics Department, Madhya Pradesh"
+          ],
+          "sector": [
+            "Statistics"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "district",
+            "_2006_to_2007_in_hectare",
+            "_2007_to_2008_in_hectare",
+            "_2008_to_2009_in_hectare",
+            "_2009_to_2010_in_hectare",
+            "_2010_to_2011_in_hectare",
+            "_2011_to_2012_in_hectare",
+            "_2012_to_2013_in_hectare"
+          ]
+        },
+        {
+          "code": "mp",
+          "state": "Madhya Pradesh",
+          "resourceId": "42e56128-cc39-45ea-8a00-e705905c0094",
+          "title": "Trend of Ground Water Level of Ujjain (Till-07/24/2019)",
+          "org": [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Madhya Pradesh",
+            "Ujjain"
+          ],
+          "sector": [
+            "Others"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "block",
+            "location_",
+            "well_no",
+            "no__of_data",
+            "rise_meter_per_yr",
+            "fall__meter_per_yr",
+            "intercept__meter_per_yr"
+          ]
+        },
+        {
+          "code": "mp",
+          "state": "Madhya Pradesh",
+          "resourceId": "11edf474-353b-4a43-b4e4-f7c8d654deb3",
+          "title": "Jabalpur_Shop_License_Renewal_ward_wise_year2020_2021.csv",
+          "org": [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Madhya Pradesh",
+            "Jabalpur"
+          ],
+          "sector": [
+            "Urban"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "wardno",
+            "wardname",
+            "shop_license_count_2020_21"
+          ]
+        },
+        {
+          "code": "mp",
+          "state": "Madhya Pradesh",
+          "resourceId": "3993229f-ed6b-45f1-a30f-cef99a8dcc5f",
+          "title": "Property tax collected ",
+          "org": [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Madhya Pradesh",
+            "Indore"
+          ],
+          "sector": [
+            "Development",
+            "Urban"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "zone_name",
+            "ward_name",
+            "ward_no_",
+            "_2013_14___property_tax_collection__in_crores__",
+            "_2014_15___property_tax_collection__in_crores_____",
+            "_2015_16___property_tax_collection__in_crores_____",
+            "_2017_18___property_tax_collection__in_crores_____"
+          ]
+        },
+        {
+          "code": "mp",
+          "state": "Madhya Pradesh",
+          "resourceId": "5b337f8f-1ff6-4d23-950b-2da0168d2155",
+          "title": "District wise Sugarcane Farming in Madhya Pradesh from 2006-2007 to 2012-2013",
+          "org": [
+            "Madhya Pradesh",
+            "Planning, Economics and Statistics Department, Madhya Pradesh"
+          ],
+          "sector": [
+            "Statistics"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "district",
+            "_2006_to_2007_in_hectare",
+            "_2007_to_2008_in_hectare",
+            "_2008_to_2009_in_hectare",
+            "_2009_to_2010_in_hectare",
+            "_2010_to_2011_in_hectare",
+            "_2011_to_2012_in_hectare",
+            "_2012_to_2013_in_hectare",
+            "_"
+          ]
+        },
+        {
+          "code": "mp",
+          "state": "Madhya Pradesh",
+          "resourceId": "85e4fbaa-dec6-4b8d-8dbb-c2cb738fa745",
+          "title": "Wardwise Hospital Coverage",
+          "org": [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Madhya Pradesh",
+            "Satna"
+          ],
+          "sector": [
+            "Health",
+            "Health and Family welfare"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "cityname",
+            "ward_number",
+            "ward_name",
+            "ward_population",
+            "no_of_hospitals_nursing_homes",
+            "no_of_beds",
+            "_"
+          ]
+        },
+        {
+          "code": "mp",
+          "state": "Madhya Pradesh",
+          "resourceId": "bed529b8-fc3e-4746-9e5e-76a2559f2412",
+          "title": "Jabalpur_Urban_ELECTRICITY_CONNECTION_2021",
+          "org": [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Madhya Pradesh",
+            "Jabalpur"
+          ],
+          "sector": [
+            "Non Renewable",
+            "Power and Energy"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_s_no_",
+            "sector",
+            "year_2015",
+            "year_2016",
+            "year_2017",
+            "year_2018",
+            "year_2019",
+            "year_2020",
+            "year_2021"
+          ]
+        },
+        {
+          "code": "mp",
+          "state": "Madhya Pradesh",
+          "resourceId": "c61ac534-b95d-450c-a938-b080c3e87f2c",
+          "title": "Unemployment Rate: Satna: 2018",
+          "org": [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Madhya Pradesh",
+            "Satna"
+          ],
+          "sector": [
+            "Employment",
+            "Labour and Employment"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "zone_name",
+            "ward_name",
+            "ward_no_",
+            "no__of_unemployed_persons__seeking_or_available_for_work_",
+            "no__of_employed_persons_",
+            "total_labour_force_in_the_city__age_15_59___employed___unemployed_persons_",
+            "_"
+          ]
+        },
+        {
+          "code": "mp",
+          "state": "Madhya Pradesh",
+          "resourceId": "47abbc54-8cd6-45cc-8bc9-a7d2aa088c85",
+          "title": "e-Governeance Societies  in MadhyaPradesh",
+          "org": [
+            "Madhya Pradesh",
+            "Information Technology Department, Madhya Pradesh"
+          ],
+          "sector": [
+            "Information and Communications",
+            "Information and Technology"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_sl__no__",
+            "district_",
+            "e_governance_manager_s_name",
+            "e_governeance_manager_mobile_number_",
+            "secretary__district_e_governance_society__district_office_address",
+            "nic_email_id",
+            "contact_office_no_"
+          ]
+        },
+        {
+          "code": "mp",
+          "state": "Madhya Pradesh",
+          "resourceId": "7648de84-1ee5-443b-b281-17eb46a0a548",
+          "title": "Unemployment Rate  ",
+          "org": [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Madhya Pradesh",
+            "Satna"
+          ],
+          "sector": [
+            "Employment",
+            "Labour and Employment",
+            "Organized Sector Workers"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "zone_name",
+            "ward_name",
+            "ward_no_",
+            "no__of_unemployed_persons__seeking_or_available_for_work_",
+            "no__of_employed_persons",
+            "total_labour_force_in_the_city__age_15_59___employed___unemployed_persons_"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "mh",
+      "state": "Maharashtra",
+      "found": 10,
+      "tools": [
+        {
+          "code": "mh",
+          "state": "Maharashtra",
+          "resourceId": "66d55149-d87d-43f3-8400-d1d9dda2a0c0",
+          "title": "Year-wise Clusters Approved Under MSICDP from 2015-16 to 2024-25",
+          "org": [
+            "Maharashtra",
+            " Industries, Energy and Labour Department, Maharashtra"
+          ],
+          "sector": [
+            "Industries"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "aprroved_year",
+            "no_of_clusters",
+            "name_of_cluster",
+            "location_"
+          ]
+        },
+        {
+          "code": "mh",
+          "state": "Maharashtra",
+          "resourceId": "aad4ae5e-5229-496e-8405-4c5b29069e19",
+          "title": "Statistics of Annual Passenger Water Transport in Maharashtra from 2022-23 to 2024-25",
+          "org": [
+            "Maharashtra",
+            " Maharashtra Maritime Board"
+          ],
+          "sector": [
+            "Water ways"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sr_no__",
+            "port_group",
+            "route",
+            "_2022__23",
+            "_2023__24",
+            "_2024__25"
+          ]
+        },
+        {
+          "code": "mh",
+          "state": "Maharashtra",
+          "resourceId": "e87b74a9-ac81-48d0-9106-9ba9b6573d6f",
+          "title": "Application Wise Document Count, Stamp Duty and Registration Fees during 2024-25 and 2025-26",
+          "org": [
+            "Maharashtra",
+            " Revenue and Forest Department, Maharashtra"
+          ],
+          "sector": [
+            "Revenue",
+            " Macro Economy"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "dig_",
+            "jdr",
+            "sro",
+            "document_count",
+            "stamp_duty",
+            "registration_fees",
+            "fy_year",
+            "month",
+            "year",
+            "application"
+          ]
+        },
+        {
+          "code": "mh",
+          "state": "Maharashtra",
+          "resourceId": "87e32686-a3a1-4b2f-ba3f-ac6cf7327f86",
+          "title": "Fair Price Shop Details Maharashtra from September 2025 to December 2025",
+          "org": [
+            "Maharashtra",
+            " Food, Civil Supplies and Consumer Protection Department, Maharashtra"
+          ],
+          "sector": [
+            "Public Distribution"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_sr_no_",
+            "district_name",
+            "name_of_block_tehsil",
+            "area_type",
+            "name_of_fps",
+            "fps_id",
+            "longitude_of_fps",
+            "latitude_of_fps"
+          ]
+        },
+        {
+          "code": "mh",
+          "state": "Maharashtra",
+          "resourceId": "8e658453-76af-4dc7-95ad-5681df69e680",
+          "title": "Maharashtra District-wise Per Capita Availability of Meat (Kg/Annum) 2017-18 to 2023-24",
+          "org": [
+            "Maharashtra",
+            " Animal Husbandry, Dairy Development and Fisheries Department, Maharashtra"
+          ],
+          "sector": [
+            "Animal Husbandry"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_sr__no_",
+            "region",
+            "district",
+            "_2017_18__kg__annum_",
+            "_2018_19__kg__annum_",
+            "_2019_20__kg__annum_",
+            "_2020_21__kg__annum_",
+            "_2021_22__kg__annum_",
+            "_2022_23__kg__annum_",
+            "_2023_24__kg__annum_"
+          ]
+        },
+        {
+          "code": "mh",
+          "state": "Maharashtra",
+          "resourceId": "3fc2e82d-c4cb-46fe-8c5e-51c4fa402b34",
+          "title": "District-wise Beneficiary Count Data of Maharashtra CM Tirth Darshan Scheme from 01.02.2025 to 17.11.2025",
+          "org": [
+            "Maharashtra",
+            " Social Justice and Special Assistance Department, Maharashtra"
+          ],
+          "sector": [
+            "Social Development",
+            " Health and Family welfare"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "taluka",
+            "district",
+            "application_received",
+            "application_approved",
+            "application_rejected",
+            "application_under_scrutiny",
+            "application_tirth_yojana_completed"
+          ]
+        },
+        {
+          "code": "mh",
+          "state": "Maharashtra",
+          "resourceId": "1999b42d-f4a0-4be0-8983-5b8b6226aa13",
+          "title": "Daily Rainfall Data for Washim District Maharashtra from June 2025 to September 2025",
+          "org": [
+            "Maharashtra",
+            " Revenue and Forest Department, Maharashtra",
+            " Collector Office Washim"
+          ],
+          "sector": [
+            "Environment and Forest"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "date_with_month_wise_rainfall_in_mm",
+            "washim",
+            "risod",
+            "malegaon",
+            "mangrulpir",
+            "manora",
+            "karanja"
+          ]
+        },
+        {
+          "code": "mh",
+          "state": "Maharashtra",
+          "resourceId": "abda218f-2ca7-4fc0-8474-df7dc9d00c33",
+          "title": "Taluka-wise Rainfall data of Sindhudurg as on 24-09-2025",
+          "org": [
+            "Maharashtra",
+            " Revenue and Forest Department, Maharashtra",
+            " Collector Office Sindhudurg"
+          ],
+          "sector": [
+            "Environment and Forest"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sr_no_",
+            "name_of_taluka",
+            "tehsil_normal_rainfall___figure_in_mm_",
+            "actual_rainfall___figure_in_mm_",
+            "percentage_to_normal"
+          ]
+        },
+        {
+          "code": "mh",
+          "state": "Maharashtra",
+          "resourceId": "a0b5a8e0-6146-443d-bb76-7a87017a1a6b",
+          "title": "Taluka wise Land Use Information1 during 2023-24",
+          "org": [
+            "Maharashtra",
+            " Planning Department, Maharashtra",
+            " District Statistical Office, Jalna"
+          ],
+          "sector": [
+            "Statistics"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sr__no_",
+            "taluka",
+            "current_fallen_land_a_",
+            "other_fallen_land_b_",
+            "total_fallen_land_a_b_",
+            "net_area_c__",
+            "more_than_one__dusota_area__d_",
+            "total_area_under_cultivation__c_d_"
+          ]
+        },
+        {
+          "code": "mh",
+          "state": "Maharashtra",
+          "resourceId": "246245a3-dbb8-4e06-aa93-a8df95f343f3",
+          "title": "Land Use Information Jalna District, Maharashtra - 2023-24",
+          "org": [
+            "Maharashtra",
+            " Planning Department, Maharashtra",
+            " District Statistical Office, Jalna"
+          ],
+          "sector": [
+            "Statistics"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sr__no_",
+            "taluka",
+            "total_area",
+            "forest_occupied_area",
+            "non_agricultural_land_land_under_non_agricultural_use",
+            "non_agricultural_land_fallen_uncultivable_land",
+            "non_agricultural_land__total__5_6_",
+            "total_uncultivated_land_excluding_fallow_land"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "mn",
+      "state": "Manipur",
+      "found": 10,
+      "tools": [
+        {
+          "code": "mn",
+          "state": "Manipur",
+          "resourceId": "a5803bc1-f194-48be-a916-74a0406de068",
+          "title": "State/UT-wise Number of Mandis Integrated with e-National Agriculture Market (e-NAM) Platform as on 31-10-2024",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl__no_",
+            "state_ut",
+            "category",
+            "number_of_mandis_integrated_with_e_nam_platform"
+          ]
+        },
+        {
+          "code": "mn",
+          "state": "Manipur",
+          "resourceId": "6f4bd473-80d7-46ac-84d0-ac1ef0f31651",
+          "title": "State/UT-wise Details of Loan Sanctions under Agriculture Infrastructure Fund (AIF) as on 31-03-2024",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl__no_",
+            "state_ut",
+            "sanction_no_",
+            "sanction_amount__rs__in_crore_"
+          ]
+        },
+        {
+          "code": "mn",
+          "state": "Manipur",
+          "resourceId": "8df29fe1-c3b7-4069-9cdb-cc4ea85873f1",
+          "title": "Number of Agricultural Workers in India - 2001 and 2011 (From: Ministry of Agriculture and Farmers Welfare)",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_s_no_",
+            "state__ut",
+            "cultivators___2001",
+            "cultivators___2011",
+            "agricultural_labourers___2001",
+            "agricultural_labourers___2011",
+            "total__2001",
+            "total__2011"
+          ]
+        },
+        {
+          "code": "mn",
+          "state": "Manipur",
+          "resourceId": "f6fb3ade-c752-4234-b8be-eee7b1578bea",
+          "title": "State-wise Percentage of farmers availing crop insurance schemes in the country during 2014-15 (From: Ministry of Agriculture and Farmers Welfare)",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "state",
+            "total_operational_holding",
+            "scheme_wise_no__of_farmers_insured_year_2014_15___nais",
+            "scheme_wise_no__of_farmers_insured_year_2014_15___mnais",
+            "scheme_wise_no__of_farmers_insured_year_2014_15___wbcis",
+            "total_no__of_farmers_insured",
+            "__of_no__of_farmers_insured__all_schemes_"
+          ]
+        },
+        {
+          "code": "mn",
+          "state": "Manipur",
+          "resourceId": "04905770-c624-4a39-9b6f-773c60c8743b",
+          "title": "Wheat and Rice Projected Demand from 2015-16 to 2016-17 (From: Ministry of Agriculture and Farmers Welfare)",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_year",
+            "projected_demand___rice",
+            "projected_demand___wheat"
+          ]
+        },
+        {
+          "code": "mn",
+          "state": "Manipur",
+          "resourceId": "9e9342be-af36-4f30-a1e6-71ff408e39e1",
+          "title": "Wheat and Rice Estimated Production and Projected demand from 2012-13 to 2014-15 (From: Ministry of Agriculture and Farmers Welfare)",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_year",
+            "estimated_production___rice",
+            "estimated_production___wheat",
+            "projected_demand___rice",
+            "projected_demand___wheat",
+            "gap__production___demand____rice",
+            "gap__production___demand____wheat"
+          ]
+        },
+        {
+          "code": "mn",
+          "state": "Manipur",
+          "resourceId": "effa16ed-7b3b-4deb-b138-102b40642534",
+          "title": "Sate/Ut-wise Number of districts affected by deficit and scanty rainfall during South-West Monsoon - 2015 (From: Ministry of Agriculture and Farmers Welfare)",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_s_no_",
+            "state",
+            "deficient",
+            "scanty",
+            "_total"
+          ]
+        },
+        {
+          "code": "mn",
+          "state": "Manipur",
+          "resourceId": "4786bed5-aab6-446b-84f2-b746dfdcc7f3",
+          "title": "The number of suicides due to agrarian reason - 2015 (From: Ministry of Agriculture and Farmers Welfare)",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "_s_no_",
+            "state__ut",
+            "for_the_year_2015",
+            "date_reported_on"
+          ]
+        },
+        {
+          "code": "mn",
+          "state": "Manipur",
+          "resourceId": "d34ab8d2-d42c-4742-901d-0f86a0addc14",
+          "title": "District-wise Number of Water Bodies of Aravalli Hill Range (in Reply to Unstarred Question on 13 February 2025)",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl__no_",
+            "district",
+            "no__of_water_bodies"
+          ]
+        },
+        {
+          "code": "mn",
+          "state": "Manipur",
+          "resourceId": "e7a2799d-b6e9-4026-97ec-ccb653dc8125",
+          "title": "State-wise Decadal Change in the Forest Cover in the Hill Districts of Himalayan States of India (in reply to Unstarred Question on 23 March, 2023)",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl__no_",
+            "state_ut",
+            "no__of_hill_districts",
+            "geographical_area",
+            "total_forest_cover__isfr_2011_",
+            "total_forest_cover__isfr_2021_",
+            "change_in_forest_cover_w_r_t_2011"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ml",
+      "state": "Meghalaya",
+      "found": 10,
+      "tools": [
+        {
+          "code": "ml",
+          "state": "Meghalaya",
+          "resourceId": "6cccc3b5-992a-4f00-846a-530209ea56f1",
+          "title": "State Plan Schemes of the Department of Agriculture - Meghalaya",
+          "org": [
+            "Meghalaya",
+            " Agriculture Department, Meghalaya"
+          ],
+          "sector": [
+            "Agriculture"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "department_",
+            "scheme_type",
+            "schemename",
+            "objective",
+            "pattern_of_assistance",
+            "eligibility",
+            "how_to_apply",
+            "criteria_of_selection",
+            "whom_to_contact"
+          ]
+        },
+        {
+          "code": "ml",
+          "state": "Meghalaya",
+          "resourceId": "e259e0c7-8e81-4805-a69c-dbecf9a04429",
+          "title": "List of Government Health Facilities in Meghalaya",
+          "org": [
+            "Meghalaya",
+            "Health and Family Welfare Department, Meghalaya"
+          ],
+          "sector": [
+            "Health and Family welfare",
+            "Health"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "name_of_district",
+            "name_of_block",
+            "type_of_health_facility",
+            "name_of_health_facility"
+          ]
+        },
+        {
+          "code": "ml",
+          "state": "Meghalaya",
+          "resourceId": "3f09b8c8-7fe1-4170-8961-e270dfe95642",
+          "title": "List of Assembly Constituencies in Meghalaya",
+          "org": [
+            "Meghalaya",
+            "Election Department, Meghalaya"
+          ],
+          "sector": [
+            "Governance and Administration",
+            "State Legislative"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "district_name",
+            "election_office_name",
+            "no___name_of_assembly_constituency"
+          ]
+        },
+        {
+          "code": "ml",
+          "state": "Meghalaya",
+          "resourceId": "ce345668-4069-411e-9524-3f7f2334fc44",
+          "title": "Monthly market arrival of Agricultural Produce - 2012",
+          "org": [
+            "Meghalaya",
+            "Agriculture Department, Meghalaya"
+          ],
+          "sector": [
+            "Agriculture",
+            "Agricultural Marketing"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "district",
+            "block",
+            "market",
+            "year",
+            "month",
+            "commodity",
+            "arrival",
+            "unit"
+          ]
+        },
+        {
+          "code": "ml",
+          "state": "Meghalaya",
+          "resourceId": "ba7df6b5-92a2-463b-9506-a647ed9b770c",
+          "title": "Vehicle Registration Shillong 2018",
+          "org": [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Meghalaya",
+            "Shillong"
+          ],
+          "sector": [
+            "Road Transport",
+            "Transport"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "no__of_registrations___buses___2017_18",
+            "no__of_registrations___buses___2016_17",
+            "no__of_registrations___buses___2015_16",
+            "no__of_registrations___buses___2014_15",
+            "no__of_registrations___light_motor_vehicles___2017_18",
+            "no__of_registrations___light_motor_vehicles___2016_17",
+            "no__of_registrations___light_motor_vehicles___2015_16",
+            "no__of_registrations___light_motor_vehicles___2014_15",
+            "no__of_registrations___goods_carrier_vehicles___2017_18"
+          ]
+        },
+        {
+          "code": "ml",
+          "state": "Meghalaya",
+          "resourceId": "69bd84ba-4acc-465c-8dc8-12c08a5f46fa",
+          "title": "District and Qualification-wise Jobseekers under Meghalaya Employment Exchange as on 05-07-2021",
+          "org": [
+            "Meghalaya"
+          ],
+          "sector": [
+            "Employment"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "qualification",
+            "east_khasi_hills",
+            "west_khasi_hills",
+            "south_west_khasi_hills",
+            "west_garo_hills",
+            "east_garo_hills",
+            "south_garo_hills",
+            "south_west_garo_hills",
+            "north_garo_hills",
+            "west_jaintia_hills"
+          ]
+        },
+        {
+          "code": "ml",
+          "state": "Meghalaya",
+          "resourceId": "3d9f2263-cb6c-495c-8016-86e121155c2e",
+          "title": "Diseases Shillong 2018",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Meghalaya",
+              "Shillong"
+            ]
+          ],
+          "sector": [
+            "Health and Family welfare",
+            "Health"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "_year",
+            "number_of_cases_of_persons_affected_by_vector_borne_diseases",
+            "number_of_cases_of_persons_affected_by_water_borne_diseases"
+          ]
+        },
+        {
+          "code": "ml",
+          "state": "Meghalaya",
+          "resourceId": "7ab9e9a1-eee3-4eb3-b455-ab1a94a1e8ae",
+          "title": "List of Commodities with the corresponding Tax Rate",
+          "org": [
+            "Meghalaya",
+            "Excise, Registration, Taxation and Stamps (ERTS) Department, Meghalaya"
+          ],
+          "sector": [
+            "Others"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "__sl_no_",
+            "name_of_commodity",
+            "rate_of_tax",
+            "schedule"
+          ]
+        },
+        {
+          "code": "ml",
+          "state": "Meghalaya",
+          "resourceId": "123adf6e-b1de-452b-8bda-093351f00458",
+          "title": "List of Primary Wholesale Market",
+          "org": [
+            "Meghalaya",
+            "Agriculture Department, Meghalaya"
+          ],
+          "sector": [
+            "Agricultural Marketing"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "district_name",
+            "block_name",
+            "market_name"
+          ]
+        },
+        {
+          "code": "ml",
+          "state": "Meghalaya",
+          "resourceId": "a2a12721-ab47-4b9a-bc4b-615f9c53bdc9",
+          "title": "State/UT-wise Details of Such Forest Areas Approved under Mining Category from as on 01-04-2019 to 31-03-2024",
+          "org": [
+            "Rajya Sabha"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sl__no_",
+            "state_ut",
+            "area_approved__in_ha__"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "mz",
+      "state": "Mizoram",
+      "found": 10,
+      "tools": [
+        {
+          "code": "mz",
+          "state": "Mizoram",
+          "resourceId": "78df01ab-d235-4e6c-9fd4-2ada931097e0",
+          "title": "Income Certificate 2017-2022",
+          "org": [
+            "Mizoram",
+            "Information and Communication Technology Department, Mizoram"
+          ],
+          "sector": [
+            "Information and Communications"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "sn_",
+            "state",
+            "district",
+            "_2017",
+            "_2018",
+            "_2019",
+            "_2020",
+            "_2021",
+            "_2022"
+          ]
+        },
+        {
+          "code": "mz",
+          "state": "Mizoram",
+          "resourceId": "0421b0fa-6cb5-4d36-b947-3257ddef3276",
+          "title": "Police Stations : Location and Address",
+          "org": [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Mizoram",
+            "Aizawl"
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "name_of_police_station",
+            "address",
+            "longitude_",
+            "latitude_"
+          ]
+        },
+        {
+          "code": "mz",
+          "state": "Mizoram",
+          "resourceId": "a8e23ab6-ef98-4e28-8add-7d30a0f7308e",
+          "title": "20th Livestock Census, Mizoram",
+          "org": [
+            "Mizoram",
+            "Information and Communication Technology Department, Mizoram"
+          ],
+          "sector": [
+            "Census and Surveys",
+            "Statistics"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "state_district_buffalo_pig_poultry___backyard_poultry___commercial_cattle_mithun_goat"
+          ]
+        },
+        {
+          "code": "mz",
+          "state": "Mizoram",
+          "resourceId": "63328e8e-f804-45dc-8db2-89baf5f7ebcd",
+          "title": "Health Infrastructure 2019 : Aizawl",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Mizoram",
+              "Aizawl"
+            ]
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "zone_name",
+            "ward_name",
+            "ward_no_",
+            "facility_name",
+            "type_hospital_nursing_home_lab_",
+            "_class_public_private_",
+            "level_primary_secondary_tertiary_",
+            "pharmacy_available_yes_no",
+            "number_of_beds_in_emergency_wards_"
+          ]
+        },
+        {
+          "code": "mz",
+          "state": "Mizoram",
+          "resourceId": "f5a6e39b-6c97-4b97-bdc8-9864cf1be327",
+          "title": "ITC Neighbourhood3:Aizawl:2019",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Mizoram",
+              "Aizawl"
+            ]
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "total_city_area_in_sq_km_",
+            "total_municipal_budget_in_lakhs_",
+            "municipal_budget_allocation_for_open_spaces_and_or_parks_including_development_maintenance_in_lakhs_"
+          ]
+        },
+        {
+          "code": "mz",
+          "state": "Mizoram",
+          "resourceId": "2642e59e-fad9-446e-b09a-130f5df7a221",
+          "title": "Solid Waste Processing : Aizawl : 2018",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Mizoram",
+              "Aizawl"
+            ]
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "type_of_waste_and_quantity_tpd_type_of_waste",
+            "type_of_waste_and_quantity_tpd_quantity",
+            "process_technology",
+            "plant_location_address_",
+            "plant_capacity_tpd_",
+            "waste_to_energy_initiative_y_n_",
+            "_power_generated_by_waste_to_energy_initiative_in_mw_"
+          ]
+        },
+        {
+          "code": "mz",
+          "state": "Mizoram",
+          "resourceId": "8fd36ac1-d1f9-49c3-aaf8-d6badebe7cf6",
+          "title": "Households : Aizawl : 2018",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Mizoram",
+              "Aizawl"
+            ]
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "zone_name",
+            "ward_name",
+            "ward_no_",
+            "total_no_of_households"
+          ]
+        },
+        {
+          "code": "mz",
+          "state": "Mizoram",
+          "resourceId": "302777c4-3f10-4538-beec-030a5c12b8bb",
+          "title": "Solid Waste Collection Vehicle : Aizawl : 2018",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Mizoram",
+              "Aizawl"
+            ]
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "_zone_name",
+            "ward_name",
+            "_ward_no_",
+            "waste_quantity_tpd_",
+            "collection_vehicle_details_type_of_waste_collection_vehicle",
+            "collection_vehicle_details_capacity_in_cubic_meters_",
+            "collection_vehicle_detailsyear_of_purchase",
+            "collection_vehicle_detailsnos_of_vehicle",
+            "collection_vehicle_details_frequency_of_trips_daily_biweekly_fortnightly_monthly_"
+          ]
+        },
+        {
+          "code": "mz",
+          "state": "Mizoram",
+          "resourceId": "c0fe40f7-d7af-4642-9379-af61381b68b1",
+          "title": "ITC Neighbourhood2:Aizawl:2019",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Mizoram",
+              "Aizawl"
+            ]
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "zone_name",
+            "ward_name",
+            "ward_no_",
+            "area_in_sq_km_",
+            "residential_area_in_sq_km_",
+            "non_residential_area_in_sq_km_",
+            "area_covered_under_parks_playgrounds_and_open_spaces_in_sq_km_"
+          ]
+        },
+        {
+          "code": "mz",
+          "state": "Mizoram",
+          "resourceId": "9d7a2468-405d-46d4-9337-db0c7315e825",
+          "title": "Governance : Aizawl : 2018",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Mizoram",
+              "Aizawl"
+            ]
+          ],
+          "sector": [
+            "All"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "zone_name",
+            "ward_name",
+            "ward_no_",
+            "total_no_of_registered_voters",
+            "no_of_votes_polled_in_the_last_municipal_election",
+            "no_of_polling_stations_booths"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "nl",
+      "state": "Nagaland",
+      "found": 3,
+      "tools": [
+        {
+          "code": "nl",
+          "state": "Nagaland",
+          "resourceId": "9c41624a-94f4-4cb3-a0fc-24aa963bc82c",
+          "title": "Tourist  Places in Kohima : 2021",
+          "org": [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Nagaland",
+            "Kohima"
+          ],
+          "sector": [
+            "Places",
+            "Travel and Tourism"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "place",
+            "category_",
+            "department_",
+            "access",
+            "entry_fee"
+          ]
+        },
+        {
+          "code": "nl",
+          "state": "Nagaland",
+          "resourceId": "9c39f88b-339f-42e6-ba06-9247191948d3",
+          "title": "Disaster Events in Kohima District : 2018 to 2019",
+          "org": [
+            "Ministry of Housing and Urban Affairs",
+            "Smart Cities Mission",
+            "Nagaland",
+            "Kohima"
+          ],
+          "sector": [
+            "Others"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "disaster_type",
+            "_year",
+            "total_no__of_incident_reported",
+            "total_no__of_affected_family__male_headed",
+            "total_no__of_affected_family__female_headed",
+            "_total",
+            "total_no__of_people_killed",
+            "no_of_relief_fund_for_male_headed",
+            "no_of_relief_fund_for_female_headed"
+          ]
+        },
+        {
+          "code": "nl",
+          "state": "Nagaland",
+          "resourceId": "86db52b1-db4b-4a87-8e65-c69b8f6d101d",
+          "title": "Diseases Kohima 2017-2018",
+          "org": [
+            [
+              "Ministry of Housing and Urban Affairs",
+              "Smart Cities Mission",
+              "Nagaland",
+              "Kohima"
+            ]
+          ],
+          "sector": [
+            "Health and Family welfare",
+            "Health"
+          ],
+          "fields": [],
+          "sampleKeys": [
+            "city_name",
+            "_year",
+            "number_of_cases_of_persons_affected_by_vector_borne_diseases",
+            "number_of_cases_of_persons_affected_by_water_borne_diseases"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "or",
+      "state": "Odisha",
+      "found": 0,
+      "tools": []
+    },
+    {
+      "code": "pb",
+      "state": "Punjab",
+      "found": 0,
+      "tools": []
+    },
+    {
+      "code": "rj",
+      "state": "Rajasthan",
+      "found": 0,
+      "tools": []
+    },
+    {
+      "code": "sk",
+      "state": "Sikkim",
+      "found": 0,
+      "tools": []
+    },
+    {
+      "code": "tn",
+      "state": "Tamil Nadu",
+      "found": 0,
+      "tools": []
+    },
+    {
+      "code": "tg",
+      "state": "Telangana",
+      "found": 0,
+      "tools": []
+    },
+    {
+      "code": "tr",
+      "state": "Tripura",
+      "found": 0,
+      "tools": []
+    },
+    {
+      "code": "up",
+      "state": "Uttar Pradesh",
+      "found": 0,
+      "tools": []
+    },
+    {
+      "code": "ut",
+      "state": "Uttarakhand",
+      "found": 0,
+      "tools": []
+    },
+    {
+      "code": "wb",
+      "state": "West Bengal",
+      "found": 0,
+      "tools": []
+    }
+  ],
+  "skipped": [
+    {
+      "code": "nl",
+      "id": "e64b4c2a-ace7-4b49-b028-a41b802e91da",
+      "title": "Residential Certificates Issued Kohima 2016-2018",
+      "reason": "http 429"
+    },
+    {
+      "code": "nl",
+      "id": "8f38a79a-691e-4b23-a164-fac4de84b3a6",
+      "title": "Fund allocated/released and spent to various States for Handloom Development during 2012-13 to 2015-16 (From: Ministry of Textiles)",
+      "reason": "http 429"
+    },
+    {
+      "code": "nl",
+      "id": "822f3a50-def0-4288-bbc9-c5e63cb08ce5",
+      "title": "Scheme-wise Budget Provision under Handloom Schemes during 2021-22",
+      "reason": "http 429"
+    },
+    {
+      "code": "nl",
+      "id": "365d5609-2d7b-4c65-9bf9-4e616b43f485",
+      "title": "State/UT-wise Total Capital Invested in Garmenting, Handloom, Jute, Multi-Activity, Processing, Silk, Technical Textiles and Weaving under ATUFS Portal from 2017-18 to 2021-22",
+      "reason": "http 429"
+    },
+    {
+      "code": "nl",
+      "id": "8fd8aa86-c643-4273-9081-703ea1770e8b",
+      "title": "State/UT-wise Number of Beneficiaries Including Women/SC/ST/OBC Weavers/Artisans under Schemes of Handloom and Handicraft Sectors from 2019-20 to 2023-24",
+      "reason": "http 429"
+    },
+    {
+      "code": "nl",
+      "id": "ea9528bf-e331-4ebc-a463-3bb85f6107a2",
+      "title": "District-wise Number of Weavers/Artisans Benefited in Nagaland under National Handloom Development Programme and Raw Material Supply Scheme (In reply to Unstarred Question as on 21st March 2025)",
+      "reason": "http 429"
+    },
+    {
+      "code": "nl",
+      "id": "5f674a91-0f81-4251-964b-3edae84a2348",
+      "title": "Year-wise Details of Funds Released and Utilised under Schemes for Handloom and Handicraft Sectors in Counrtry from 2019-20 to 2023-24",
+      "reason": "http 429"
+    },
+    {
+      "code": "or",
+      "id": "f641911e-1686-4675-95cf-92f1a5bd7173",
+      "title": "Primary Census Abstract 2011 - Odisha",
+      "reason": "http 429"
+    },
+    {
+      "code": "or",
+      "id": "50f8a810-f157-450c-8439-f580d19fe408",
+      "title": "District wise list of junior Colleges in Odisha till October 2017",
+      "reason": "http 429"
+    },
+    {
+      "code": "or",
+      "id": "ca77de79-10e8-4292-a4e6-5ae00c08c47a",
+      "title": "District wise list of degree Colleges in Odisha till October 2017",
+      "reason": "http 429"
+    },
+    {
+      "code": "or",
+      "id": "7b937fb3-78eb-49cd-8af5-cb1e6acb33a6",
+      "title": "Diseases : Rourkela from 2015 to 2018",
+      "reason": "http 429"
+    },
+    {
+      "code": "or",
+      "id": "7c60a37d-20de-4873-8648-3b686ed9a954",
+      "title": "ITC Neighbourhood 2 Rourkela of 2018",
+      "reason": "http 429"
+    },
+    {
+      "code": "or",
+      "id": "69640185-e80b-48aa-b991-1c0b5d86fbac",
+      "title": "ITC Neighbourhood : Rourkela of 2018",
+      "reason": "http 429"
+    },
+    {
+      "code": "or",
+      "id": "014a968a-6c63-44b4-92d1-61bac0074e61",
+      "title": "Crime Record : Rourkela from 2014 to 2018",
+      "reason": "http 429"
+    },
+    {
+      "code": "or",
+      "id": "ce4845f3-9666-4cdc-b861-474321090d73",
+      "title": "ITC Neighbourhood 2 : Rourkela As on 2018",
+      "reason": "http 429"
+    },
+    {
+      "code": "or",
+      "id": "94958d2f-cdf4-4510-b1b2-add6b994ae35",
+      "title": "Water Consumption Rourkela : As of 2018",
+      "reason": "http 429"
+    },
+    {
+      "code": "or",
+      "id": "c3daee75-6dc7-4b12-ac83-7a771ded6900",
+      "title": "Year-wise Incidences of Paddy Stubble Burning in the States from 2020 to 2024",
+      "reason": "http 429"
+    },
+    {
+      "code": "pb",
+      "id": "3cbd4cdc-ed38-4df5-8061-5eb97d4b1626",
+      "title": "District-wise Veterinary Officers in Punjab from 1986 to 2021 (April to March)",
+      "reason": "http 429"
+    },
+    {
+      "code": "pb",
+      "id": "578fe419-7f2d-42a4-b36b-fbb8f52f8676",
+      "title": "District-wise Yeild under Potato Cultivation in Punjab from 1968 to 2022 (April to March)",
+      "reason": "http 429"
+    },
+    {
+      "code": "pb",
+      "id": "c6245b6a-16a6-42f7-be9b-65e1b64fa17d",
+      "title": "Water Polluting Industries in Punjab from 2003 to 2022",
+      "reason": "http 429"
+    },
+    {
+      "code": "pb",
+      "id": "d2f2e120-08c0-448d-9640-223938f6b95b",
+      "title": "District-wise Villages/Towns affected in Punjab from 1969 to 2016 (April to March)",
+      "reason": "http 429"
+    },
+    {
+      "code": "pb",
+      "id": "beaf21f1-0115-4815-9ff7-26b24da01ee5",
+      "title": "Average Retail Prices of selected commodities from 1967-68 to 2022-23",
+      "reason": "http 429"
+    },
+    {
+      "code": "pb",
+      "id": "d5be3f6b-bb0a-40e6-be0f-3264d73d7d4a",
+      "title": "Income of Improvement Trusts from 1968 to 2022",
+      "reason": "http 429"
+    },
+    {
+      "code": "pb",
+      "id": "bf044965-c6f3-44c6-912c-8343a4e4deee",
+      "title": "District-wise number of Girls in Classes XI to XII of Punjab from 1989 to 2022 (as on 30th September)",
+      "reason": "http 429"
+    },
+    {
+      "code": "pb",
+      "id": "ea1c74e0-f9a4-4e3f-abaf-a9372ef79d5f",
+      "title": "District-wise Stage wise Teacher-Pupil Ratio of Class 11 to 12 from 1992 to 2022 (As on 30th September) ",
+      "reason": "http 429"
+    },
+    {
+      "code": "pb",
+      "id": "a20aa01f-5ac9-4167-8a40-192ce0b1bd24",
+      "title": "District-wise Stage wise Teacher-Pupil Ratio of Class 9 to 10 from 1989 to 2022  (As on 30th September) ",
+      "reason": "http 429"
+    },
+    {
+      "code": "pb",
+      "id": "38e790c6-26e0-4b36-8710-ca5647c00742",
+      "title": "District-wise Stage wise Teacher-Pupil Ratio of Class 1 to 5 from 1989 to 2022 (As on 30th September) ",
+      "reason": "http 429"
+    },
+    {
+      "code": "rj",
+      "id": "f1030916-1b66-4250-960f-a0a5980446d4",
+      "title": "Diseases Data : KOTA : 2015-16 to 2017-18",
+      "reason": "http 429"
+    },
+    {
+      "code": "rj",
+      "id": "77c8202a-d3aa-4526-bb3c-294a50d5a060",
+      "title": "Diseases: Udaipur 2015-18",
+      "reason": "http 429"
+    },
+    {
+      "code": "rj",
+      "id": "679906ae-8e58-4019-a68b-d961ab39f897",
+      "title": "Street Lights Data Jaipur 2018",
+      "reason": "http 429"
+    },
+    {
+      "code": "rj",
+      "id": "733f84df-cce5-4b94-9fa4-0cc8ada91dc3",
+      "title": "VAT and GST : Ajmer : from 2014-15 to 2017-18",
+      "reason": "http 429"
+    },
+    {
+      "code": "rj",
+      "id": "aed9f5e4-b9f3-43a2-8bfc-474d949bc670",
+      "title": "Street Lights Data : KOTA : 2018",
+      "reason": "http 429"
+    },
+    {
+      "code": "rj",
+      "id": "c4de47f0-31be-4593-82e2-95b95cd3c0f6",
+      "title": "Month-wise Details of Fee from Tourism (US dollar billion) in india from 2019 to 2021",
+      "reason": "http 429"
+    },
+    {
+      "code": "rj",
+      "id": "98faa140-3ea5-4b85-83b4-5f2f84764e03",
+      "title": "Year-wise Details of Countries Above India in Terms of Tourism Receipts from 2020 to 2022",
+      "reason": "http 429"
+    },
+    {
+      "code": "rj",
+      "id": "c63254b5-9bed-4378-8524-960964e6ac13",
+      "title": "Region-wise Details of International Tourism Receipts Worldwide and by Regions from 2019 to 2021",
+      "reason": "http 429"
+    },
+    {
+      "code": "rj",
+      "id": "7bf39f50-c52f-49ad-8bb2-04f09288bef6",
+      "title": "Year-wise Details of Foreign Exchange Earnings from Tourism in india during 1991, 2001 and 2011 to 2021",
+      "reason": "http 429"
+    },
+    {
+      "code": "rj",
+      "id": "d5e33551-9184-4ee9-8d79-40ac94fa18c2",
+      "title": "Month-wise Details of Fee from Tourism (US dollar billion) in india from 2019 to 2021",
+      "reason": "http 429"
+    },
+    {
+      "code": "sk",
+      "id": "72346933-88c8-4feb-af09-4c06176d1e71",
+      "title": "Health Institutions in Sikkim 2015",
+      "reason": "http 429"
+    },
+    {
+      "code": "sk",
+      "id": "a2c86b8c-e260-43b4-a74f-f02674a49d39",
+      "title": "School Level Wise School Category - 2015",
+      "reason": "http 429"
+    },
+    {
+      "code": "sk",
+      "id": "cf6a385f-2832-4fc5-b7e4-44797a36f54f",
+      "title": "State-wise Worker Population Ratio, 2011-12",
+      "reason": "http 429"
+    },
+    {
+      "code": "sk",
+      "id": "45696ab4-6fae-484e-9e1a-b7b57079dd05",
+      "title": "List of Monastic Schools, 2015-16",
+      "reason": "http 429"
+    },
+    {
+      "code": "sk",
+      "id": "d10857c4-bdeb-449f-bfd2-2c6c490ab592",
+      "title": "List of HRD Schools, 2015-16",
+      "reason": "http 429"
+    },
+    {
+      "code": "sk",
+      "id": "f719431e-7137-4804-8abd-4dadfed360a5",
+      "title": "BAC-wise List of Government Schools, 2015-16",
+      "reason": "http 429"
+    },
+    {
+      "code": "sk",
+      "id": "e732bc8b-8e0f-4050-8f3c-6c2db05c31c0",
+      "title": "List of Aided Schools, 2015-16",
+      "reason": "http 429"
+    },
+    {
+      "code": "sk",
+      "id": "cf31af78-ef64-44ee-9cc0-50cb9e80d837",
+      "title": "List of Sanskrit Schools, 2015-16",
+      "reason": "http 429"
+    },
+    {
+      "code": "sk",
+      "id": "683d9e34-2f54-4362-b71f-9b58d9cd7eb4",
+      "title": "Comparative profit margin of wheat by use of chemical fertilizers vis-a-vis organic manure as on 2015 (From: Ministry of Agriculture and Farmers Welfare)",
+      "reason": "http 429"
+    },
+    {
+      "code": "sk",
+      "id": "dbb36f51-8c7e-4d10-a7ef-493de3c33f1b",
+      "title": "State-wise Details of Physical and Organic Parameters included in Notified Primary Water Quality Criteria for Bathing Water by CPCB from 2021 to 2023",
+      "reason": "http 429"
+    },
+    {
+      "code": "tn",
+      "id": "88e6ecaa-4ced-4322-a0a7-104869ae0052",
+      "title": "District-wise Population, Beds and Doctors Ratio in 2017-18 by Director of Medical Education (DME) : SHB 2019",
+      "reason": "http 429"
+    },
+    {
+      "code": "tn",
+      "id": "d4517ac7-526a-4622-bb6a-79a7d53ec557",
+      "title": "Details on the COVID 19 Vaccination Coverage across Health Unit Districtwise in Tamil Nadu till 08.02.2022/day 375",
+      "reason": "http 429"
+    },
+    {
+      "code": "tn",
+      "id": "03717a9c-6569-4894-bc3e-2c0954f33663",
+      "title": "Centre-Wise and District-wise Annual Average Retail Price of Food Grains and Salt in Tamil Nadu 2016-17",
+      "reason": "http 429"
+    },
+    {
+      "code": "tn",
+      "id": "af9b9576-6b6e-4822-aece-45853551c7d2",
+      "title": "Rainfall by Districts : SHB 2019",
+      "reason": "http 429"
+    },
+    {
+      "code": "tn",
+      "id": "12d5749b-a752-45e1-8998-e96a9652d170",
+      "title": "Area under Principal Crops by Districts : SHB 2019",
+      "reason": "http 429"
+    },
+    {
+      "code": "tn",
+      "id": "74d36250-f5d3-4906-b2dc-3c9a89b89519",
+      "title": "Women Welfare Schemes in Tiruvallur District : DHB 2017-18",
+      "reason": "http 429"
+    },
+    {
+      "code": "tn",
+      "id": "886de4ae-3acc-4907-a748-e1dcecf51306",
+      "title": "Rainfall (June 2017 to May 2018): TNGLANCE2019",
+      "reason": "http 429"
+    },
+    {
+      "code": "tn",
+      "id": "6b712544-930c-4e85-9c53-8b6a46067d5d",
+      "title": "Details of Circle Offices of Department of Handlooms and Textiles",
+      "reason": "http 429"
+    },
+    {
+      "code": "tn",
+      "id": "d5c9e718-2118-4d6c-861c-9d29212acf52",
+      "title": "Schemes implemented by TAHDCO : SHB 2020",
+      "reason": "http 429"
+    },
+    {
+      "code": "tn",
+      "id": "656cdf9e-cd82-4778-b99b-79593dd4f456",
+      "title": "District wise allocation of fund under State Balanced Growth Fund by various indicators in Tamil Nadu in 2013-14",
+      "reason": "http 429"
+    },
+    {
+      "code": "tg",
+      "id": "f43c043c-238a-400f-9c9c-91fe0d6356fa",
+      "title": "WATER REVENUE DATA : KARIMNAGAR : 2013 to 2018",
+      "reason": "http 429"
+    },
+    {
+      "code": "tg",
+      "id": "4a20d640-33be-4ac6-9d87-6a22f376120a",
+      "title": "STREET LIGHTS : KARIMNAGAR JAN 2018-19",
+      "reason": "http 429"
+    },
+    {
+      "code": "tg",
+      "id": "ab57f7ab-2573-4b53-bdc0-c8ba707c83ea",
+      "title": "Street Lights : Warangal : 2019",
+      "reason": "http 429"
+    },
+    {
+      "code": "tg",
+      "id": "9b4965b9-effe-430b-9915-d20adfa17627",
+      "title": "State/UT-wise Sanctioned Budget and Actual Expenditure during the financial year 2021-22 to 2023-24",
+      "reason": "http 429"
+    },
+    {
+      "code": "tg",
+      "id": "7ad98831-014d-49f7-994d-af4edabd13b3",
+      "title": "State/UT-wise Total Sanctioned Budget and Percentage Variation during the financial year 2021-22 to 2023-24",
+      "reason": "http 429"
+    },
+    {
+      "code": "tg",
+      "id": "ad462cfb-ba8d-47d7-bbf6-44853ce71ba8",
+      "title": "Component-wise Breakdown of the Budget Allocated for the Digital India Common Service Centre(DICSC) Project (in reply to Unstarred Question as on 20 December 2024)",
+      "reason": "http 429"
+    },
+    {
+      "code": "tg",
+      "id": "822f3a50-def0-4288-bbc9-c5e63cb08ce5",
+      "title": "Scheme-wise Budget Provision under Handloom Schemes during 2021-22",
+      "reason": "http 429"
+    },
+    {
+      "code": "tg",
+      "id": "c393f8c6-0d4a-49e3-b3d2-10947ef25ece",
+      "title": "Year-wise Details of Budget Estimates, Revised Estimates and Expenditure under Jal Shakti Abhiyan (JSA) from 2021-22 to 2024-25",
+      "reason": "http 429"
+    },
+    {
+      "code": "tg",
+      "id": "d3efd714-017c-4f05-b191-3e7f9a5b0f63",
+      "title": "Scheme-wise Details of Budget Estimates, Revised Estimates and Actuals under Jal Shakti Abhiyan (JSA) from 2021-22 to 2024-25",
+      "reason": "http 429"
+    },
+    {
+      "code": "tg",
+      "id": "6432a55e-059f-4f0d-8f89-6bad07c5b3ce",
+      "title": "Year-wise Details of Total Budget Estimates (BE), Total Revised Estimates (RE) and Total Actual Utilization of Union Government from 2022-23 to 2025-26",
+      "reason": "http 429"
+    },
+    {
+      "code": "tr",
+      "id": "bec46dc1-5674-495f-a225-cb3a45a3ab33",
+      "title": "Household-Agartala as per Feb 2019",
+      "reason": "http 429"
+    },
+    {
+      "code": "tr",
+      "id": "fbbb4fc1-c8ce-476a-93a5-f3b7a850c232",
+      "title": "Street Light- Agartala: 2019",
+      "reason": "http 429"
+    },
+    {
+      "code": "tr",
+      "id": "0e943618-0ef0-487e-9ac6-b3daf002f208",
+      "title": "Year-wise Details of Import and Export of Natural Rubber from 2019-20 to 2023-24",
+      "reason": "http 429"
+    },
+    {
+      "code": "tr",
+      "id": "46ee6707-5b9d-4d25-8fe7-20f05997d74d",
+      "title": "Year-wise Details of Production of Natural Rubber (NR) in the Country from 2019-20 to 2023-24",
+      "reason": "http 429"
+    },
+    {
+      "code": "tr",
+      "id": "e23db8c2-73f7-4065-ac4c-869497bca27d",
+      "title": "Year-wise Yearly Average Prices of Natural Rubber (NR) in the Domestic Markets from 2018-19 to 2022-23",
+      "reason": "http 429"
+    },
+    {
+      "code": "tr",
+      "id": "904a01b9-f0d2-4551-b3e4-30d581bca468",
+      "title": "Year-wise Details of Yearly Average Domestic Price of Natural Rubber from 2017-18 to 2022-23",
+      "reason": "http 429"
+    },
+    {
+      "code": "tr",
+      "id": "379377d1-30fc-45e9-b26f-4d22f65af290",
+      "title": "Year-wise Details of Import of Natural Rubber (NR) into the Country form 2017-18 to 2022-23",
+      "reason": "http 429"
+    },
+    {
+      "code": "tr",
+      "id": "3cfec505-20a0-49c5-99c0-70e9610f495b",
+      "title": "Year-wise Details of the Rubber Products Railway Purchased from 2017-18 to 2021-22",
+      "reason": "http 429"
+    },
+    {
+      "code": "tr",
+      "id": "7a8853cf-f3dc-4f07-ae63-24eb03a70880",
+      "title": "Year-wise Details of the Quantity of Natural Rubber (NR) [HS 4001] and Compounded Rubber [HS 4005] Imported by India from 2018-19 to 2021-22",
+      "reason": "http 429"
+    },
+    {
+      "code": "tr",
+      "id": "fee8f21e-87e8-4d39-994f-e2f2eabebca4",
+      "title": "Year-wise Details of the Import of Natural Rubber and Compounded Rubber from ASEAN (Association of Southeast Asian Nations) Countries from 2018-19 to 2021-22",
+      "reason": "http 429"
+    },
+    {
+      "code": "up",
+      "id": "ac98c2ff-ac75-47f6-b186-d98c86bd133d",
+      "title": "Digital Availability in Varanasi : 2018",
+      "reason": "http 429"
+    },
+    {
+      "code": "up",
+      "id": "35e30b2b-9639-432d-aaaf-f7d7b4ce91a5",
+      "title": "Health Infrastructure Catalog : Jhansi : 2019",
+      "reason": "http 429"
+    },
+    {
+      "code": "up",
+      "id": "855536aa-66e7-4594-a031-876b0b7e243f",
+      "title": "Vegetable Fruit Market : Aligarh : As on Jan 2019",
+      "reason": "http 429"
+    }
+  ]
+}

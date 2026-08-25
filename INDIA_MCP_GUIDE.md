@@ -20,7 +20,12 @@ The file layout and code pattern match Singapore:
 IN-MCP/
 ├── src/
 │   ├── index.ts           # HTTP router: /, /health, /mcp
-│   ├── tools.ts           # All in_* MCP tools registered here
+│   ├── tools.ts           # Common in_* tools registered here
+│   ├── scopes.ts          # Single /mcp catalog: allTools + 28 states
+│   ├── state-portals.ts   # 28-state open-data portal metadata
+│   ├── resource-catalog.ts  # Verified data.gov.in resource-ID tools (in_* + exclusiveTo)
+│   ├── resource-tools.ts    # Registers RESOURCE_TOOL_DEFS
+│   ├── state-open-data-tools.ts  # {code}_open_data exclusive catalog search
 │   ├── data-gov.ts        # data.gov.in + Open-Meteo client
 │   ├── maps.ts            # Nominatim address / geocode client
 │   ├── transit.ts         # Transit client
