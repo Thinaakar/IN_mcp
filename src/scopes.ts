@@ -99,10 +99,14 @@ export const SHARED_CORE_TOOLS = [
   "in_elevation",
 ] as const;
 
-export const INDIA_ONLY_CORE_TOOLS = [
+/** Catalog explorer tools — registered on MCP, documented in playground sidebar, not listed as National. */
+export const SIDEBAR_ONLY_CORE_TOOLS = [
   "in_datasets_search",
   "in_dataset_metadata",
   "in_dataset_query",
+] as const;
+
+export const INDIA_ONLY_CORE_TOOLS = [
   "in_fx_rate",
   "in_holidays",
   "in_earthquakes",
@@ -228,7 +232,7 @@ export function allToolsList(): string[] {
 
 export function allRegisteredToolNames(): string[] {
   const exclusive = Object.values(exclusiveToolsByCode()).flat();
-  return [...new Set([...allToolsList(), ...exclusive])];
+  return [...new Set([...allToolsList(), ...SIDEBAR_ONLY_CORE_TOOLS, ...exclusive])];
 }
 
 export function statesCatalogMap(): Record<string, { name: string; key: string }> {
@@ -245,39 +249,41 @@ export type PublicCatalog = {
   version: string;
   mcp: string;
   health: string;
-  /** No state filter — weather, FX, geocode, national tables. */
-  commonTools: string[];
-  /** Optional `state` argument — mandi, AQI, crime, DILRMP, …. */
-  sharedTools: string[];
-  /** commonTools ∪ sharedTools (compat / flat India list). */
-  allTools: string[];
-} & Record<string, unknown>;
+  /** National — no `state` filter (weather, FX, geocode, national tables). */
+  national: string[];
+  /** Shared — optional `state` filter (mandi, AQI, crime, DILRMP, …). */
+  shared: string[];
+  /**
+   * Exclusive — state-only tools keyed by catalog name (`andhrapradesh`, …).
+   * Includes `{code}_open_data` explorers plus fixed domain tools (`ap_procurement`, `ka_bus_stops`, …).
+   */
+  exclusive: Record<string, string[]>;
+};
 
 export function buildPublicCatalog(opts: { name: string; version: string; origin: string }): PublicCatalog {
-  const exclusive = exclusiveToolsByCode();
-  const commonTools = commonToolsList();
-  const sharedTools = sharedToolsList();
-  const catalog: PublicCatalog = {
+  const byCode = exclusiveToolsByCode();
+  const national = commonToolsList();
+  const shared = sharedToolsList();
+
+  const exclusive: Record<string, string[]> = {};
+  const codes = [...new Set([...STATE_CODES_28, ...Object.keys(byCode)])].sort((a, b) => {
+    const na = STATE_PROFILES[a]?.name ?? a;
+    const nb = STATE_PROFILES[b]?.name ?? b;
+    return na.localeCompare(nb);
+  });
+  for (const code of codes) {
+    exclusive[catalogKeyFor(code)] = [...new Set(byCode[code] ?? [])];
+  }
+
+  return {
     name: opts.name,
     version: opts.version,
     mcp: `${opts.origin}/mcp`,
     health: `${opts.origin}/health`,
-    commonTools,
-    sharedTools,
-    allTools: [...new Set([...commonTools, ...sharedTools])],
+    national,
+    shared,
+    exclusive,
   };
-
-  const codes: string[] = [...STATE_CODES_28];
-  for (const code of Object.keys(exclusive)) {
-    if (!codes.includes(code)) {
-      codes.push(code);
-    }
-  }
-  for (const code of codes) {
-    catalog[catalogKeyFor(code)] = exclusive[code] ?? [];
-  }
-
-  return catalog;
 }
 
 /** @deprecated Path faces are gone; kept for tests that inspect grouping. */

@@ -214,39 +214,44 @@ describe("MCP catalog (single /mcp)", () => {
     expect(parseScopeCode("ap")).toBe("ap");
   });
 
-  it("lists commonTools, sharedTools, allTools, then state unique keys", () => {
+  it("lists national, shared, exclusive sections (plus compat aliases)", () => {
     const catalog = buildPublicCatalog({
       name: "Monstarx India MCP",
       version: "0.1.0",
       origin: "https://in-mcp.monstarxapp.com",
     });
-    expect(catalog.states).toBeUndefined();
     expect(STATE_CODES_28).toHaveLength(28);
     expect(catalog.mcp).toBe("https://in-mcp.monstarxapp.com/mcp");
     expect(catalog.health).toBe("https://in-mcp.monstarxapp.com/health");
-    expect(catalog.commonTools).toContain("in_fx_rate");
-    expect(catalog.commonTools).toContain("in_weather_24h");
-    expect(catalog.commonTools).not.toContain("in_mandi_prices");
-    expect(catalog.sharedTools).toContain("in_mandi_prices");
-    expect(catalog.sharedTools).toContain("in_crime_ipc_by_state");
-    expect(catalog.sharedTools).toContain("in_dilrmp_northeast");
-    expect(catalog.allTools).toContain("in_fx_rate");
-    expect(catalog.allTools).toContain("in_mandi_prices");
-    expect(catalog.allTools).not.toContain("ka_bus_stops");
-    expect(catalog.allTools).not.toContain("dl_fuel_prices");
-    expect(catalog.karnataka).toEqual(expect.arrayContaining(["ka_bus_stops", "ka_bus_services", "ka_bus_routes", "ka_forest_cover", "ka_bmtc_finance", "ka_crime_review", "ka_open_data"]));
-    expect(catalog.tamilnadu).toEqual(
+
+    expect(catalog.national).toContain("in_fx_rate");
+    expect(catalog.national).toContain("in_weather_24h");
+    expect(catalog.national).not.toContain("in_mandi_prices");
+    expect(catalog.national).not.toContain("in_datasets_search");
+    expect(catalog.national).not.toContain("in_dataset_metadata");
+    expect(catalog.national).not.toContain("in_dataset_query");
+
+    expect(catalog.shared).toContain("in_mandi_prices");
+    expect(catalog.shared).toContain("in_crime_ipc_by_state");
+    expect(catalog.shared).toContain("in_dilrmp_northeast");
+
+    expect(catalog.exclusive.karnataka).toEqual(
+      expect.arrayContaining(["ka_bus_stops", "ka_bus_services", "ka_bus_routes", "ka_forest_cover", "ka_bmtc_finance", "ka_crime_review", "ka_open_data"]),
+    );
+    expect(catalog.exclusive.tamilnadu).toEqual(
       expect.arrayContaining(["tn_open_data", "tn_forest_cover", "tn_water_bodies_census", "tn_livestock_census", "tn_doctors_beds", "tn_rainfall", "tn_food_grain_prices"]),
     );
-    expect(catalog.andhrapradesh).toEqual(expect.arrayContaining(["ap_procurement", "ap_rbk_procurement", "ap_open_data"]));
-    expect(catalog.delhi).toEqual(expect.arrayContaining(["dl_fuel_prices", "dl_lpg_price"]));
-    expect(catalog.maharashtra).toEqual(expect.arrayContaining(["mh_land_use", "mh_forest_cover", "mh_fair_price_shops", "mh_stamp_duty", "mh_open_data"]));
-    const keys = Object.keys(catalog);
-    expect(keys.slice(0, 7)).toEqual(["name", "version", "mcp", "health", "commonTools", "sharedTools", "allTools"]);
-    expect(keys).toContain("tamilnadu");
-    expect(keys).toContain("karnataka");
-    expect(keys).not.toContain("states");
-    expect(new Set(catalog.tamilnadu as string[]).size).toBe((catalog.tamilnadu as string[]).length);
+    expect(catalog.exclusive.andhrapradesh).toEqual(
+      expect.arrayContaining(["ap_procurement", "ap_rbk_procurement", "ap_open_data"]),
+    );
+    expect(catalog.exclusive.delhi).toEqual(expect.arrayContaining(["dl_fuel_prices", "dl_lpg_price"]));
+    expect(catalog.exclusive.maharashtra).toEqual(
+      expect.arrayContaining(["mh_land_use", "mh_forest_cover", "mh_fair_price_shops", "mh_stamp_duty", "mh_open_data"]),
+    );
+    expect(catalog.exclusive.arunachalpradesh).toEqual(["ar_open_data"]);
+
+    expect(Object.keys(catalog)).toEqual(["name", "version", "mcp", "health", "national", "shared", "exclusive"]);
+    expect(new Set(catalog.exclusive.tamilnadu).size).toBe(catalog.exclusive.tamilnadu.length);
   });
 
   it("names exclusive tools {code}_{topic} without in_ prefix", () => {

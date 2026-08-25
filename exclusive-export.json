@@ -1,0 +1,821 @@
+{
+  "ap": [
+    {
+      "name": "ap_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "ap_procurement",
+      "desc": "District-wise AP Markfed procurement (quantity, farmers, amount).",
+      "filters": [
+        {
+          "name": "district",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        },
+        {
+          "name": "commodity",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "ap_rbk_procurement",
+      "desc": "Rythu Bharosa Kendra (RBK) wise procurement details for Andhra Pradesh.",
+      "filters": [
+        {
+          "name": "district",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        },
+        {
+          "name": "mandal",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    }
+  ],
+  "ar": [
+    {
+      "name": "ar_open_data",
+      "desc": null,
+      "filters": []
+    }
+  ],
+  "as": [
+    {
+      "name": "as_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "as_procurement",
+      "desc": "Assam public procurement / tender records for 2021-22 (OCDS fields).",
+      "filters": []
+    }
+  ],
+  "br": [
+    {
+      "name": "br_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "br_patna_transport",
+      "desc": "Patna Smart City indicators for organised bus transport.",
+      "filters": []
+    }
+  ],
+  "ct": [
+    {
+      "name": "ct_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "ct_land_use",
+      "desc": "Land use categories and area (thousand ha) for Chhattisgarh.",
+      "filters": [
+        {
+          "name": "land_use",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "ct_raipur_water",
+      "desc": "Ward-wise water supply capacity and domestic consumption for Raipur.",
+      "filters": [
+        {
+          "name": "ward_name",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    }
+  ],
+  "ga": [
+    {
+      "name": "ga_open_data",
+      "desc": null,
+      "filters": []
+    }
+  ],
+  "gj": [
+    {
+      "name": "gj_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "gj_railway_infra",
+      "desc": "Railway infrastructure project categories for Gujarat.",
+      "filters": [
+        {
+          "name": "category",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "gj_water_supply_surat",
+      "desc": "Date-wise water supplied in MLD for Surat.",
+      "filters": [
+        {
+          "name": "date",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "gj_water_charges_surat",
+      "desc": "Date-wise water charges for Surat.",
+      "filters": [
+        {
+          "name": "city",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        },
+        {
+          "name": "date",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "gj_surat_complaints",
+      "desc": "Daily civic complaint received / disposed / pending counts for Surat.",
+      "filters": []
+    },
+    {
+      "name": "gj_surat_garbage",
+      "desc": "Daily garbage collection in kilograms for Surat city.",
+      "filters": []
+    }
+  ],
+  "hr": [
+    {
+      "name": "hr_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "hr_land_use",
+      "desc": "Land use categories and area (thousand ha) for Haryana.",
+      "filters": [
+        {
+          "name": "land_use",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "hr_literacy",
+      "desc": "District-wise literate and educated persons in Haryana (Census 2011).",
+      "filters": [
+        {
+          "name": "district",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "hr_rainfall",
+      "desc": "District-wise average annual rainfall in Haryana from 1966 to 2012.",
+      "filters": [
+        {
+          "name": "district",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    }
+  ],
+  "hp": [
+    {
+      "name": "hp_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "hp_vegetables",
+      "desc": "District-wise vegetable (including potato) area and production in Himachal Pradesh, 2020-21.",
+      "filters": [
+        {
+          "name": "district",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "hp_tourism",
+      "desc": "District-wise domestic and foreign tourist visits in Himachal Pradesh during 2021.",
+      "filters": [
+        {
+          "name": "district",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    }
+  ],
+  "jh": [
+    {
+      "name": "jh_open_data",
+      "desc": null,
+      "filters": []
+    }
+  ],
+  "ka": [
+    {
+      "name": "ka_bus_stops",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "ka_bus_services",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "ka_bus_routes",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "ka_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "ka_forest_cover",
+      "desc": "District-wise forest cover for Karnataka.",
+      "filters": [
+        {
+          "name": "district",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "ka_bmtc_finance",
+      "desc": "Bangalore Metropolitan Transport Corporation year-wise financial performance factors.",
+      "filters": []
+    },
+    {
+      "name": "ka_crime_review",
+      "desc": "Karnataka Police crime review heads for a published month.",
+      "filters": [
+        {
+          "name": "major_heads",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    }
+  ],
+  "kl": [
+    {
+      "name": "kl_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "kl_akshaya_centres",
+      "desc": "District-wise Akshaya Common Service Centres in Kerala.",
+      "filters": [
+        {
+          "name": "district",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "kl_road_accidents",
+      "desc": "Year-wise road accidents, deaths, and injuries in Kerala.",
+      "filters": [
+        {
+          "name": "year",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    }
+  ],
+  "mp": [
+    {
+      "name": "mp_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "mp_cotton_area",
+      "desc": "District-wise cotton farming area (hectares) in Madhya Pradesh, 2006-07 to 2012-13.",
+      "filters": [
+        {
+          "name": "district",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "mp_sugarcane_area",
+      "desc": "District-wise sugarcane farming area (hectares) in Madhya Pradesh, 2006-07 to 2012-13.",
+      "filters": [
+        {
+          "name": "district",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    }
+  ],
+  "mh": [
+    {
+      "name": "mh_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "mh_land_use",
+      "desc": "Land use categories and area (thousand ha) for Maharashtra.",
+      "filters": [
+        {
+          "name": "land_use",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "mh_forest_cover",
+      "desc": "District-wise forest cover for Maharashtra.",
+      "filters": [
+        {
+          "name": "district",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "mh_fair_price_shops",
+      "desc": "Fair Price Shop locations and IDs in Maharashtra (recent months).",
+      "filters": [
+        {
+          "name": "district",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "mh_stamp_duty",
+      "desc": "Application-wise document count, stamp duty, and registration fees in Maharashtra.",
+      "filters": [
+        {
+          "name": "year",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    }
+  ],
+  "mn": [
+    {
+      "name": "mn_open_data",
+      "desc": null,
+      "filters": []
+    }
+  ],
+  "ml": [
+    {
+      "name": "ml_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "ml_agri_schemes",
+      "desc": "State plan schemes of the Meghalaya Agriculture Department.",
+      "filters": []
+    },
+    {
+      "name": "ml_health_facilities",
+      "desc": "List of government health facilities in Meghalaya by district and block.",
+      "filters": [
+        {
+          "name": "district",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    }
+  ],
+  "mz": [
+    {
+      "name": "mz_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "mz_livestock_census",
+      "desc": "20th Livestock Census figures for Mizoram.",
+      "filters": []
+    },
+    {
+      "name": "mz_income_certificates",
+      "desc": "District-wise income certificates issued in Mizoram, 2017-2022.",
+      "filters": [
+        {
+          "name": "district",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    }
+  ],
+  "nl": [
+    {
+      "name": "nl_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "nl_kohima_disasters",
+      "desc": "Disaster incidents reported in Kohima district, 2018-2019.",
+      "filters": [
+        {
+          "name": "disaster_type",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    }
+  ],
+  "or": [
+    {
+      "name": "or_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "or_junior_colleges",
+      "desc": "District-wise junior colleges in Odisha (as of October 2017).",
+      "filters": [
+        {
+          "name": "district",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "or_degree_colleges",
+      "desc": "District-wise degree colleges in Odisha (as of October 2017).",
+      "filters": [
+        {
+          "name": "district",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    }
+  ],
+  "pb": [
+    {
+      "name": "pb_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "pb_potato_yield",
+      "desc": "District-wise potato cultivation yield in Punjab, 1968-2022.",
+      "filters": []
+    },
+    {
+      "name": "pb_polluting_units",
+      "desc": "Count of water-polluting industrial units in Punjab, 2003-2022.",
+      "filters": []
+    }
+  ],
+  "rj": [
+    {
+      "name": "rj_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "rj_jaipur_streetlights",
+      "desc": "Ward-wise street light poles and coverage for Jaipur (2018).",
+      "filters": [
+        {
+          "name": "zone_name",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    }
+  ],
+  "sk": [
+    {
+      "name": "sk_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "sk_health_institutions",
+      "desc": "Health institutions in Sikkim by district (East/West/North/South), 2015.",
+      "filters": []
+    },
+    {
+      "name": "sk_monastic_schools",
+      "desc": "List of monastic schools in Sikkim under SSA, 2015-16.",
+      "filters": []
+    }
+  ],
+  "tn": [
+    {
+      "name": "tn_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "tn_forest_cover",
+      "desc": "District-wise forest cover for Tamil Nadu (NITI Aayog / FSI series, same family as ka_forest_cover).",
+      "filters": [
+        {
+          "name": "district",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "tn_water_bodies_census",
+      "desc": "First Census of Water Bodies rows for Tamil Nadu (Jal Shakti / data.gov.in).",
+      "filters": [
+        {
+          "name": "district",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "tn_livestock_census",
+      "desc": "District-wise livestock population in Tamil Nadu from the 20th Livestock Census 2019.",
+      "filters": [
+        {
+          "name": "district",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "tn_doctors_beds",
+      "desc": "District-wise population, hospital beds, and doctors ratio in Tamil Nadu, 2017-18.",
+      "filters": [
+        {
+          "name": "district",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "tn_food_grain_prices",
+      "desc": "Centre-wise and district-wise annual average retail prices of food grains and salt in Tamil Nadu, 2016-17.",
+      "filters": [
+        {
+          "name": "district",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "tn_rainfall",
+      "desc": "District-wise actual vs normal seasonal rainfall in Tamil Nadu (SHB 2019).",
+      "filters": [
+        {
+          "name": "district",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    }
+  ],
+  "tg": [
+    {
+      "name": "tg_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "tg_karimnagar_water",
+      "desc": "Ward-wise water tax billed (residential/commercial) for Karimnagar, 2013-18.",
+      "filters": [
+        {
+          "name": "ward_name",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    }
+  ],
+  "tr": [
+    {
+      "name": "tr_open_data",
+      "desc": null,
+      "filters": []
+    }
+  ],
+  "up": [
+    {
+      "name": "up_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "up_jhansi_health",
+      "desc": "Ward-wise health facilities catalog for Jhansi (2019).",
+      "filters": [
+        {
+          "name": "ward_name",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "up_aligarh_markets",
+      "desc": "Vegetable and fruit markets in Aligarh as of January 2019.",
+      "filters": []
+    }
+  ],
+  "ut": [
+    {
+      "name": "ut_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "ut_dehradun_crime",
+      "desc": "Year-wise total recorded crimes in Dehradun, 2014-2018.",
+      "filters": [
+        {
+          "name": "year",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    }
+  ],
+  "wb": [
+    {
+      "name": "wb_open_data",
+      "desc": null,
+      "filters": []
+    },
+    {
+      "name": "wb_railway_infra",
+      "desc": "Railway infrastructure project categories for West Bengal.",
+      "filters": [
+        {
+          "name": "category",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "wb_land_acquisition",
+      "desc": "West Bengal projects delayed due to land acquisition.",
+      "filters": [
+        {
+          "name": "project",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "wb_newtown_property_tax",
+      "desc": "Ward-wise property tax demand and collection for New Town Kolkata, 2013-18.",
+      "filters": [
+        {
+          "name": "ward_name",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    }
+  ],
+  "dl": [
+    {
+      "name": "dl_land_use",
+      "desc": "Rows from the data.gov.in resource linked as Delhi land use. Note: fields are household/LASI-style indicators, not classic land-use classes.",
+      "filters": [
+        {
+          "name": "indicators",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "dl_fuel_prices",
+      "desc": "Effective-date petrol and diesel prices for Delhi.",
+      "filters": [
+        {
+          "name": "effective_date",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "dl_fuel_prices_avg",
+      "desc": "Year-wise average petrol and diesel RSP for Delhi.",
+      "filters": [
+        {
+          "name": "year",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "name": "dl_lpg_price",
+      "desc": "Year-wise Delhi petrol, diesel, and domestic LPG cylinder RSP.",
+      "filters": [
+        {
+          "name": "year",
+          "type": "string",
+          "required": false,
+          "desc": ""
+        }
+      ]
+    }
+  ]
+}
