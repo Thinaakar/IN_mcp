@@ -1,7 +1,28 @@
+# Dependencies & build
 node_modules/
 dist/
+*.tsbuildinfo
+
+# Cloudflare / Wrangler
 .wrangler/
 .dev.vars
+.dev.vars.*
+
+# Secrets & local env (never commit)
+.env
+.env.*
+!.env.example
+src/.env
+
+# Tests & logs
 coverage/
 *.log
 tmp/
+.turbo/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.cursor/
+.vscode/
+.idea/

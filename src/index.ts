@@ -1,7 +1,7 @@
 import { WebStandardStreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js";
 import type { Env } from "./env";
 import { corsHeaders, jsonResponse, withCors } from "./http";
-import { allRegisteredToolNames, buildPublicCatalog, parseMcpPath } from "./scopes";
+import { buildPublicCatalog, parseMcpPath } from "./scopes";
 import { createMcpServer } from "./tools";
 
 function publicCatalog(env: Env, origin: string) {
@@ -136,9 +136,6 @@ export default {
         ...publicCatalog(env, url.origin),
         build_sha: env.BUILD_SHA ?? "local",
         environment: env.ENVIRONMENT,
-        protocol: "Model Context Protocol",
-        transport: "Streamable HTTP",
-        tools: allRegisteredToolNames(),
       });
     }
 

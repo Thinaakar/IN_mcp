@@ -157,10 +157,10 @@ describe("CricAPI helpers", () => {
 });
 
 describe("Resource catalog tools", () => {
-  it("registers 91 verified fixed data.gov.in tools with unique names", () => {
-    expect(RESOURCE_TOOL_DEFS).toHaveLength(91);
-    expect(RESOURCE_TOOL_NAMES).toHaveLength(91);
-    expect(new Set(RESOURCE_TOOL_NAMES).size).toBe(91);
+  it("registers 96 verified fixed data.gov.in tools with unique names", () => {
+    expect(RESOURCE_TOOL_DEFS).toHaveLength(96);
+    expect(RESOURCE_TOOL_NAMES).toHaveLength(96);
+    expect(new Set(RESOURCE_TOOL_NAMES).size).toBe(96);
   });
 
   it("locks NCRB resource IDs resolved via dataset search", () => {
@@ -178,7 +178,7 @@ describe("Resource catalog tools", () => {
     expect(toolNames).toContain("mh_land_use");
     expect(toolNames).toContain("tn_open_data");
     expect(toolNames).not.toContain("in_bus_stops");
-    expect(toolNames.length).toBe(25 + 2 + 91 + 28);
+    expect(toolNames.length).toBe(25 + 2 + 96 + 28);
   });
 });
 
@@ -193,27 +193,38 @@ describe("MCP catalog (single /mcp)", () => {
     expect(parseScopeCode("ap")).toBe("ap");
   });
 
-  it("lists 28 states and keeps common tools in allTools", () => {
+  it("lists commonTools, sharedTools, allTools, then state unique keys", () => {
     const catalog = buildPublicCatalog({
       name: "Monstarx India MCP",
       version: "0.1.0",
       origin: "https://in-mcp.monstarxapp.com",
     });
-    expect(Object.keys(catalog.states)).toHaveLength(28);
+    expect(catalog.states).toBeUndefined();
     expect(STATE_CODES_28).toHaveLength(28);
-    expect(catalog.states.tn).toEqual({ name: "Tamil Nadu", key: "tamilnadu" });
     expect(catalog.mcp).toBe("https://in-mcp.monstarxapp.com/mcp");
+    expect(catalog.health).toBe("https://in-mcp.monstarxapp.com/health");
+    expect(catalog.commonTools).toContain("in_fx_rate");
+    expect(catalog.commonTools).toContain("in_weather_24h");
+    expect(catalog.commonTools).not.toContain("in_mandi_prices");
+    expect(catalog.sharedTools).toContain("in_mandi_prices");
+    expect(catalog.sharedTools).toContain("in_crime_ipc_by_state");
+    expect(catalog.sharedTools).toContain("in_dilrmp_northeast");
     expect(catalog.allTools).toContain("in_fx_rate");
     expect(catalog.allTools).toContain("in_mandi_prices");
-    expect(catalog.allTools).toContain("in_crime_ipc_by_state");
-    expect(catalog.allTools).toContain("in_dilrmp_northeast");
     expect(catalog.allTools).not.toContain("ka_bus_stops");
     expect(catalog.allTools).not.toContain("dl_fuel_prices");
     expect(catalog.karnataka).toEqual(expect.arrayContaining(["ka_bus_stops", "ka_bus_services", "ka_bus_routes", "ka_forest_cover", "ka_open_data"]));
-    expect(catalog.tamilnadu).toEqual(expect.arrayContaining(["tn_open_data"]));
+    expect(catalog.tamilnadu).toEqual(
+      expect.arrayContaining(["tn_open_data", "tn_forest_cover", "tn_water_bodies_census", "tn_livestock_census", "tn_doctors_beds", "tn_rainfall"]),
+    );
     expect(catalog.andhrapradesh).toEqual(expect.arrayContaining(["ap_open_data"]));
     expect(catalog.delhi).toEqual(expect.arrayContaining(["dl_fuel_prices", "dl_lpg_price"]));
     expect(catalog.maharashtra).toEqual(expect.arrayContaining(["mh_land_use", "mh_forest_cover", "mh_open_data"]));
+    const keys = Object.keys(catalog);
+    expect(keys.slice(0, 7)).toEqual(["name", "version", "mcp", "health", "commonTools", "sharedTools", "allTools"]);
+    expect(keys).toContain("tamilnadu");
+    expect(keys).toContain("karnataka");
+    expect(keys).not.toContain("states");
   });
 
   it("names exclusive tools {code}_{topic} without in_ prefix", () => {
@@ -231,6 +242,8 @@ describe("MCP catalog (single /mcp)", () => {
     expect(india).toContain("ka_bus_stops");
     expect(india).toContain("dl_fuel_prices");
     expect(india).toContain("tn_open_data");
+    expect(india).toContain("tn_forest_cover");
+    expect(india).toContain("tn_water_bodies_census");
     expect(india).toContain("in_dilrmp_northeast");
     expect([...india].sort()).toEqual([...toolNames].sort());
     expect(Object.keys(STATE_PROFILES).length).toBeGreaterThan(28);

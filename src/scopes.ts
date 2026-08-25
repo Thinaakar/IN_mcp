@@ -205,14 +205,25 @@ export function exclusiveToolsByCode(): Record<string, string[]> {
   return map;
 }
 
+/** National tools with no `state` argument (weather, FX, geocode, …). */
+export function commonToolsList(): string[] {
+  const resourceCommon = RESOURCE_TOOL_DEFS.filter((def) => !isExclusiveResource(def) && !hasStateFilter(def)).map(
+    (def) => def.name,
+  );
+  return [...new Set([...SHARED_CORE_TOOLS, ...INDIA_ONLY_CORE_TOOLS, ...resourceCommon])];
+}
+
+/** National tools that accept optional `state` (mandi, rainfall, crime, …). */
+export function sharedToolsList(): string[] {
+  const resourceShared = RESOURCE_TOOL_DEFS.filter((def) => !isExclusiveResource(def) && hasStateFilter(def)).map(
+    (def) => def.name,
+  );
+  return [...new Set([...STATE_CORE_TOOLS, ...resourceShared])];
+}
+
+/** Union of common + shared (everything except state exclusives). */
 export function allToolsList(): string[] {
-  const names = [
-    ...SHARED_CORE_TOOLS,
-    ...INDIA_ONLY_CORE_TOOLS,
-    ...STATE_CORE_TOOLS,
-    ...RESOURCE_TOOL_DEFS.filter((def) => !isExclusiveResource(def)).map((def) => def.name),
-  ];
-  return [...new Set(names)];
+  return [...new Set([...commonToolsList(), ...sharedToolsList()])];
 }
 
 export function allRegisteredToolNames(): string[] {
@@ -234,25 +245,36 @@ export type PublicCatalog = {
   version: string;
   mcp: string;
   health: string;
+  /** No state filter — weather, FX, geocode, national tables. */
+  commonTools: string[];
+  /** Optional `state` argument — mandi, AQI, crime, DILRMP, …. */
+  sharedTools: string[];
+  /** commonTools ∪ sharedTools (compat / flat India list). */
   allTools: string[];
-  states: Record<string, { name: string; key: string }>;
 } & Record<string, unknown>;
 
 export function buildPublicCatalog(opts: { name: string; version: string; origin: string }): PublicCatalog {
   const exclusive = exclusiveToolsByCode();
+  const commonTools = commonToolsList();
+  const sharedTools = sharedToolsList();
   const catalog: PublicCatalog = {
     name: opts.name,
     version: opts.version,
     mcp: `${opts.origin}/mcp`,
     health: `${opts.origin}/health`,
-    allTools: allToolsList(),
-    states: statesCatalogMap(),
+    commonTools,
+    sharedTools,
+    allTools: [...new Set([...commonTools, ...sharedTools])],
   };
 
-  const codes = new Set([...STATE_CODES_28, ...Object.keys(exclusive)]);
+  const codes: string[] = [...STATE_CODES_28];
+  for (const code of Object.keys(exclusive)) {
+    if (!codes.includes(code)) {
+      codes.push(code);
+    }
+  }
   for (const code of codes) {
-    const key = catalogKeyFor(code);
-    catalog[key] = exclusive[code] ?? [];
+    catalog[catalogKeyFor(code)] = exclusive[code] ?? [];
   }
 
   return catalog;
